@@ -28,7 +28,7 @@ import BottomNav from "@/components/BottomNav";
 export default function Home() {
   return (
      <main>
-        <Container w="sm" background={"#FAFAFA"} p={0} h={"100%"}>
+        <Container w="sm" background={"#FAFAFA"} p={0} h={"fit-content"} pb={20}>
            <Box as="section" pos={"relative"}>
               <Image
                  src="/hero.jpg"
@@ -262,7 +262,6 @@ export default function Home() {
                     borderRadius={"xl"}
                     shadow={"md"}
                     mt={2}
-                    mb={20}
                  >
                     <Flex
                        justifyContent={"space-between"}
@@ -298,7 +297,7 @@ export default function Home() {
               </Flex>
            </Container>
         </Container>
-		  <BottomNav />
+        <BottomNav />
      </main>
   );
 }
