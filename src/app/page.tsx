@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
    Box,
@@ -9,8 +9,9 @@ import {
    Grid,
    VStack,
    Card,
-	useColorMode,
-	useColorModeValue
+   useColorMode,
+   useColorModeValue,
+	Icon,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
@@ -32,13 +33,13 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 export default function Home() {
-	const { toggleColorMode } = useColorMode();
+   const { toggleColorMode } = useColorMode();
 
    return (
       <main>
          <Container
             w="sm"
-            background={useColorModeValue("#F6F8FB", "gray.900")}
+            background={useColorModeValue("#F6F8FB", "gray.800")}
             p={0}
             h={"fit-content"}
             pb={20}
@@ -153,7 +154,10 @@ export default function Home() {
                <Grid templateColumns="repeat(4, 1fr)" gap={5} mt={5} ps={2}>
                   <VStack w={"fit-content"}>
                      <Box bg={"blue.300"} p={4} borderRadius={"full"}>
-                        <BsFillLightningFill color={"white"} size={25} />
+                        <BsFillLightningFill
+                           color={useColorModeValue("white", "#1A202C")}
+                           size={25}
+                        />
                      </Box>
                      <Text fontSize={"xs"} fontWeight={"600"}>
                         PLN
@@ -161,7 +165,10 @@ export default function Home() {
                   </VStack>
                   <VStack w={"fit-content"}>
                      <Box bg={"green.300"} p={4} borderRadius={"full"}>
-                        <BsFillPhoneFill color={"white"} size={25} />
+                        <BsFillPhoneFill
+                           color={useColorModeValue("white", "#1A202C")}
+                           size={25}
+                        />
                      </Box>
                      <Text fontSize={"xs"} fontWeight={"600"}>
                         Pulsa
@@ -169,7 +176,10 @@ export default function Home() {
                   </VStack>
                   <VStack w={"fit-content"}>
                      <Box bg={"red.300"} p={4} borderRadius={"full"}>
-                        <BsGlobe color={"white"} size={25} />
+                        <BsGlobe
+                           color={useColorModeValue("white", "#1A202C")}
+                           size={25}
+                        />
                      </Box>
                      <Text fontSize={"xs"} fontWeight={"600"}>
                         Internet
@@ -177,7 +187,10 @@ export default function Home() {
                   </VStack>
                   <VStack w={"fit-content"}>
                      <Box bg={"yellow.300"} p={4} borderRadius={"full"}>
-                        <BiSolidJoystick color={"white"} size={25} />
+                        <BiSolidJoystick
+                           color={useColorModeValue("white", "#1A202C")}
+                           size={25}
+                        />
                      </Box>
                      <Text fontSize={"xs"} fontWeight={"600"}>
                         Game
@@ -185,7 +198,10 @@ export default function Home() {
                   </VStack>
                   <VStack w={"fit-content"}>
                      <Box bg={"orange.300"} p={4} borderRadius={"full"}>
-                        <BiSolidCoupon color={"white"} size={25} />
+                        <BiSolidCoupon
+                           color={useColorModeValue("white", "#1A202C")}
+                           size={25}
+                        />
                      </Box>
                      <Text fontSize={"xs"} fontWeight={"600"}>
                         Voucher
@@ -193,7 +209,10 @@ export default function Home() {
                   </VStack>
                   <VStack w={"fit-content"}>
                      <Box bg={"cyan.300"} p={4} borderRadius={"full"}>
-                        <IoIosWallet color={"white"} size={25} />
+                        <IoIosWallet
+                           color={useColorModeValue("white", "#1A202C")}
+                           size={25}
+                        />
                      </Box>
                      <Text fontSize={"xs"} fontWeight={"600"}>
                         E-Money
@@ -201,7 +220,10 @@ export default function Home() {
                   </VStack>
                   <VStack w={"fit-content"}>
                      <Box bg={"purple.300"} p={4} borderRadius={"full"}>
-                        <BiMoneyWithdraw color={"white"} size={25} />
+                        <BiMoneyWithdraw
+                           color={useColorModeValue("white", "#1A202C")}
+                           size={25}
+                        />
                      </Box>
                      <Text fontSize={"xs"} fontWeight={"600"}>
                         Tarik Tunai
@@ -209,7 +231,10 @@ export default function Home() {
                   </VStack>
                   <VStack w={"fit-content"}>
                      <Box bg={"pink.300"} p={4} borderRadius={"full"}>
-                        <FiMoreHorizontal color={"white"} size={25} />
+                        <FiMoreHorizontal
+                           color={useColorModeValue("white", "#1A202C")}
+                           size={25}
+                        />
                      </Box>
                      <Text fontSize={"xs"} fontWeight={"600"}>
                         Lainnya
@@ -223,7 +248,11 @@ export default function Home() {
                   alignItems={"center"}
                   mt={5}
                >
-                  <Text fontSize={"md"} fontWeight={"bold"} color={useColorModeValue("gray.900", "gray.100")}>
+                  <Text
+                     fontSize={"md"}
+                     fontWeight={"bold"}
+                     color={useColorModeValue("gray.900", "gray.100")}
+                  >
                      Transaksi Terbaru
                   </Text>
 

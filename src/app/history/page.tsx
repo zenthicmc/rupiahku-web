@@ -72,7 +72,10 @@ export default function History() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/SSAxsPR.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/SSAxsPR.png",
+                                 "https://imgur.com/FIV1oYk.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -114,7 +117,10 @@ export default function History() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/LIVDXGW.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/LIVDXGW.png",
+                                 "https://imgur.com/NgNhcvy.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -156,7 +162,10 @@ export default function History() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/gEj2ocp.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/gEj2ocp.png",
+                                 "https://imgur.com/rsxlxdj.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -198,7 +207,10 @@ export default function History() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/To8gEGD.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/To8gEGD.png",
+                                 "https://imgur.com/oiGLLLD.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -240,7 +252,10 @@ export default function History() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/HXwkZoX.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/HXwkZoX.png",
+                                 "https://imgur.com/XyMgsdt.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -282,7 +297,10 @@ export default function History() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/fh9PbeM.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/fh9PbeM.png",
+                                 "https://imgur.com/sr01PzN.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -324,7 +342,10 @@ export default function History() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/cj6QV5b.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/cj6QV5b.png",
+                                 "https://imgur.com/QWj9zof.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -366,7 +387,10 @@ export default function History() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/p1MD6ZR.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/p1MD6ZR.png",
+                                 "https://imgur.com/wZq4odL.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -408,7 +432,10 @@ export default function History() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/TN5BqMT.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/TN5BqMT.png",
+                                 "https://imgur.com/aRFdBxt.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}

@@ -72,7 +72,10 @@ export default function Notification() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/ptBXYO1.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/ptBXYO1.png",
+                                 "https://imgur.com/Hf9ar9K.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -111,7 +114,10 @@ export default function Notification() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/m79n6PF.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/m79n6PF.png",
+                                 "https://imgur.com/Q1BUJdr.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -151,7 +157,10 @@ export default function Notification() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/KoOSscl.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/KoOSscl.png",
+                                 "https://imgur.com/nyGYTZA.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
