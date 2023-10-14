@@ -11,7 +11,7 @@ import {
 import { Image } from "@chakra-ui/react";
 import BottomNav from "@/components/BottomNav";
 
-export default function Home() {
+export default function History() {
    return (
       <main>
          <Container
@@ -79,7 +79,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Transfer
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
@@ -117,7 +117,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Deposit
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
@@ -155,7 +155,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Tarik Tunai
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
@@ -193,7 +193,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Game
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
@@ -231,7 +231,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  E-Wallet
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
@@ -269,7 +269,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Internet
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
@@ -307,7 +307,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  PLN
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
@@ -345,7 +345,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Pulsa
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
@@ -383,7 +383,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Voucher
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>

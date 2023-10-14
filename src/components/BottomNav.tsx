@@ -28,7 +28,7 @@ export default function BottomNav() {
          background={"white"}
          p={0}
          position="fixed"
-			display={'relative'}
+         display={"relative"}
          bottom={0}
          left={0}
          right={0}
@@ -67,30 +67,30 @@ export default function BottomNav() {
                </VStack>
             </Link>
 
-				{/* Floatting Circle Button In The Middle */}
-				<Link href="/">
-					<Flex
-						alignItems="center"
-						justifyContent="center"
-						w="60px"
-						h="60px"
-						borderRadius="50%"
-						background="red.400"
-						position="absolute"
-						bottom={0}
-						left="50%"
-						transform="translateX(-50%)"
-						boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-						cursor="pointer"
-						pos={"absolute"}
-						top={"-5"}
-						_hover={{ background: "red.500" }}
-					>
-						<MdOutlineQrCodeScanner size={30} color="white" />
-					</Flex>
-				</Link>
+            {/* Floatting Circle Button In The Middle */}
+            <Link href="/scanner">
+               <Flex
+                  alignItems="center"
+                  justifyContent="center"
+                  w="60px"
+                  h="60px"
+                  borderRadius="50%"
+                  background="red.400"
+                  position="absolute"
+                  bottom={0}
+                  left="50%"
+                  transform="translateX(-50%)"
+                  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                  cursor="pointer"
+                  pos={"absolute"}
+                  top={"-5"}
+                  _hover={{ background: "red.500" }}
+               >
+                  <MdOutlineQrCodeScanner size={30} color="white" />
+               </Flex>
+            </Link>
 
-            <Link href="/">
+            <Link href="/notification">
                <VStack
                   spacing={0}
                   p={2}
@@ -106,7 +106,7 @@ export default function BottomNav() {
                   </Text>
                </VStack>
             </Link>
-            <Link href="/">
+            <Link href="/profile">
                <VStack
                   spacing={0}
                   p={2}

@@ -250,7 +250,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Transfer
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
@@ -288,7 +288,7 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Tarik Tunai
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
+                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
