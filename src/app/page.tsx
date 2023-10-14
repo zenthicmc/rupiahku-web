@@ -23,6 +23,7 @@ import {
    BsArrowLeftRight,
 } from "react-icons/bs";
 import { IoIosWallet } from "react-icons/io";
+import BottomNav from "@/components/BottomNav";
 
 export default function Home() {
   return (
@@ -261,7 +262,7 @@ export default function Home() {
                     borderRadius={"xl"}
                     shadow={"md"}
                     mt={2}
-                    mb={5}
+                    mb={16}
                  >
                     <Flex
                        justifyContent={"space-between"}
@@ -297,6 +298,7 @@ export default function Home() {
               </Flex>
            </Container>
         </Container>
+		  <BottomNav />
      </main>
   );
 }
