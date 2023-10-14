@@ -24,6 +24,7 @@ import {
 } from "react-icons/bs";
 import { IoIosWallet } from "react-icons/io";
 import BottomNav from "@/components/BottomNav";
+import Link from "next/link";
 
 export default function Home() {
    return (
@@ -218,9 +219,11 @@ export default function Home() {
                      Transaksi Terbaru
                   </Text>
 
-                  <Text fontSize={"xs"} color={"blue.400"}>
-                     Selengkapnya
-                  </Text>
+						<Link href="/history">
+							<Text fontSize={"xs"} color={"blue.400"}>
+								Selengkapnya
+							</Text>
+						</Link>
                </Flex>
 
                {/* Transaction List */}
