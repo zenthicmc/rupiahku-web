@@ -8,6 +8,7 @@ import {
    Grid,
    VStack,
    Card,
+	useColorModeValue,
 } from "@chakra-ui/react";
 import { AiFillHome } from "react-icons/ai";
 import { FaHistory, FaUserAlt } from "react-icons/fa";
@@ -25,7 +26,7 @@ export default function BottomNav() {
       // create a bottom nav bar that is fixed to the bottom of the screen
       <Container
          w="sm"
-         background={"white"}
+         background={useColorModeValue("white", "gray.800")}
          p={0}
          position="fixed"
          display={"relative"}

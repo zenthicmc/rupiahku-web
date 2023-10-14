@@ -1,3 +1,5 @@
+'use client';
+
 import {
    Box,
    Container,
@@ -7,6 +9,8 @@ import {
    Grid,
    VStack,
    Card,
+	useColorMode,
+	useColorModeValue
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
@@ -25,13 +29,16 @@ import {
 import { IoIosWallet } from "react-icons/io";
 import BottomNav from "@/components/BottomNav";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
+	const { toggleColorMode } = useColorMode();
+
    return (
       <main>
          <Container
             w="sm"
-            background={"#F6F8FB"}
+            background={useColorModeValue("#F6F8FB", "gray.900")}
             p={0}
             h={"fit-content"}
             pb={20}
@@ -62,6 +69,7 @@ export default function Home() {
                      w={14}
                      h={14}
                      borderRadius={"full"}
+                     onClick={toggleColorMode}
                   />
 
                   <Text
@@ -80,7 +88,7 @@ export default function Home() {
                   pos={"absolute"}
                   w={"90%"}
                   h={"6.5rem"}
-                  bg={"white"}
+                  bg={useColorModeValue("white", "gray.700")}
                   margin={"auto"}
                   left={"0"}
                   right={"0"}
@@ -119,7 +127,7 @@ export default function Home() {
                >
                   <Button
                      leftIcon={<FaPlus />}
-                     bg={"gray.900"}
+                     bg={useColorModeValue("gray.900", "gray.700")}
                      color={"white"}
                      variant="elevated"
                      borderRadius={"full"}
@@ -215,15 +223,15 @@ export default function Home() {
                   alignItems={"center"}
                   mt={5}
                >
-                  <Text fontSize={"md"} fontWeight={"bold"} color={"gray.900"}>
+                  <Text fontSize={"md"} fontWeight={"bold"} color={useColorModeValue("gray.900", "gray.100")}>
                      Transaksi Terbaru
                   </Text>
 
-						<Link href="/history">
-							<Text fontSize={"xs"} color={"blue.400"}>
-								Selengkapnya
-							</Text>
-						</Link>
+                  <Link href="/history">
+                     <Text fontSize={"xs"} color={"blue.400"}>
+                        Selengkapnya
+                     </Text>
+                  </Link>
                </Flex>
 
                {/* Transaction List */}
@@ -250,7 +258,11 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Transfer
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
+                              <Text
+                                 fontSize={"xs"}
+                                 color={"gray.500"}
+                                 fontWeight={"300"}
+                              >
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>
@@ -288,7 +300,11 @@ export default function Home() {
                               <Text fontSize={"sm"} fontWeight={"bold"}>
                                  Tarik Tunai
                               </Text>
-                              <Text fontSize={"xs"} color={"gray.500"} fontWeight={"300"}>
+                              <Text
+                                 fontSize={"xs"}
+                                 color={"gray.500"}
+                                 fontWeight={"300"}
+                              >
                                  10 January 2023 | 12:00
                               </Text>
                            </Box>

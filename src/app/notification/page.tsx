@@ -1,3 +1,5 @@
+'use client';
+
 import {
    Box,
    Container,
@@ -7,6 +9,7 @@ import {
    Grid,
    VStack,
    Card,
+	useColorModeValue,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BottomNav from "@/components/BottomNav";
@@ -16,7 +19,7 @@ export default function Notification() {
       <main>
          <Container
             w="sm"
-            background={"#F6F8FB"}
+            background={useColorModeValue("#F6F8FB", "gray.900")}
             p={0}
             h={"fit-content"}
             minH={"100vh"}
