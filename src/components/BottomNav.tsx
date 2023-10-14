@@ -11,6 +11,7 @@ import {
 import { AiFillHome } from "react-icons/ai";
 import { FaHistory, FaUserAlt } from "react-icons/fa";
 import { BsFillBellFill } from "react-icons/bs";
+import { MdOutlineQrCodeScanner } from "react-icons/md";
 import Link from "next/link";
 
 
@@ -22,11 +23,12 @@ const BottomNav = () => {
          background={"white"}
          p={0}
          position="fixed"
+			display={'relative'}
          bottom={0}
          left={0}
          right={0}
       >
-         <Grid templateColumns="repeat(4, 1fr)" gap={0} p={0}>
+         <Grid templateColumns="repeat(5, 1fr)" gap={0} p={0}>
             <Link href="/">
                <VStack
                   spacing={0}
@@ -59,6 +61,30 @@ const BottomNav = () => {
                   </Text>
                </VStack>
             </Link>
+
+				{/* Floatting Circle Button In The Middle */}
+				<Link href="/">
+					<Flex
+						alignItems="center"
+						justifyContent="center"
+						w="60px"
+						h="60px"
+						borderRadius="50%"
+						background="red.400"
+						position="absolute"
+						bottom={0}
+						left="50%"
+						transform="translateX(-50%)"
+						boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+						cursor="pointer"
+						pos={"absolute"}
+						top={"-5"}
+						_hover={{ background: "red.500" }}
+					>
+						<MdOutlineQrCodeScanner size={30} color="white" />
+					</Flex>
+				</Link>
+
             <Link href="/">
                <VStack
                   spacing={0}
