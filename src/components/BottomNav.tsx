@@ -1,3 +1,4 @@
+'use client';
 import {
    Box,
    Container,
@@ -13,9 +14,13 @@ import { FaHistory, FaUserAlt } from "react-icons/fa";
 import { BsFillBellFill } from "react-icons/bs";
 import { MdOutlineQrCodeScanner } from "react-icons/md";
 import Link from "next/link";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 
-
-const BottomNav = () => {
+export default function BottomNav() {
+	const path = usePathname();
+	console.log(path);
+	
 	return (
       // create a bottom nav bar that is fixed to the bottom of the screen
       <Container
@@ -33,7 +38,7 @@ const BottomNav = () => {
                <VStack
                   spacing={0}
                   p={2}
-                  color={"red.400"}
+                  color={path === "/" ? "red.400" : "gray.500"}
                   cursor={"pointer"}
                   _hover={{ color: "red.400" }}
                   _after={{ color: "red.400" }}
@@ -45,11 +50,11 @@ const BottomNav = () => {
                   </Text>
                </VStack>
             </Link>
-            <Link href="/">
+            <Link href="/history">
                <VStack
                   spacing={0}
                   p={2}
-                  color={"gray.500"}
+                  color={path === "/history" ? "red.400" : "gray.500"}
                   cursor={"pointer"}
                   _hover={{ color: "red.400" }}
                   _after={{ color: "red.400" }}
@@ -89,7 +94,7 @@ const BottomNav = () => {
                <VStack
                   spacing={0}
                   p={2}
-                  color={"gray.500"}
+                  color={path === "/notification" ? "red.400" : "gray.500"}
                   cursor={"pointer"}
                   _hover={{ color: "red.400" }}
                   _after={{ color: "red.400" }}
@@ -105,7 +110,7 @@ const BottomNav = () => {
                <VStack
                   spacing={0}
                   p={2}
-                  color={"gray.500"}
+                  color={path === "/profile" ? "red.400" : "gray.500"}
                   cursor={"pointer"}
                   _hover={{ color: "red.400" }}
                   _after={{ color: "red.400" }}
@@ -121,5 +126,3 @@ const BottomNav = () => {
       </Container>
    );
 }
-
-export default BottomNav;
