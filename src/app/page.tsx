@@ -262,7 +262,7 @@ export default function Home() {
                     borderRadius={"xl"}
                     shadow={"md"}
                     mt={2}
-                    mb={16}
+                    mb={20}
                  >
                     <Flex
                        justifyContent={"space-between"}
