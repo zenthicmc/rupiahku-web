@@ -11,7 +11,6 @@ import {
    Card,
    useColorMode,
    useColorModeValue,
-	Icon,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
@@ -277,7 +276,10 @@ export default function Home() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/SSAxsPR.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/SSAxsPR.png",
+                                 "https://imgur.com/FIV1oYk.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
@@ -319,7 +321,10 @@ export default function Home() {
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src="https://imgur.com/gEj2ocp.png"
+                              src={useColorModeValue(
+                                 "https://imgur.com/gEj2ocp.png",
+                                 "https://imgur.com/rsxlxdj.png"
+                              )}
                               alt="Rupiahku"
                               w={10}
                               h={10}
