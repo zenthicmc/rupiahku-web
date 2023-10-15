@@ -86,8 +86,7 @@ export default function Notification() {
                                  Pembayaran Berhasil
                               </Text>
                               <Text fontSize={"xs"} color={"gray.500"}>
-                                 Pembayaran Anda untuk transaksi
-                                 [DEV-R54263846502SAT] Berhasil.
+                                 Transaksi [DEV-R54263846502SAT] Berhasil diverifikasi.
                               </Text>
                               <Text
                                  fontSize={"xs"}
@@ -128,9 +127,7 @@ export default function Notification() {
                                  Pembayaran Gagal
                               </Text>
                               <Text fontSize={"xs"} color={"gray.500"}>
-                                 Pembayaran Anda untuk transaksi
-                                 [DEV-R54263846502SAT] telah dibatalkan. Alasan
-                                 pembatalan: Dana ditolak
+                                 Transaksi [DEV-R54263846502SAT] Telah dibatalkan. Alasan: Dana ditolak.
                               </Text>
                               <Text
                                  fontSize={"xs"}
@@ -171,8 +168,7 @@ export default function Notification() {
                                  Pembayaran Dalam Proses
                               </Text>
                               <Text fontSize={"xs"} color={"gray.500"}>
-                                 Pembayaran Anda untuk transaksi
-                                 [DEV-R54263846502SAT] sedang dalam proses.
+                                 Transaksi [DEV-R54263846502SAT] Dalam proses.
                                  Silahkan cek status secara berkala.
                               </Text>
                               <Text

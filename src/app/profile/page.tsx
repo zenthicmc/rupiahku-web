@@ -16,8 +16,8 @@ import {
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BottomNav from "@/components/BottomNav";
-import { FaUserEdit } from "react-icons/fa";
-import { AiFillLock } from "react-icons/ai";
+import { FaUserEdit, FaQrcode } from "react-icons/fa";
+import { AiFillLock, AiFillQuestionCircle } from "react-icons/ai";
 import { BsFillMoonFill } from "react-icons/bs";
 import { MdReport } from "react-icons/md";
 import { BiSupport } from "react-icons/bi";
@@ -77,7 +77,7 @@ export default function Profile() {
                      fontSize={"sm"}
                      fontWeight={"400"}
                      color={"gray.900"}
-                     textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
+                     textShadow={"0px 0px 5px rgba(0, 0, 0, 0.2)"}
                   >
                      085155347714
                   </Text>
@@ -85,7 +85,7 @@ export default function Profile() {
                      fontSize={"xs"}
                      fontWeight={"300"}
                      color={"gray.900"}
-                     textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
+                     textShadow={"0px 0px 5px rgba(0, 0, 0, 0.2)"}
                      mt={1}
                   >
                      Bergabung sejak 10 Januari 2021
@@ -162,6 +162,35 @@ export default function Profile() {
                         </Text>
                      </Box>
                   </Flex>
+                  <Divider color="gray.400" />
+                  <Flex
+                     justifyContent={"space-between"}
+                     alignItems={"center"}
+                     w={"100%"}
+                     py={4}
+                     px={5}
+                  >
+                     <Flex
+                        justifyContent={"start"}
+                        alignItems={"center"}
+                        w={"80%"}
+                        gap={5}
+                     >
+                        <Box w={"fit-content"}>
+                           <FaQrcode size={23} color={"#F56565"} />
+                        </Box>
+                        <Box w={"70%"}>
+                           <Text fontSize={"sm"} fontWeight={"500"}>
+                              QR Code Saya
+                           </Text>
+                        </Box>
+                     </Flex>
+                     <Box w={"fit-content"}>
+                        <Text fontSize={"sm"} fontWeight={"500"}>
+                           ▶
+                        </Text>
+                     </Box>
+                  </Flex>
                </Card>
                <Text
                   fontSize={"md"}
@@ -221,6 +250,35 @@ export default function Profile() {
                         <Box w={"70%"}>
                            <Text fontSize={"sm"} fontWeight={"500"}>
                               Hubungi Support
+                           </Text>
+                        </Box>
+                     </Flex>
+                     <Box w={"fit-content"}>
+                        <Text fontSize={"sm"} fontWeight={"500"}>
+                           ▶
+                        </Text>
+                     </Box>
+                  </Flex>
+                  <Divider color="gray.400" />
+                  <Flex
+                     justifyContent={"space-between"}
+                     alignItems={"center"}
+                     w={"100%"}
+                     py={4}
+                     px={5}
+                  >
+                     <Flex
+                        justifyContent={"start"}
+                        alignItems={"center"}
+                        w={"80%"}
+                        gap={5}
+                     >
+                        <Box w={"fit-content"}>
+                           <AiFillQuestionCircle size={23} color={"#F56565"} />
+                        </Box>
+                        <Box w={"70%"}>
+                           <Text fontSize={"sm"} fontWeight={"500"}>
+                              Tentang Kami
                            </Text>
                         </Box>
                      </Flex>
