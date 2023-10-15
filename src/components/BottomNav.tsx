@@ -26,7 +26,7 @@ export default function BottomNav() {
       // create a bottom nav bar that is fixed to the bottom of the screen
       <Container
          w="sm"
-         background={useColorModeValue("white", "gray.800")}
+         background={useColorModeValue("white", "gray.900")}
          p={0}
          position="fixed"
          display={"relative"}

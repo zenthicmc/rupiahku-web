@@ -9,7 +9,6 @@ import {
    Grid,
    VStack,
    Card,
-   useColorMode,
    useColorModeValue,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
@@ -29,11 +28,8 @@ import {
 import { IoIosWallet } from "react-icons/io";
 import BottomNav from "@/components/BottomNav";
 import Link from "next/link";
-import { useEffect } from "react";
 
 export default function Home() {
-   const { toggleColorMode } = useColorMode();
-
    return (
       <main>
          <Container
@@ -69,7 +65,6 @@ export default function Home() {
                      w={14}
                      h={14}
                      borderRadius={"full"}
-                     onClick={toggleColorMode}
                   />
 
                   <Text

@@ -19,7 +19,7 @@ export default function History() {
       <main>
          <Container
             w="sm"
-            background={useColorModeValue("#F6F8FB", "gray.900")}
+            background={useColorModeValue("#F6F8FB", "gray.800")}
             p={0}
             h={"fit-content"}
             minH={"100vh"}
