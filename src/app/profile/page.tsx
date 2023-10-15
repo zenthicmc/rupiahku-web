@@ -255,7 +255,7 @@ export default function Profile() {
                         gap={5}
                      >
                         <Box w={"fit-content"}>
-                           <BsFillMoonFill size={25} color={"#F56565"} />
+                           <BsFillMoonFill size={20} color={"#F56565"} />
                         </Box>
                         <Box w={"70%"}>
                            <Text fontSize={"sm"} fontWeight={"500"}>
