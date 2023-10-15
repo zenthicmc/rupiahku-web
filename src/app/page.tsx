@@ -107,7 +107,7 @@ export default function Home() {
                         </Flex>
                      </Box>
                      <Box>
-                        <Image src="/rupiahku_logo.png" alt="Rupiahku" w={55} />
+                        <Image src="/rupiahku_logo.png" alt="Rupiahku" w={35} />
                      </Box>
                   </Flex>
                </Box>
