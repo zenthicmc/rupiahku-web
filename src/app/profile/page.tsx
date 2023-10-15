@@ -264,7 +264,7 @@ export default function Profile() {
                         </Box>
                      </Flex>
                      <Box w={"fit-content"}>
-                        <Switch colorScheme="red" onChange={toggleColorMode} />
+                        <Switch colorScheme="red" onChange={toggleColorMode} isChecked={useColorModeValue(false, true)} />
                      </Box>
                   </Flex>
                </Card>
