@@ -38,6 +38,7 @@ export default function Home() {
             p={0}
             h={"fit-content"}
             pb={20}
+            minH={"100vh"}
          >
             <Box as="section" pos={"relative"}>
                <Image
