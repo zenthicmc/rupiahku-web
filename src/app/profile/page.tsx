@@ -9,7 +9,7 @@ import {
    Grid,
    VStack,
    Card,
-	useColorMode,
+   useColorMode,
    useColorModeValue,
    Divider,
    Switch,
@@ -24,7 +24,7 @@ import { BiSupport } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";
 
 export default function Profile() {
-	const { toggleColorMode } = useColorMode();
+   const { toggleColorMode } = useColorMode();
 
    return (
       <main>
@@ -51,7 +51,7 @@ export default function Profile() {
                   alignItems={"center"}
                   w={"90%"}
                   pos={"absolute"}
-                  top={"5"}
+                  top={"4"}
                   left={"0"}
                   right={"0"}
                   margin={"auto"}
@@ -60,8 +60,8 @@ export default function Profile() {
                   <Image
                      src="/man.png"
                      alt="Segun Adebayo"
-                     w={"4rem"}
-                     h={"4rem"}
+                     w={"5rem"}
+                     h={"5rem"}
                      borderRadius={"full"}
                   />
 
@@ -86,7 +86,7 @@ export default function Profile() {
                      fontWeight={"300"}
                      color={"gray.900"}
                      textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
-                     mt={2}
+                     mt={1}
                   >
                      Bergabung sejak 10 Januari 2021
                   </Text>
@@ -264,7 +264,11 @@ export default function Profile() {
                         </Box>
                      </Flex>
                      <Box w={"fit-content"}>
-                        <Switch colorScheme="red" onChange={toggleColorMode} isChecked={useColorModeValue(false, true)} />
+                        <Switch
+                           colorScheme="red"
+                           onChange={toggleColorMode}
+                           isChecked={useColorModeValue(false, true)}
+                        />
                      </Box>
                   </Flex>
                </Card>
@@ -277,13 +281,7 @@ export default function Profile() {
                >
                   Keluar
                </Text>
-               <Card
-                  w={"100%"}
-                  p={0}
-                  borderRadius={"xl"}
-                  shadow={"md"}
-                  mb={2}
-               >
+               <Card w={"100%"} p={0} borderRadius={"xl"} shadow={"md"} mb={2}>
                   <Flex
                      justifyContent={"space-between"}
                      alignItems={"center"}
