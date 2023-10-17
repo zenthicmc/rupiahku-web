@@ -55,7 +55,7 @@ export default function Home() {
                   alignItems={"center"}
                   w={"90%"}
                   pos={"absolute"}
-                  top={"5"}
+                  top={"8"}
                   left={"0"}
                   right={"0"}
                   margin={"auto"}
@@ -83,7 +83,7 @@ export default function Home() {
                <Box
                   pos={"absolute"}
                   w={"90%"}
-                  h={"6.5rem"}
+                  h={"6rem"}
                   bg={useColorModeValue("white", "gray.700")}
                   margin={"auto"}
                   left={"0"}
@@ -99,7 +99,7 @@ export default function Home() {
                      px={7}
                   >
                      <Box>
-                        <Text fontSize={"md"}>Saldo Rekening:</Text>
+                        <Text fontSize={"sm"}>Saldo Rekening:</Text>
                         <Flex alignItems={"center"}>
                            <Text fontSize={"2xl"}>Rp</Text>
                            <Text fontSize={"2xl"} fontWeight={"bold"} ms={1}>
@@ -127,6 +127,7 @@ export default function Home() {
                      color={"white"}
                      variant="elevated"
                      borderRadius={"full"}
+                     fontSize={"sm"}
                      px={10}
                   >
                      Deposit
@@ -139,6 +140,7 @@ export default function Home() {
                      variant="elevated"
                      shadow={"md"}
                      borderRadius={"full"}
+                     fontSize={"sm"}
                      px={10}
                   >
                      Transfer
@@ -244,7 +246,7 @@ export default function Home() {
                   mt={5}
                >
                   <Text
-                     fontSize={"md"}
+                     fontSize={"sm"}
                      fontWeight={"bold"}
                      color={useColorModeValue("gray.900", "gray.100")}
                   >
