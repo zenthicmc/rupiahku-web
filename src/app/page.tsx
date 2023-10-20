@@ -6,28 +6,20 @@ import {
    Flex,
    Text,
    Button,
-   Grid,
-   VStack,
    Card,
    useColorModeValue,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
 import {
-   BiSolidJoystick,
-   BiSolidCoupon,
-   BiMoneyWithdraw,
-} from "react-icons/bi";
-import { FiMoreHorizontal } from "react-icons/fi";
-import {
-   BsFillLightningFill,
-   BsFillPhoneFill,
-   BsGlobe,
    BsArrowLeftRight,
 } from "react-icons/bs";
-import { IoIosWallet } from "react-icons/io";
 import BottomNav from "@/components/BottomNav";
 import Link from "next/link";
+import OtherTransaction from "@/components/OtherTransaction";
+import ProfileName from "@/components/ProfileName";
+import Balance from "@/components/Balance";
+import HomeTransactions from "@/components/HomeTransactions";
 
 export default function Home() {
    return (
@@ -43,75 +35,17 @@ export default function Home() {
             <Box as="section" pos={"relative"}>
                <Image
                   src="/hero.jpg"
-                  alt="Segun Adebayo"
+                  alt="hero"
                   background={"teal"}
                   w={"full"}
                   h={"180"}
                />
 
                {/* Profile Name */}
-               <Flex
-                  justifyContent={"start"}
-                  alignItems={"center"}
-                  w={"90%"}
-                  pos={"absolute"}
-                  top={"8"}
-                  left={"0"}
-                  right={"0"}
-                  margin={"auto"}
-               >
-                  <Image
-                     src="/man.png"
-                     alt="Segun Adebayo"
-                     w={14}
-                     h={14}
-                     borderRadius={"full"}
-                  />
-
-                  <Text
-                     fontSize={"lg"}
-                     fontWeight={"bolder"}
-                     color={"gray.900"}
-                     ms={1}
-                     textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
-                  >
-                     Jagad Raya R
-                  </Text>
-               </Flex>
+               <ProfileName />
 
                {/* Balance */}
-               <Box
-                  pos={"absolute"}
-                  w={"90%"}
-                  h={"6rem"}
-                  bg={useColorModeValue("white", "gray.700")}
-                  margin={"auto"}
-                  left={"0"}
-                  right={"0"}
-                  bottom={"-12"}
-                  borderRadius={"3xl"}
-                  shadow={"xl"}
-               >
-                  <Flex
-                     justifyContent={"space-between"}
-                     alignItems={"center"}
-                     h={"100%"}
-                     px={7}
-                  >
-                     <Box>
-                        <Text fontSize={"sm"}>Saldo Rekening:</Text>
-                        <Flex alignItems={"center"}>
-                           <Text fontSize={"2xl"}>Rp</Text>
-                           <Text fontSize={"2xl"} fontWeight={"bold"} ms={1}>
-                              50.000.000
-                           </Text>
-                        </Flex>
-                     </Box>
-                     <Box>
-                        <Image src="/rupiahku_logo.png" alt="Rupiahku" w={35} />
-                     </Box>
-                  </Flex>
-               </Box>
+               <Balance />
             </Box>
 
             <Container w={"90%"} margin={"auto"} p={0} py={1}>
@@ -148,96 +82,7 @@ export default function Home() {
                </Flex>
 
                {/* Other Transactions */}
-               <Grid templateColumns="repeat(4, 1fr)" gap={5} mt={5} ps={2}>
-                  <VStack w={"fit-content"}>
-                     <Box bg={"blue.300"} p={4} borderRadius={"full"}>
-                        <BsFillLightningFill
-                           color={useColorModeValue("white", "#1A202C")}
-                           size={25}
-                        />
-                     </Box>
-                     <Text fontSize={"xs"} fontWeight={"600"}>
-                        PLN
-                     </Text>
-                  </VStack>
-                  <VStack w={"fit-content"}>
-                     <Box bg={"green.300"} p={4} borderRadius={"full"}>
-                        <BsFillPhoneFill
-                           color={useColorModeValue("white", "#1A202C")}
-                           size={25}
-                        />
-                     </Box>
-                     <Text fontSize={"xs"} fontWeight={"600"}>
-                        Pulsa
-                     </Text>
-                  </VStack>
-                  <VStack w={"fit-content"}>
-                     <Box bg={"red.300"} p={4} borderRadius={"full"}>
-                        <BsGlobe
-                           color={useColorModeValue("white", "#1A202C")}
-                           size={25}
-                        />
-                     </Box>
-                     <Text fontSize={"xs"} fontWeight={"600"}>
-                        Internet
-                     </Text>
-                  </VStack>
-                  <VStack w={"fit-content"}>
-                     <Box bg={"yellow.300"} p={4} borderRadius={"full"}>
-                        <BiSolidJoystick
-                           color={useColorModeValue("white", "#1A202C")}
-                           size={25}
-                        />
-                     </Box>
-                     <Text fontSize={"xs"} fontWeight={"600"}>
-                        Game
-                     </Text>
-                  </VStack>
-                  <VStack w={"fit-content"}>
-                     <Box bg={"orange.300"} p={4} borderRadius={"full"}>
-                        <BiSolidCoupon
-                           color={useColorModeValue("white", "#1A202C")}
-                           size={25}
-                        />
-                     </Box>
-                     <Text fontSize={"xs"} fontWeight={"600"}>
-                        Voucher
-                     </Text>
-                  </VStack>
-                  <VStack w={"fit-content"}>
-                     <Box bg={"cyan.300"} p={4} borderRadius={"full"}>
-                        <IoIosWallet
-                           color={useColorModeValue("white", "#1A202C")}
-                           size={25}
-                        />
-                     </Box>
-                     <Text fontSize={"xs"} fontWeight={"600"}>
-                        E-Money
-                     </Text>
-                  </VStack>
-                  <VStack w={"fit-content"}>
-                     <Box bg={"purple.300"} p={4} borderRadius={"full"}>
-                        <BiMoneyWithdraw
-                           color={useColorModeValue("white", "#1A202C")}
-                           size={25}
-                        />
-                     </Box>
-                     <Text fontSize={"xs"} fontWeight={"600"}>
-                        Tarik Tunai
-                     </Text>
-                  </VStack>
-                  <VStack w={"fit-content"}>
-                     <Box bg={"pink.300"} p={4} borderRadius={"full"}>
-                        <FiMoreHorizontal
-                           color={useColorModeValue("white", "#1A202C")}
-                           size={25}
-                        />
-                     </Box>
-                     <Text fontSize={"xs"} fontWeight={"600"}>
-                        Lainnya
-                     </Text>
-                  </VStack>
-               </Grid>
+               <OtherTransaction />
 
                {/* Latest Transactions */}
                <Flex
@@ -261,97 +106,7 @@ export default function Home() {
                </Flex>
 
                {/* Transaction List */}
-               <Flex
-                  justifyContent={"space-between"}
-                  alignItems={"center"}
-                  mt={2}
-                  flexDirection={"column"}
-               >
-                  <Card w={"100%"} p={4} borderRadius={"xl"} shadow={"md"}>
-                     <Flex
-                        justifyContent={"space-between"}
-                        alignItems={"center"}
-                     >
-                        <Flex alignItems={"center"}>
-                           <Image
-                              src={useColorModeValue(
-                                 "https://imgur.com/SSAxsPR.png",
-                                 "https://imgur.com/FIV1oYk.png"
-                              )}
-                              alt="Rupiahku"
-                              w={10}
-                              h={10}
-                              borderRadius={"full"}
-                           />
-                           <Box ms={3}>
-                              <Text fontSize={"sm"} fontWeight={"bold"}>
-                                 Transfer
-                              </Text>
-                              <Text
-                                 fontSize={"xs"}
-                                 color={"gray.500"}
-                                 fontWeight={"300"}
-                              >
-                                 10 January 2023 | 12:00
-                              </Text>
-                           </Box>
-                        </Flex>
-                        <Box ms={3} textAlign={"end"}>
-                           <Text fontSize={"sm"} fontWeight={"bold"}>
-                              - Rp 50.000
-                           </Text>
-                           <Text fontSize={"xs"} color={"green.400"}>
-                              Success
-                           </Text>
-                        </Box>
-                     </Flex>
-                  </Card>
-                  <Card
-                     w={"100%"}
-                     p={4}
-                     borderRadius={"xl"}
-                     shadow={"md"}
-                     mt={2}
-                  >
-                     <Flex
-                        justifyContent={"space-between"}
-                        alignItems={"center"}
-                     >
-                        <Flex alignItems={"center"}>
-                           <Image
-                              src={useColorModeValue(
-                                 "https://imgur.com/gEj2ocp.png",
-                                 "https://imgur.com/rsxlxdj.png"
-                              )}
-                              alt="Rupiahku"
-                              w={10}
-                              h={10}
-                              borderRadius={"full"}
-                           />
-                           <Box ms={3}>
-                              <Text fontSize={"sm"} fontWeight={"bold"}>
-                                 Tarik Tunai
-                              </Text>
-                              <Text
-                                 fontSize={"xs"}
-                                 color={"gray.500"}
-                                 fontWeight={"300"}
-                              >
-                                 10 January 2023 | 12:00
-                              </Text>
-                           </Box>
-                        </Flex>
-                        <Box ms={3} textAlign={"end"}>
-                           <Text fontSize={"sm"} fontWeight={"bold"}>
-                              - Rp 150.000
-                           </Text>
-                           <Text fontSize={"xs"} color={"green.400"}>
-                              Success
-                           </Text>
-                        </Box>
-                     </Flex>
-                  </Card>
-               </Flex>
+               <HomeTransactions />
             </Container>
          </Container>
          <BottomNav />
