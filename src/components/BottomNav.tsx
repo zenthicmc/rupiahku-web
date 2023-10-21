@@ -1,13 +1,11 @@
 'use client';
+
 import {
-   Box,
    Container,
    Flex,
    Text,
-   Button,
    Grid,
    VStack,
-   Card,
 	useColorModeValue,
 } from "@chakra-ui/react";
 import { AiFillHome } from "react-icons/ai";
@@ -15,7 +13,6 @@ import { FaHistory, FaUserAlt } from "react-icons/fa";
 import { BsFillBellFill } from "react-icons/bs";
 import { MdOutlineQrCodeScanner } from "react-icons/md";
 import Link from "next/link";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function BottomNav() {
