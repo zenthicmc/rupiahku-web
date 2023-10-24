@@ -48,7 +48,7 @@ export default function Scanner() {
                      <Flex
                         alignItems={"center"}
                         flexDirection={"column"}
-                        gap={1}
+                        gap={2}
                      >
                         <HiOutlineQrCode size={25} color={"#F56565"} />
                         Kode QRIS
@@ -67,7 +67,7 @@ export default function Scanner() {
                      <Flex
                         alignItems={"center"}
                         flexDirection={"column"}
-                        gap={1}
+                        gap={2}
                      >
                         <MdOutlinePin size={25} color={"#F56565"} />
                         Kode Bayar
@@ -82,6 +82,7 @@ export default function Scanner() {
                   py={6}
                   px={5}
                   borderColor={"gray.300"}
+                  color={"gray.900"}
                   mt={4}
                   _hover={{ bg: "inherit" }}
                >
@@ -95,7 +96,7 @@ export default function Scanner() {
                         <BiBarcode size={25} color={"#F56565"} />
                      </Box>
                      <Box w={"70%"}>
-                        <Text fontSize={"sm"} fontWeight={"500"}>
+                        <Text fontSize={"sm"} fontWeight={"600"}>
                            QR Code Saya
                         </Text>
                      </Box>
