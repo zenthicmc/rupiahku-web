@@ -2,7 +2,7 @@
 import { BiArrowBack } from "react-icons/bi";
 import { Button } from "@chakra-ui/react";
 
-export default function BackButton({ color }) {
+export default function BackButton({ color }: { color: string }) {
 	return (
       <Button
          pos={"absolute"}

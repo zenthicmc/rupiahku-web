@@ -1,13 +1,34 @@
 'use client'
 
 import QrScanner from "@/components/QrScanner";
-import { Box, Button, Container, Flex, useColorModeValue, Text } from "@chakra-ui/react";
+import {
+   Box,
+   Button,
+   Container,
+   Flex,
+   useColorModeValue,
+   Modal,
+   ModalOverlay,
+   ModalContent,
+   ModalHeader,
+   ModalFooter,
+   ModalBody,
+   ModalCloseButton,
+   Text,
+   Alert,
+   AlertIcon,
+   AlertTitle,
+   AlertDescription,
+} from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";
 import { HiOutlineQrCode } from "react-icons/hi2";
 import { MdOutlinePin } from "react-icons/md";
 import { BiBarcode } from "react-icons/bi";
+import QRCode from "react-qr-code";
+import { useDisclosure } from "@chakra-ui/hooks";
 
 export default function Scanner() {
+	const { isOpen, onOpen, onClose } = useDisclosure();
 	return (
       <>
          <Container
@@ -85,6 +106,7 @@ export default function Scanner() {
                   color={"gray.900"}
                   mt={4}
                   _hover={{ bg: "inherit" }}
+                  onClick={onOpen}
                >
                   <Flex
                      justifyContent={"start"}
@@ -107,6 +129,30 @@ export default function Scanner() {
                      </Text>
                   </Box>
                </Button>
+
+               {/* Qr Code Modal */}
+               <Modal
+                  isCentered
+                  onClose={onClose}
+                  isOpen={isOpen}
+                  motionPreset="slideInBottom"
+               >
+                  <ModalOverlay />
+                  <ModalContent pb={10}>
+                     <ModalHeader>QR Code Saya</ModalHeader>
+                     <ModalCloseButton />
+                     <ModalBody>
+								<Alert status="info" mb={5}>
+									<AlertIcon />
+									<AlertDescription mr={2} fontSize={'sm'}>Scan QR Code ini untuk pembayaran</AlertDescription>
+								</Alert>
+                        <QRCode
+									style={{margin: 'auto'}}
+                           value={"085155347714"}
+                        />
+                     </ModalBody>
+                  </ModalContent>
+               </Modal>
             </Box>
          </Container>
       </>
