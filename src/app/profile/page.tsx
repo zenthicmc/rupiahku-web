@@ -5,14 +5,20 @@ import {
    Container,
    Flex,
    Text,
-   Button,
-   Grid,
-   VStack,
    Card,
    useColorMode,
    useColorModeValue,
    Divider,
    Switch,
+   Modal,
+   ModalOverlay,
+   ModalContent,
+   ModalHeader,
+   ModalBody,
+   ModalCloseButton,
+   Alert,
+   AlertIcon,
+   AlertDescription,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BottomNav from "@/components/BottomNav";
@@ -22,9 +28,12 @@ import { BsFillMoonFill } from "react-icons/bs";
 import { MdReport } from "react-icons/md";
 import { BiSupport } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";
+import QRCode from "react-qr-code";
+import { useDisclosure } from "@chakra-ui/hooks";
 
 export default function Profile() {
    const { toggleColorMode } = useColorMode();
+   const { isOpen, onOpen, onClose } = useDisclosure();
 
    return (
       <main>
@@ -169,6 +178,7 @@ export default function Profile() {
                      w={"100%"}
                      py={4}
                      px={5}
+                     onClick={onOpen}
                   >
                      <Flex
                         justifyContent={"start"}
@@ -191,6 +201,31 @@ export default function Profile() {
                         </Text>
                      </Box>
                   </Flex>
+
+                  <Modal
+                     onClose={onClose}
+                     isOpen={isOpen}
+                     motionPreset="slideInBottom"
+                     size={"sm"}
+                  >
+                     <ModalOverlay />
+                     <ModalContent pb={10}>
+                        <ModalHeader>QR Code Saya</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                           <Alert status="info" mb={5}>
+                              <AlertIcon />
+                              <AlertDescription mr={2} fontSize={"sm"}>
+                                 Scan QR Code ini untuk pembayaran
+                              </AlertDescription>
+                           </Alert>
+                           <QRCode
+                              style={{ margin: "auto" }}
+                              value={"085155347714"}
+                           />
+                        </ModalBody>
+                     </ModalContent>
+                  </Modal>
                </Card>
                <Text
                   fontSize={"md"}

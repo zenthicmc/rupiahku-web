@@ -11,13 +11,11 @@ import {
    ModalOverlay,
    ModalContent,
    ModalHeader,
-   ModalFooter,
    ModalBody,
    ModalCloseButton,
    Text,
    Alert,
    AlertIcon,
-   AlertTitle,
    AlertDescription,
 } from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";
@@ -149,6 +147,7 @@ export default function Scanner() {
                   onClose={onClose}
                   isOpen={isOpen}
                   motionPreset="slideInBottom"
+                  size={"sm"}
                >
                   <ModalOverlay />
                   <ModalContent pb={10}>
