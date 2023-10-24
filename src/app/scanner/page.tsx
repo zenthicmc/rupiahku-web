@@ -59,12 +59,13 @@ export default function Scanner() {
                   <Button
                      w={"full"}
                      variant={"outline"}
-                     color={"gray.900"}
+                     color={useColorModeValue("gray.900", "gray.100")}
                      borderRadius={"xl"}
                      fontSize={"sm"}
                      _hover={{ bg: "inherit" }}
-                     borderColor={"gray.300"}
+                     borderColor={useColorModeValue("gray.300", "gray.700")}
                      py={9}
+                     bg={useColorModeValue("none", "gray.700")}
                   >
                      <Flex
                         alignItems={"center"}
@@ -78,12 +79,13 @@ export default function Scanner() {
                   <Button
                      w={"full"}
                      variant={"outline"}
-                     color={"gray.900"}
+                     color={useColorModeValue("gray.900", "gray.100")}
                      borderRadius={"xl"}
                      fontSize={"sm"}
                      _hover={{ bg: "inherit" }}
-                     borderColor={"gray.300"}
+                     borderColor={useColorModeValue("gray.300", "gray.700")}
                      py={9}
+                     bg={useColorModeValue("none", "gray.700")}
                   >
                      <Flex
                         alignItems={"center"}
@@ -102,7 +104,9 @@ export default function Scanner() {
                   alignItems={"center"}
                   py={6}
                   px={5}
-                  borderColor={"gray.300"}
+                  borderRadius={"xl"}
+                  borderColor={useColorModeValue("gray.300", "gray.700")}
+                  bg={useColorModeValue("none", "gray.700")}
                   color={"gray.900"}
                   mt={4}
                   _hover={{ bg: "inherit" }}
@@ -118,13 +122,21 @@ export default function Scanner() {
                         <BiBarcode size={25} color={"#F56565"} />
                      </Box>
                      <Box w={"70%"}>
-                        <Text fontSize={"sm"} fontWeight={"600"}>
+                        <Text
+                           fontSize={"sm"}
+                           fontWeight={"600"}
+                           color={useColorModeValue("gray.900", "gray.100")}
+                        >
                            QR Code Saya
                         </Text>
                      </Box>
                   </Flex>
                   <Box w={"fit-content"}>
-                     <Text fontSize={"sm"} fontWeight={"500"}>
+                     <Text
+                        fontSize={"sm"}
+                        fontWeight={"500"}
+                        color={useColorModeValue("gray.900", "gray.100")}
+                     >
                         ▶
                      </Text>
                   </Box>
@@ -142,12 +154,14 @@ export default function Scanner() {
                      <ModalHeader>QR Code Saya</ModalHeader>
                      <ModalCloseButton />
                      <ModalBody>
-								<Alert status="info" mb={5}>
-									<AlertIcon />
-									<AlertDescription mr={2} fontSize={'sm'}>Scan QR Code ini untuk pembayaran</AlertDescription>
-								</Alert>
+                        <Alert status="info" mb={5}>
+                           <AlertIcon />
+                           <AlertDescription mr={2} fontSize={"sm"}>
+                              Scan QR Code ini untuk pembayaran
+                           </AlertDescription>
+                        </Alert>
                         <QRCode
-									style={{margin: 'auto'}}
+                           style={{ margin: "auto" }}
                            value={"085155347714"}
                         />
                      </ModalBody>
