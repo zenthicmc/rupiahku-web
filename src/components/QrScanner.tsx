@@ -9,6 +9,7 @@ export default function QrScanner() {
          onError={(error) => console.log(error?.message)}
          // made height full screen
          containerStyle={{ height: "100vh" }}
+			videoStyle={{ height: "100vh" }}
       />
    );
 };
