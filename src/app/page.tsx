@@ -55,17 +55,19 @@ export default function Home() {
                   alignItems={"center"}
                   mt={14}
                >
-                  <Button
-                     leftIcon={<FaPlus />}
-                     bg={useColorModeValue("gray.900", "gray.700")}
-                     color={"white"}
-                     variant="elevated"
-                     borderRadius={"full"}
-                     fontSize={"sm"}
-                     px={10}
-                  >
-                     Deposit
-                  </Button>
+                  <Link href="/deposit">
+                     <Button
+                        leftIcon={<FaPlus />}
+                        bg={useColorModeValue("gray.900", "gray.700")}
+                        color={"white"}
+                        variant="elevated"
+                        borderRadius={"full"}
+                        fontSize={"sm"}
+                        px={10}
+                     >
+                        Deposit
+                     </Button>
+                  </Link>
 
                   <Button
                      leftIcon={<BsArrowLeftRight />}
