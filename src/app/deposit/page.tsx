@@ -62,7 +62,7 @@ export default function Deposit() {
                         color={useColorModeValue("gray.900", "gray.100")}
                         borderRadius={"xl"}
                         fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.50")}
+                        borderColor={useColorModeValue("gray.300", "gray.500")}
                         py={8}
                         bg={useColorModeValue("none", "gray.700")}
                         _hover={{
@@ -82,7 +82,7 @@ export default function Deposit() {
                         color={useColorModeValue("gray.900", "gray.100")}
                         borderRadius={"xl"}
                         fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.50")}
+                        borderColor={useColorModeValue("gray.300", "gray.500")}
                         py={8}
                         bg={useColorModeValue("none", "gray.700")}
                         _hover={{
@@ -102,7 +102,7 @@ export default function Deposit() {
                         color={useColorModeValue("gray.900", "gray.100")}
                         borderRadius={"xl"}
                         fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.50")}
+                        borderColor={useColorModeValue("gray.300", "gray.500")}
                         py={8}
                         bg={useColorModeValue("none", "gray.700")}
                         _hover={{
@@ -122,7 +122,7 @@ export default function Deposit() {
                         color={useColorModeValue("gray.900", "gray.100")}
                         borderRadius={"xl"}
                         fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.50")}
+                        borderColor={useColorModeValue("gray.300", "gray.500")}
                         py={8}
                         bg={useColorModeValue("none", "gray.700")}
                         _hover={{
@@ -142,7 +142,7 @@ export default function Deposit() {
                         color={useColorModeValue("gray.900", "gray.100")}
                         borderRadius={"xl"}
                         fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.50")}
+                        borderColor={useColorModeValue("gray.300", "gray.500")}
                         py={8}
                         bg={useColorModeValue("none", "gray.700")}
                         _hover={{
@@ -162,7 +162,7 @@ export default function Deposit() {
                         color={useColorModeValue("gray.900", "gray.100")}
                         borderRadius={"xl"}
                         fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.50")}
+                        borderColor={useColorModeValue("gray.300", "gray.500")}
                         py={8}
                         bg={useColorModeValue("none", "gray.700")}
                         _hover={{
@@ -187,7 +187,7 @@ export default function Deposit() {
                      max={10000000}
                      fontSize={"sm"}
                      placeholder="Masukkan nominal lainnya"
-                     borderColor={useColorModeValue("gray.300", "gray.50")}
+                     borderColor={useColorModeValue("gray.300", "gray.500")}
                      bg={useColorModeValue("none", "gray.700")}
                      color={useColorModeValue("gray.900", "gray.100")}
                      _hover={{
