@@ -62,7 +62,7 @@ export default function Scanner() {
                      color={useColorModeValue("gray.900", "gray.100")}
                      borderRadius={"xl"}
                      fontSize={"sm"}
-                     _hover={{ bg: "inherit" }}
+                     _hover={{ bg: useColorModeValue("gray.50", "gray.700") }}
                      borderColor={useColorModeValue("gray.300", "gray.700")}
                      py={9}
                      bg={useColorModeValue("none", "gray.700")}
@@ -82,7 +82,7 @@ export default function Scanner() {
                      color={useColorModeValue("gray.900", "gray.100")}
                      borderRadius={"xl"}
                      fontSize={"sm"}
-                     _hover={{ bg: "inherit" }}
+                     _hover={{ bg: useColorModeValue("gray.50", "gray.700") }}
                      borderColor={useColorModeValue("gray.300", "gray.700")}
                      py={9}
                      bg={useColorModeValue("none", "gray.700")}
@@ -109,7 +109,8 @@ export default function Scanner() {
                   bg={useColorModeValue("none", "gray.700")}
                   color={"gray.900"}
                   mt={4}
-                  _hover={{ bg: "inherit" }}
+                  // does nothing
+                  _hover={{ bg: useColorModeValue("gray.50", "gray.700") }}
                   onClick={onOpen}
                >
                   <Flex
