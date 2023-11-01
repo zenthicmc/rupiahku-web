@@ -6,8 +6,8 @@ export default function BackButton({ color }: { color: string }) {
 	return (
       <Button
          pos={"absolute"}
-         top={3}
-         left={3}
+         top={4}
+         left={4}
          zIndex={1}
          p={0}
          m={0}

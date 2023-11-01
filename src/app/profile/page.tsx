@@ -132,7 +132,7 @@ export default function Profile() {
                            <FaUserEdit size={25} color={"#F56565"} />
                         </Box>
                         <Box w={"70%"}>
-                           <Link href={'/editProfile'}>
+                           <Link href={"/editProfile"}>
                               <Text fontSize={"sm"} fontWeight={"500"}>
                                  Edit Profil
                               </Text>
@@ -163,7 +163,7 @@ export default function Profile() {
                            <AiFillLock size={25} color={"#F56565"} />
                         </Box>
                         <Box w={"70%"}>
-                           <Link href={'/ubahPassword'}>
+                           <Link href={"/ubahPassword"}>
                               <Text fontSize={"sm"} fontWeight={"500"}>
                                  Ubah Password
                               </Text>
