@@ -30,6 +30,7 @@ import { BiSupport } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";
 import QRCode from "react-qr-code";
 import { useDisclosure } from "@chakra-ui/hooks";
+import Link from "next/link";
 
 export default function Profile() {
    const { toggleColorMode } = useColorMode();
@@ -114,34 +115,36 @@ export default function Profile() {
                   Akun
                </Text>
                <Card w={"100%"} p={0} borderRadius={"xl"} shadow={"md"}>
-                  <Flex
-                     justifyContent={"space-between"}
-                     alignItems={"center"}
-                     w={"100%"}
-                     py={4}
-                     px={5}
-                  >
+                  <Link href={"/editProfile"}>
                      <Flex
-                        justifyContent={"start"}
+                        justifyContent={"space-between"}
                         alignItems={"center"}
-                        w={"80%"}
-                        gap={5}
+                        w={"100%"}
+                        py={4}
+                        px={5}
                      >
+                        <Flex
+                           justifyContent={"start"}
+                           alignItems={"center"}
+                           w={"80%"}
+                           gap={5}
+                        >
+                           <Box w={"fit-content"}>
+                              <FaUserEdit size={25} color={"#F56565"} />
+                           </Box>
+                           <Box w={"70%"}>
+                              <Text fontSize={"sm"} fontWeight={"500"}>
+                                 Edit Profil
+                              </Text>
+                           </Box>
+                        </Flex>
                         <Box w={"fit-content"}>
-                           <FaUserEdit size={25} color={"#F56565"} />
-                        </Box>
-                        <Box w={"70%"}>
                            <Text fontSize={"sm"} fontWeight={"500"}>
-                              Edit Profil
+                              ▶
                            </Text>
                         </Box>
                      </Flex>
-                     <Box w={"fit-content"}>
-                        <Text fontSize={"sm"} fontWeight={"500"}>
-                           ▶
-                        </Text>
-                     </Box>
-                  </Flex>
+                  </Link>
                   <Divider color="gray.400" />
                   <Flex
                      justifyContent={"space-between"}

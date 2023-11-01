@@ -17,7 +17,6 @@ import { usePathname } from "next/navigation";
 
 export default function BottomNav() {
 	const path = usePathname();
-	console.log(path);
 	
 	return (
       // create a bottom nav bar that is fixed to the bottom of the screen

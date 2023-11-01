@@ -6,7 +6,6 @@ import {
    Flex,
    Text,
    Button,
-   Card,
    useColorModeValue,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";

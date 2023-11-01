@@ -6,7 +6,6 @@ import {
    Flex,
    Text,
    Button,
-   Card,
    useColorModeValue,
    Grid,
    Input,
@@ -15,9 +14,11 @@ import {
 import { Image } from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Deposit() {
-	const [amount, setAmount] = useState(0);
+   const [amount, setAmount] = useState( 0);
+
    return (
       <main>
          <Container
@@ -231,19 +232,44 @@ export default function Deposit() {
                      Rp {amount > 0 ? amount.toLocaleString("id-ID") : 0}
                   </Text>
                </Flex>
-               <Button
-                  w={"50%"}
-                  variant={"solid"}
-                  bg={useColorModeValue("red.500", "red.400")}
-                  color={"white"}
-                  _hover={{ opacity: "0.9" }}
-                  _after={{ bg: "red.500" }}
-                  _active={{ bg: "red.500" }}
-                  fontSize={"md"}
-                  size={"lg"}
-               >
-                  Lanjut
-               </Button>
+               {amount >= 10000 ? (
+                  <Link
+                     href={{
+                        pathname: "/payments",
+                        query: { amount: amount },
+                     }}
+                  >
+                     <Button
+                        w={"100%"}
+                        variant={"solid"}
+                        bg={useColorModeValue("red.500", "red.400")}
+                        color={"white"}
+                        _hover={{ opacity: "0.9" }}
+                        _after={{ bg: "red.500" }}
+                        _active={{ bg: "red.500" }}
+                        fontSize={"md"}
+                        size={"lg"}
+                        px={12}
+                     >
+                        Lanjut
+                     </Button>
+                  </Link>
+               ) : (
+                  <Button
+                     w={"40%"}
+                     variant={"solid"}
+                     bg={useColorModeValue("gray.300", "gray.700")}
+                     color={"white"}
+                     _hover={{ opacity: "0.9" }}
+                     _after={{ bg: "gray.300" }}
+                     _active={{ bg: "gray.300" }}
+                     fontSize={"md"}
+                     size={"lg"}
+                     disabled
+                  >
+                     Lanjut
+                  </Button>
+               )}
             </Flex>
          </Container>
       </main>
