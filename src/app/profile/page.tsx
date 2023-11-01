@@ -115,36 +115,36 @@ export default function Profile() {
                   Akun
                </Text>
                <Card w={"100%"} p={0} borderRadius={"xl"} shadow={"md"}>
-                  <Link href={"/editProfile"}>
+                  <Flex
+                     justifyContent={"space-between"}
+                     alignItems={"center"}
+                     w={"100%"}
+                     py={4}
+                     px={5}
+                  >
                      <Flex
-                        justifyContent={"space-between"}
+                        justifyContent={"start"}
                         alignItems={"center"}
-                        w={"100%"}
-                        py={4}
-                        px={5}
+                        w={"80%"}
+                        gap={5}
                      >
-                        <Flex
-                           justifyContent={"start"}
-                           alignItems={"center"}
-                           w={"80%"}
-                           gap={5}
-                        >
-                           <Box w={"fit-content"}>
-                              <FaUserEdit size={25} color={"#F56565"} />
-                           </Box>
-                           <Box w={"70%"}>
+                        <Box w={"fit-content"}>
+                           <FaUserEdit size={25} color={"#F56565"} />
+                        </Box>
+                        <Box w={"70%"}>
+                           <Link href={"/editProfile"}>
                               <Text fontSize={"sm"} fontWeight={"500"}>
                                  Edit Profil
                               </Text>
-                           </Box>
-                        </Flex>
-                        <Box w={"fit-content"}>
-                           <Text fontSize={"sm"} fontWeight={"500"}>
-                              ▶
-                           </Text>
+                           </Link>
                         </Box>
                      </Flex>
-                  </Link>
+                     <Box w={"fit-content"}>
+                        <Text fontSize={"sm"} fontWeight={"500"}>
+                           ▶
+                        </Text>
+                     </Box>
+                  </Flex>
                   <Divider color="gray.400" />
                   <Flex
                      justifyContent={"space-between"}
@@ -163,9 +163,11 @@ export default function Profile() {
                            <AiFillLock size={25} color={"#F56565"} />
                         </Box>
                         <Box w={"70%"}>
-                           <Text fontSize={"sm"} fontWeight={"500"}>
-                              Ubah Password
-                           </Text>
+                           <Link href={"/ubahPassword"}>
+                              <Text fontSize={"sm"} fontWeight={"500"}>
+                                 Ubah Password
+                              </Text>
+                           </Link>
                         </Box>
                      </Flex>
                      <Box w={"fit-content"}>
