@@ -73,8 +73,8 @@ export default function History() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/SSAxsPR.png",
-                                 "https://imgur.com/FIV1oYk.png"
+                                 "https://cdn.tokoqu.io/image/transfer.png",
+                                 "https://cdn.tokoqu.io/image/dark-transfer.png"
                               )}
                               alt="Rupiahku"
                               w={10}
@@ -118,8 +118,8 @@ export default function History() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/LIVDXGW.png",
-                                 "https://imgur.com/NgNhcvy.png"
+                                 "https://cdn.tokoqu.io/image/deposit.png",
+                                 "https://cdn.tokoqu.io/image/dark-deposit.png"
                               )}
                               alt="Rupiahku"
                               w={10}
@@ -163,8 +163,8 @@ export default function History() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/gEj2ocp.png",
-                                 "https://imgur.com/rsxlxdj.png"
+                                 "https://cdn.tokoqu.io/image/tarik-tunai.png",
+                                 "https://cdn.tokoqu.io/image/dark-tarik-tunai.png"
                               )}
                               alt="Rupiahku"
                               w={10}
@@ -208,8 +208,8 @@ export default function History() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/To8gEGD.png",
-                                 "https://imgur.com/oiGLLLD.png"
+                                 "https://cdn.tokoqu.io/image/game.png",
+                                 "https://cdn.tokoqu.io/image/dark-game.png"
                               )}
                               alt="Rupiahku"
                               w={10}
@@ -253,8 +253,8 @@ export default function History() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/HXwkZoX.png",
-                                 "https://imgur.com/XyMgsdt.png"
+                                 "https://cdn.tokoqu.io/image/e-wallet.png",
+                                 "https://cdn.tokoqu.io/image/dark-e-wallet.png"
                               )}
                               alt="Rupiahku"
                               w={10}
@@ -298,8 +298,8 @@ export default function History() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/fh9PbeM.png",
-                                 "https://imgur.com/sr01PzN.png"
+                                 "https://cdn.tokoqu.io/image/internet.png",
+                                 "https://cdn.tokoqu.io/image/dark-internet.png"
                               )}
                               alt="Rupiahku"
                               w={10}
@@ -343,8 +343,8 @@ export default function History() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/cj6QV5b.png",
-                                 "https://imgur.com/QWj9zof.png"
+                                 "https://cdn.tokoqu.io/image/pln.png",
+                                 "https://cdn.tokoqu.io/image/dark-pln.png"
                               )}
                               alt="Rupiahku"
                               w={10}
@@ -388,8 +388,8 @@ export default function History() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/p1MD6ZR.png",
-                                 "https://imgur.com/wZq4odL.png"
+                                 "https://cdn.tokoqu.io/image/pulsa.png",
+                                 "https://cdn.tokoqu.io/image/dark-pulsa.png"
                               )}
                               alt="Rupiahku"
                               w={10}
@@ -433,8 +433,8 @@ export default function History() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/TN5BqMT.png",
-                                 "https://imgur.com/aRFdBxt.png"
+                                 "https://cdn.tokoqu.io/image/voucher.png",
+                                 "https://cdn.tokoqu.io/image/dark-voucher.png"
                               )}
                               alt="Rupiahku"
                               w={10}

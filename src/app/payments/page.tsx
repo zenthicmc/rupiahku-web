@@ -226,7 +226,7 @@ export default function Payments() {
                                  variant={"outline"}
                                  bg={useColorModeValue("white", "gray.700")}
                                  shadow={"xl"}
-                                 p={3}
+                                 p={2}
                                  borderRadius={"lg"}
                                  w={"50"}
                                  h={"50"}
@@ -298,7 +298,7 @@ export default function Payments() {
                                  variant={"outline"}
                                  bg={useColorModeValue("white", "gray.700")}
                                  shadow={"xl"}
-                                 p={3}
+                                 p={2}
                                  borderRadius={"lg"}
                                  w={"50"}
                                  h={"50"}

@@ -17,21 +17,24 @@ import {
 } from "react-icons/bi";
 import { IoIosWallet } from "react-icons/io";
 import { FiMoreHorizontal } from "react-icons/fi";
+import Link from "next/link";
 
 const OtherTransaction = () => {
    return (
       <Grid templateColumns="repeat(4, 1fr)" gap={5} mt={5} ps={2}>
-         <VStack w={"fit-content"}>
-            <Box bg={"blue.300"} p={4} borderRadius={"full"}>
-               <BsFillLightningFill
-                  color={useColorModeValue("white", "#1A202C")}
-                  size={25}
-               />
-            </Box>
-            <Text fontSize={"xs"} fontWeight={"600"}>
-               PLN
-            </Text>
-         </VStack>
+         <Link href="/topup">
+            <VStack w={"fit-content"}>
+               <Box bg={"blue.300"} p={4} borderRadius={"full"}>
+                  <BsFillLightningFill
+                     color={useColorModeValue("white", "#1A202C")}
+                     size={25}
+                  />
+               </Box>
+               <Text fontSize={"xs"} fontWeight={"600"}>
+                  PLN
+               </Text>
+            </VStack>
+         </Link>
          <VStack w={"fit-content"}>
             <Box bg={"green.300"} p={4} borderRadius={"full"}>
                <BsFillPhoneFill
