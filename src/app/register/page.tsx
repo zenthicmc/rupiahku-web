@@ -1,4 +1,6 @@
-import { Box, Button, Container, Image, Input, Stack, Icon, HStack } from "@chakra-ui/react";
+import { Box, Button, Container, Image, Input, Stack, Text, Select } from "@chakra-ui/react";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import Link from "next/link";
 
 export default function Register() {
    return (
@@ -9,12 +11,15 @@ export default function Register() {
          bgSize={"110%"}
          alignItems={"center"}
          p={10}
-         paddingTop={'120px'}
-      >
+      >  <Link href="/login">
+            <Box alignItems={"left"} paddingBottom={'30px'}>
+               <HiOutlineArrowNarrowLeft size={35}/>
+            </Box>
+         </Link>
          <Box
             background={"white"}
-            h={"70vh"}
-            w={"45vh"}
+            h={"77vh"}
+            w={"50vh"}
             margin={"auto"}
             alignItems={"center"}
             borderRadius={"2xl"}
@@ -24,13 +29,16 @@ export default function Register() {
                <Image
                   src="rupiahku_logo.png"
                   alt="logo"
-                  width={50}
+                  width={45}
                   m={"auto"}
+                  pt={"3"}
                />
-               Isi Data diri untuk melanjutkan
+               <Text color={"red.500"} textAlign={"center"} margin={"auto"} pt={"5"}>
+                  Isi Data diri untuk melanjutkan
+               </Text>
             </Box>
-            <Box h={"20%"} w={"full"} pt={10}>
-               <Stack spacing={3} px={5}>
+            <Box h={"20%"} w={"full"} pt={"10"}>
+               <Stack spacing={4} px={5} pt={"2"}>
                   <Input 
                   placeholder="Nama Lengkap"
                   size="sm"
@@ -61,17 +69,57 @@ export default function Register() {
                         'color': 'red.400'
                      }}
                   />
-                  <Input 
+                  <Select 
                      placeholder="Jenis Kelamin"
-                     type="radio"
                      size="sm"
                      borderRadius={"xl"}
                      border="1px"
                      borderColor="red.500"
-                     _hover={{ 
+                     color={"gray.500"}
+                  >
+                     <option value="option1">Laki-Laki</option>
+                     <option value="option2">Perempuan</option>
+                  </Select>
+                  <Input
+                     placeholder="Password"
+                     type="password"
+                     size="sm"
+                     borderRadius={"xl"}
+                     border="1px"
+                     borderColor="red.500"
+                     _hover={{
                         'color': 'red.400'
                      }}
                   />
+                  <Input
+                     placeholder="Konfirmasi Password"
+                     type="password"
+                     size="sm"
+                     borderRadius={"xl"}
+                     border="1px"
+                     borderColor="red.500"
+                     _hover={{
+                        'color': 'red.400'
+                     }}
+                  />
+                  <Link href="/login">
+                     <Button
+                        boxShadow='md'
+                        size={"sm"}
+                        width={"70%"}
+                        type="submit"
+                        bg={"red.500"}
+                        color={"white"}
+                        borderRadius={"2xl"}
+                        margin={"auto"}
+                        marginLeft={"37px"}
+                        _hover={{
+                           bg: "red.400"
+                        }}
+                     >
+                        Buat Akun Baru
+                     </Button>
+                  </Link>
                </Stack>
             </Box>
          </Box>
