@@ -20,8 +20,8 @@ const HomeTransactions = () => {
                <Flex alignItems={"center"}>
                   <Image
                      src={useColorModeValue(
-                        "https://imgur.com/SSAxsPR.png",
-                        "https://imgur.com/FIV1oYk.png"
+                        "https://cdn.tokoqu.io/image/transfer.png",
+                        "https://cdn.tokoqu.io/image/dark-transfer.png"
                      )}
                      alt="Rupiahku"
                      w={10}
@@ -56,8 +56,8 @@ const HomeTransactions = () => {
                <Flex alignItems={"center"}>
                   <Image
                      src={useColorModeValue(
-                        "https://imgur.com/gEj2ocp.png",
-                        "https://imgur.com/rsxlxdj.png"
+                        "https://cdn.tokoqu.io/image/tarik-tunai.png",
+                        "https://cdn.tokoqu.io/image/dark-tarik-tunai.png"
                      )}
                      alt="Rupiahku"
                      w={10}

@@ -30,6 +30,7 @@ import { BiSupport } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";
 import QRCode from "react-qr-code";
 import { useDisclosure } from "@chakra-ui/hooks";
+import Link from "next/link";
 
 export default function Profile() {
    const { toggleColorMode } = useColorMode();
@@ -131,9 +132,11 @@ export default function Profile() {
                            <FaUserEdit size={25} color={"#F56565"} />
                         </Box>
                         <Box w={"70%"}>
-                           <Text fontSize={"sm"} fontWeight={"500"}>
-                              Edit Profil
-                           </Text>
+                           <Link href={"/editProfile"}>
+                              <Text fontSize={"sm"} fontWeight={"500"}>
+                                 Edit Profil
+                              </Text>
+                           </Link>
                         </Box>
                      </Flex>
                      <Box w={"fit-content"}>
@@ -160,9 +163,11 @@ export default function Profile() {
                            <AiFillLock size={25} color={"#F56565"} />
                         </Box>
                         <Box w={"70%"}>
-                           <Text fontSize={"sm"} fontWeight={"500"}>
-                              Ubah Password
-                           </Text>
+                           <Link href={"/ubahPassword"}>
+                              <Text fontSize={"sm"} fontWeight={"500"}>
+                                 Ubah Password
+                              </Text>
+                           </Link>
                         </Box>
                      </Flex>
                      <Box w={"fit-content"}>

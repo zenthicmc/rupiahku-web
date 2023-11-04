@@ -8,16 +8,19 @@ import {
    Button,
    useColorModeValue,
    Grid,
+   Divider,
    Input,
-	Divider,
+	InputGroup,
+	InputLeftElement,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";
 import { useState } from "react";
 import Link from "next/link";
+import { BsFillLightningFill } from "react-icons/bs";
 
-export default function Deposit() {
-   const [amount, setAmount] = useState( 0);
+export default function Topup() {
+   const [amount, setAmount] = useState(0);
 
    return (
       <main>
@@ -54,49 +57,58 @@ export default function Deposit() {
                   shadow={"xl"}
                   p={6}
                >
-                  <Text fontSize={"md"} fontWeight={"600"}>
+                  <Text fontSize={"sm"} fontWeight={"600"}>
+                     Nomor Meteran:
+                  </Text>
+                  <InputGroup mt={1}>
+                     <InputLeftElement pointerEvents="none">
+                        <BsFillLightningFill color="#A0AEC0" />
+                     </InputLeftElement>
+                     <Input
+                        type="number"
+                        placeholder="Nomer meteran"
+                        fontSize={"sm"}
+                     />
+                  </InputGroup>
+
+                  <Text fontSize={"sm"} fontWeight={"600"} mt={3}>
                      Pilih Nominal:
                   </Text>
-                  <Grid templateColumns="repeat(2, 1fr)" gap={5} mt={3}>
+                  <Grid templateColumns="repeat(2, 1fr)" gap={5} mt={2}>
                      <Button
                         variant={"outline"}
                         color={useColorModeValue("gray.900", "gray.100")}
                         borderRadius={"xl"}
                         fontSize={"sm"}
                         borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={8}
+                        py={9}
                         bg={useColorModeValue("none", "gray.700")}
+                        display={"flex"}
+                        flexDirection={"column"}
+                        alignItems={"center"}
                         _hover={{
                            borderColor: "red.300",
                            color: "red.400",
                         }}
-                        onClick={() => setAmount(10000)}
-                        {...(amount === 10000 && {
-                           borderColor: "red.400",
-                           color: "red.400",
-                        })}
-                     >
-                        Rp 10.000
-                     </Button>
-                     <Button
-                        variant={"outline"}
-                        color={useColorModeValue("gray.900", "gray.100")}
-                        borderRadius={"xl"}
-                        fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={8}
-                        bg={useColorModeValue("none", "gray.700")}
-                        _hover={{
-                           borderColor: "red.300",
-                           color: "red.400",
-                        }}
-                        onClick={() => setAmount(20000)}
-                        {...(amount === 20000 && {
+                        onClick={() => setAmount(22500)}
+                        {...(amount === 22500 && {
                            borderColor: "red.400",
                            color: "red.400",
                         })}
                      >
                         Rp 20.000
+                        <Text
+                           fontSize={"xs"}
+                           fontWeight={"300"}
+                           color={
+                              amount === 22500
+                                 ? "red.400"
+                                 : useColorModeValue("gray.400", "gray.500")
+                           }
+                           mt={1}
+                        >
+                           Bayar Rp 22.500
+                        </Text>
                      </Button>
                      <Button
                         variant={"outline"}
@@ -104,19 +116,34 @@ export default function Deposit() {
                         borderRadius={"xl"}
                         fontSize={"sm"}
                         borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={8}
+                        py={9}
                         bg={useColorModeValue("none", "gray.700")}
+                        display={"flex"}
+                        flexDirection={"column"}
+                        alignItems={"center"}
                         _hover={{
                            borderColor: "red.300",
                            color: "red.400",
                         }}
-                        onClick={() => setAmount(50000)}
-                        {...(amount === 50000 && {
+                        onClick={() => setAmount(52500)}
+                        {...(amount === 52500 && {
                            borderColor: "red.400",
                            color: "red.400",
                         })}
                      >
                         Rp 50.000
+                        <Text
+                           fontSize={"xs"}
+                           fontWeight={"300"}
+                           color={
+                              amount === 52500
+                                 ? "red.400"
+                                 : useColorModeValue("gray.400", "gray.500")
+                           }
+                           mt={1}
+                        >
+                           Bayar Rp 52.500
+                        </Text>
                      </Button>
                      <Button
                         variant={"outline"}
@@ -124,19 +151,34 @@ export default function Deposit() {
                         borderRadius={"xl"}
                         fontSize={"sm"}
                         borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={8}
+                        py={9}
                         bg={useColorModeValue("none", "gray.700")}
+                        display={"flex"}
+                        flexDirection={"column"}
+                        alignItems={"center"}
                         _hover={{
                            borderColor: "red.300",
                            color: "red.400",
                         }}
-                        onClick={() => setAmount(100000)}
-                        {...(amount === 100000 && {
+                        onClick={() => setAmount(102500)}
+                        {...(amount === 102500 && {
                            borderColor: "red.400",
                            color: "red.400",
                         })}
                      >
                         Rp 100.000
+                        <Text
+                           fontSize={"xs"}
+                           fontWeight={"300"}
+                           color={
+                              amount === 102500
+                                 ? "red.400"
+                                 : useColorModeValue("gray.400", "gray.500")
+                           }
+                           mt={1}
+                        >
+                           Bayar Rp 102.500
+                        </Text>
                      </Button>
                      <Button
                         variant={"outline"}
@@ -144,19 +186,34 @@ export default function Deposit() {
                         borderRadius={"xl"}
                         fontSize={"sm"}
                         borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={8}
+                        py={9}
                         bg={useColorModeValue("none", "gray.700")}
+                        display={"flex"}
+                        flexDirection={"column"}
+                        alignItems={"center"}
                         _hover={{
                            borderColor: "red.300",
                            color: "red.400",
                         }}
-                        onClick={() => setAmount(500000)}
-                        {...(amount === 500000 && {
+                        onClick={() => setAmount(152500)}
+                        {...(amount === 152500 && {
                            borderColor: "red.400",
                            color: "red.400",
                         })}
                      >
-                        Rp 500.000
+                        Rp 150.000
+                        <Text
+                           fontSize={"xs"}
+                           fontWeight={"300"}
+                           color={
+                              amount === 152500
+                                 ? "red.400"
+                                 : useColorModeValue("gray.400", "gray.500")
+                           }
+                           mt={1}
+                        >
+                           Bayar Rp 152.500
+                        </Text>
                      </Button>
                      <Button
                         variant={"outline"}
@@ -164,45 +221,71 @@ export default function Deposit() {
                         borderRadius={"xl"}
                         fontSize={"sm"}
                         borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={8}
+                        py={9}
                         bg={useColorModeValue("none", "gray.700")}
+                        display={"flex"}
+                        flexDirection={"column"}
+                        alignItems={"center"}
                         _hover={{
                            borderColor: "red.300",
                            color: "red.400",
                         }}
-                        onClick={() => setAmount(1000000)}
-                        {...(amount === 1000000 && {
+                        onClick={() => setAmount(202500)}
+                        {...(amount === 202500 && {
                            borderColor: "red.400",
                            color: "red.400",
                         })}
                      >
-                        Rp 1.000.000
+                        Rp 200.000
+                        <Text
+                           fontSize={"xs"}
+                           fontWeight={"300"}
+                           color={
+                              amount === 202500
+                                 ? "red.400"
+                                 : useColorModeValue("gray.400", "gray.500")
+                           }
+                           mt={1}
+                        >
+                           Bayar Rp 202.500
+                        </Text>
+                     </Button>
+                     <Button
+                        variant={"outline"}
+                        color={useColorModeValue("gray.900", "gray.100")}
+                        borderRadius={"xl"}
+                        fontSize={"sm"}
+                        borderColor={useColorModeValue("gray.300", "gray.500")}
+                        py={9}
+                        bg={useColorModeValue("none", "gray.700")}
+                        display={"flex"}
+                        flexDirection={"column"}
+                        alignItems={"center"}
+                        _hover={{
+                           borderColor: "red.300",
+                           color: "red.400",
+                        }}
+                        onClick={() => setAmount(252500)}
+                        {...(amount === 252500 && {
+                           borderColor: "red.400",
+                           color: "red.400",
+                        })}
+                     >
+                        Rp 250.000
+                        <Text
+                           fontSize={"xs"}
+                           fontWeight={"300"}
+                           color={
+                              amount === 252500
+                                 ? "red.400"
+                                 : useColorModeValue("gray.400", "gray.500")
+                           }
+                           mt={1}
+                        >
+                           Bayar Rp 252.500
+                        </Text>
                      </Button>
                   </Grid>
-
-                  <Text fontSize={"sm"} fontWeight={"600"} mt={5}>
-                     Nominal lainnya:
-                  </Text>
-                  <Input
-                     type="number"
-                     max={10000000}
-                     fontSize={"sm"}
-                     placeholder="Masukkan nominal lainnya"
-                     borderColor={useColorModeValue("gray.300", "gray.500")}
-                     bg={useColorModeValue("none", "gray.700")}
-                     color={useColorModeValue("gray.900", "gray.100")}
-                     _hover={{
-                        borderColor: "red.300",
-                     }}
-                     mt={1}
-                     mb={2}
-                     onChange={(e) =>
-                        amount > 10000000
-                           ? setAmount(10000000)
-                           : setAmount(parseInt(e.target.value))
-                     }
-                     value={amount}
-                  />
                </Box>
             </Box>
          </Container>

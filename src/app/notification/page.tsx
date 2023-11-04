@@ -73,8 +73,8 @@ export default function Notification() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/ptBXYO1.png",
-                                 "https://imgur.com/Hf9ar9K.png"
+                                 "https://cdn.tokoqu.io/image/success.png",
+                                 "https://cdn.tokoqu.io/image/dark-success.png"
                               )}
                               alt="Rupiahku"
                               w={10}
@@ -86,7 +86,8 @@ export default function Notification() {
                                  Pembayaran Berhasil
                               </Text>
                               <Text fontSize={"xs"} color={"gray.500"}>
-                                 Transaksi [DEV-R54263846502SAT] Berhasil diverifikasi.
+                                 Transaksi [DEV-R54263846502SAT] Berhasil
+                                 diverifikasi.
                               </Text>
                               <Text
                                  fontSize={"xs"}
@@ -114,8 +115,8 @@ export default function Notification() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/m79n6PF.png",
-                                 "https://imgur.com/Q1BUJdr.png"
+                                 "https://cdn.tokoqu.io/image/cancel.png",
+                                 "https://cdn.tokoqu.io/image/dark-cancel.png"
                               )}
                               alt="Rupiahku"
                               w={10}
@@ -127,7 +128,8 @@ export default function Notification() {
                                  Pembayaran Gagal
                               </Text>
                               <Text fontSize={"xs"} color={"gray.500"}>
-                                 Transaksi [DEV-R54263846502SAT] Telah dibatalkan. Alasan: Dana ditolak.
+                                 Transaksi [DEV-R54263846502SAT] Telah
+                                 dibatalkan. Alasan: Dana ditolak.
                               </Text>
                               <Text
                                  fontSize={"xs"}
@@ -155,8 +157,8 @@ export default function Notification() {
                         <Flex alignItems={"center"}>
                            <Image
                               src={useColorModeValue(
-                                 "https://imgur.com/KoOSscl.png",
-                                 "https://imgur.com/nyGYTZA.png"
+                                 "https://cdn.tokoqu.io/image/pending.png",
+                                 "https://cdn.tokoqu.io/image/dark-pending.png"
                               )}
                               alt="Rupiahku"
                               w={10}
