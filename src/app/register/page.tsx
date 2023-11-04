@@ -10,72 +10,77 @@ export default function Register() {
          bgImage={"kuil.jpg"}
          bgSize={"110%"}
          alignItems={"center"}
-         p={10}
-      >  <Link href="/login">
-            <Box alignItems={"left"} paddingBottom={'30px'}>
-               <HiOutlineArrowNarrowLeft size={35}/>
-            </Box>
-         </Link>
+         p={5}
+         paddingTop={"70px"}
+      >
          <Box
             background={"white"}
-            h={"77vh"}
-            w={"50vh"}
+            h={"fit-content"}
+            w={"full"}
             margin={"auto"}
             alignItems={"center"}
             borderRadius={"2xl"}
-            paddingBottom={'50'}
+            paddingBottom={"50"}
          >
-            <Box height={"20%"} alignItems={"center"} pt={2} paddingBottom={'10'}>
+            <Box
+               height={"20%"}
+               alignItems={"center"}
+               pt={2}
+            >
                <Image
-                  src="rupiahku_logo.png"
+                  src="rupiahku_slogan.png"
                   alt="logo"
-                  width={45}
+                  width={200}
                   m={"auto"}
-                  pt={"3"}
+                  mt={3}
                />
-               <Text color={"red.500"} textAlign={"center"} margin={"auto"} pt={"5"}>
-                  Isi Data diri untuk melanjutkan
-               </Text>
             </Box>
-            <Box h={"20%"} w={"full"} pt={"10"}>
-               <Stack spacing={4} px={5} pt={"2"}>
-                  <Input 
-                  placeholder="Nama Lengkap"
-                  size="sm"
-                  borderRadius={"xl"}
-                  border="1px"
-                  borderColor="red.500"
-                  _hover={{ 
-                     'color': 'red.400'
-                  }}
+            <Box h={"fit-content"} w={"full"} pt={7}>
+               <Stack spacing={4} px={5}>
+                  <Input
+                     placeholder="Nama Lengkap"
+                     size="md"
+                     borderRadius={"2xl"}
+                     border="1px"
+                     borderColor="red.500"
+                     fontSize={"sm"}
+                     _hover={{
+                        color: "red.400",
+                     }}
                   />
-                  <Input 
+                  <Input
                      placeholder="No. Handphone"
-                     size="sm"
-                     borderRadius={"xl"}
+                     size="md"
+                     borderRadius={"2xl"}
                      border="1px"
                      borderColor="red.500"
-                     _hover={{ 
-                        'color': 'red.400'
+                     fontSize={"sm"}
+                     _hover={{
+                        color: "red.400",
                      }}
                   />
-                  <Input 
+                  <Input
                      placeholder="Email"
-                     size="sm"
-                     borderRadius={"xl"}
+                     size="md"
+                     borderRadius={"2xl"}
                      border="1px"
                      borderColor="red.500"
-                     _hover={{ 
-                        'color': 'red.400'
+                     fontSize={"sm"}
+                     _hover={{
+                        color: "red.400",
                      }}
                   />
-                  <Select 
+                  <Select
                      placeholder="Jenis Kelamin"
-                     size="sm"
-                     borderRadius={"xl"}
+                     size="md"
+                     borderRadius={"2xl"}
                      border="1px"
                      borderColor="red.500"
                      color={"gray.500"}
+                     fontSize={"sm"}
+                     _hover={{
+                        color: "red.400",
+                     }}
                   >
                      <option value="option1">Laki-Laki</option>
                      <option value="option2">Perempuan</option>
@@ -83,43 +88,59 @@ export default function Register() {
                   <Input
                      placeholder="Password"
                      type="password"
-                     size="sm"
-                     borderRadius={"xl"}
+                     size="md"
+                     borderRadius={"2xl"}
                      border="1px"
                      borderColor="red.500"
+                     fontSize={"sm"}
                      _hover={{
-                        'color': 'red.400'
+                        color: "red.400",
                      }}
                   />
                   <Input
                      placeholder="Konfirmasi Password"
                      type="password"
-                     size="sm"
-                     borderRadius={"xl"}
+                     size="md"
+                     borderRadius={"2xl"}
                      border="1px"
                      borderColor="red.500"
+                     fontSize={"sm"}
                      _hover={{
-                        'color': 'red.400'
+                        color: "red.400",
                      }}
                   />
                   <Link href="/login">
                      <Button
-                        boxShadow='md'
-                        size={"sm"}
-                        width={"70%"}
+                        boxShadow="md"
+                        size={"md"}
+                        width={"100%"}
                         type="submit"
                         bg={"red.500"}
                         color={"white"}
                         borderRadius={"2xl"}
-                        margin={"auto"}
-                        marginLeft={"37px"}
+                        mt={3}
+                        fontSize={"sm"}
                         _hover={{
-                           bg: "red.400"
+                           bg: "red.400",
                         }}
                      >
                         Buat Akun Baru
                      </Button>
                   </Link>
+                  <Text fontSize={"sm"} textAlign={"center"} color={"gray.700"}>
+                     Sudah punya akun?{" "}
+                     <Link href="/login">
+                        <Text
+                           as={"span"}
+                           color={"red.500"}
+                           _hover={{
+                              color: "red.400",
+                           }}
+                        >
+                           Masuk
+                        </Text>
+                     </Link>
+                  </Text>
                </Stack>
             </Box>
          </Box>
