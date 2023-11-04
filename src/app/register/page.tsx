@@ -8,10 +8,11 @@ export default function Register() {
          width={"sm"}
          minH={"100vh"}
          bgImage={"kuil.jpg"}
-         bgSize={"110%"}
          alignItems={"center"}
          p={5}
          paddingTop={"70px"}
+         backgroundSize={"cover"}
+         backgroundPosition={"center"}
       >
          <Box
             background={"white"}
@@ -22,11 +23,7 @@ export default function Register() {
             borderRadius={"2xl"}
             paddingBottom={"50"}
          >
-            <Box
-               height={"20%"}
-               alignItems={"center"}
-               pt={2}
-            >
+            <Box height={"20%"} alignItems={"center"} pt={2}>
                <Image
                   src="rupiahku_slogan.png"
                   alt="logo"

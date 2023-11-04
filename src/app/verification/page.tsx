@@ -7,10 +7,11 @@ export default function Verification() {
          width={"sm"}
          minH={"100vh"}
          bgImage={"kuil.jpg"}
-         bgSize={"110%"}
          alignItems={"center"}
          p={5}
          paddingTop={"120px"}
+         backgroundSize={"cover"}
+         backgroundPosition={"center"}
       >
          <Box
             background={"white"}
