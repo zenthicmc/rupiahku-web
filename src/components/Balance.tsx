@@ -6,7 +6,7 @@ import {
    useColorModeValue,
 } from "@chakra-ui/react";
 
-const Balance = () => {
+const Balance = (props: any) => {
    return (
       <Box
          pos={"absolute"}
@@ -31,7 +31,7 @@ const Balance = () => {
                <Flex alignItems={"center"}>
                   <Text fontSize={"2xl"}>Rp</Text>
                   <Text fontSize={"2xl"} fontWeight={"bold"} ms={1}>
-                     50.000.000
+                     {props.saldo.toLocaleString("id-ID")}
                   </Text>
                </Flex>
             </Box>

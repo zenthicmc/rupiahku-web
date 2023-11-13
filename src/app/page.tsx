@@ -19,8 +19,27 @@ import OtherTransaction from "@/components/OtherTransaction";
 import ProfileName from "@/components/ProfileName";
 import Balance from "@/components/Balance";
 import HomeTransactions from "@/components/HomeTransactions";
+import { ApiGet } from "@/utils/api";
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import axios from "axios";
 
 export default function Home() {
+   const [cookies, setCookie] = useCookies(["token"]);
+   const [profile, setProfile] = useState({
+      name: '',
+      saldo: '',
+   });
+
+   useEffect(() => {
+      async function getData() {
+         const response = await ApiGet("/api/user/getprofile", cookies.token);
+         setProfile(response.data.user);
+      }
+
+      getData();
+   }, [])
+
    return (
       <main>
          <Container
@@ -41,10 +60,10 @@ export default function Home() {
                />
 
                {/* Profile Name */}
-               <ProfileName />
+               <ProfileName name={profile.name} />
 
                {/* Balance */}
-               <Balance />
+               <Balance saldo={profile.saldo} />
             </Box>
 
             <Container w={"90%"} margin={"auto"} p={0} py={1}>

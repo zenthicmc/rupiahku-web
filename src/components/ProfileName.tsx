@@ -4,7 +4,7 @@ import {
    Image,
 } from "@chakra-ui/react";
 
-const ProfileName = () => {
+const ProfileName = (props: any) => {
    return (
       <Flex
          justifyContent={"start"}
@@ -31,7 +31,7 @@ const ProfileName = () => {
             ms={1}
             textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
          >
-            Jagad Raya R
+            {props.name}
          </Text>
       </Flex>
    );
