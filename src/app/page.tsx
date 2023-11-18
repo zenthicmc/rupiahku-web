@@ -22,7 +22,6 @@ import HomeTransactions from "@/components/HomeTransactions";
 import { ApiGet } from "@/utils/api";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-import axios from "axios";
 
 export default function Home() {
    const [cookies, setCookie] = useCookies(["token"]);
@@ -30,11 +29,13 @@ export default function Home() {
       name: '',
       saldo: '',
    });
+   const [transactions, setTransactions] = useState([]);
 
    useEffect(() => {
       async function getData() {
          const response = await ApiGet("/api/user/getprofile", cookies.token);
          setProfile(response.data.user);
+         setTransactions(response.data.transactions);
       }
 
       getData();
@@ -126,7 +127,7 @@ export default function Home() {
                </Flex>
 
                {/* Transaction List */}
-               <HomeTransactions />
+               <HomeTransactions transactions={transactions} />
             </Container>
          </Container>
          <BottomNav />
