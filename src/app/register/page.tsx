@@ -140,6 +140,8 @@ export default function Register() {
                         border="1px"
                         borderColor="red.500"
                         fontSize={"md"}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         _hover={{
                            borderColor: "red.500",
                         }}
@@ -171,6 +173,8 @@ export default function Register() {
                            borderRadius={"2xl"}
                            borderColor="red.500"
                            fontSize={"md"}
+                           color={"gray.800"}
+                           _placeholder={{ color: "gray.800" }}
                            required
                            _hover={{
                               borderColor: "red.500",
@@ -190,6 +194,8 @@ export default function Register() {
                         borderRadius={"2xl"}
                         border="1px"
                         borderColor="red.500"
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         fontSize={"md"}
                         _hover={{
                            borderColor: "red.500",
@@ -208,6 +214,8 @@ export default function Register() {
                         border="1px"
                         borderColor="red.500"
                         fontSize={"md"}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         _hover={{
                            borderColor: "red.500",
                         }}
@@ -229,6 +237,8 @@ export default function Register() {
                         border="1px"
                         borderColor="red.500"
                         fontSize={"md"}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         _hover={{
                            borderColor: "red.500",
                         }}
@@ -247,6 +257,8 @@ export default function Register() {
                         border="1px"
                         borderColor="red.500"
                         fontSize={"md"}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         _hover={{
                            borderColor: "red.500",
                         }}

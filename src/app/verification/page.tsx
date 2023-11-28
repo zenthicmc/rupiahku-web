@@ -96,6 +96,8 @@ export default function Verification() {
                         borderColor="red.500"
                         borderRadius={"2xl"}
                         height={"50px"}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         _hover={{
                            borderColor: "red.500",
                         }}
@@ -109,6 +111,8 @@ export default function Verification() {
                         borderColor="red.500"
                         borderRadius={"2xl"}
                         height={"50px"}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         _hover={{
                            borderColor: "red.500",
                         }}
@@ -122,6 +126,8 @@ export default function Verification() {
                         borderColor="red.500"
                         borderRadius={"2xl"}
                         height={"50px"}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         _hover={{
                            borderColor: "red.500",
                         }}
@@ -135,6 +141,8 @@ export default function Verification() {
                         borderColor="red.500"
                         borderRadius={"2xl"}
                         height={"50px"}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         _hover={{
                            borderColor: "red.500",
                         }}
@@ -148,6 +156,8 @@ export default function Verification() {
                         borderColor="red.500"
                         borderRadius={"2xl"}
                         height={"50px"}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         _hover={{
                            borderColor: "red.500",
                         }}
@@ -161,6 +171,8 @@ export default function Verification() {
                         borderColor="red.500"
                         borderRadius={"2xl"}
                         height={"50px"}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         _hover={{
                            borderColor: "red.500",
                         }}
@@ -189,7 +201,13 @@ export default function Verification() {
                   Verifikasi
                </Button>
             </form>
-            <Text fontSize="xs" textAlign={"center"} mt={2}>
+            <Text
+               fontSize="xs"
+               textAlign={"center"}
+               mt={2}
+               color={"gray.800"}
+               _placeholder={{ color: "gray.800" }}
+            >
                *Kami mengirimkan kode verifikasi ke nomor anda
             </Text>
          </Box>
