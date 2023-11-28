@@ -46,6 +46,7 @@ export default function Profile() {
    const [profile, setProfile] = useState({
       name: "",
       nohp: "",
+      image: "",
       createdAt: "",
    });
 
@@ -83,17 +84,17 @@ export default function Profile() {
                   alignItems={"center"}
                   w={"90%"}
                   pos={"absolute"}
-                  top={"4"}
+                  top={"6"}
                   left={"0"}
                   right={"0"}
                   margin={"auto"}
                   flexDirection={"column"}
                >
                   <Image
-                     src="/man.png"
+                     src={profile.image}
                      alt="Segun Adebayo"
-                     w={"5rem"}
-                     h={"5rem"}
+                     w={"4rem"}
+                     h={"4rem"}
                      borderRadius={"full"}
                   />
 
