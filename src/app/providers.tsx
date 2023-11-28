@@ -6,7 +6,12 @@ import { CookiesProvider } from "react-cookie";
 
 export function Providers({ children }: { children: React.ReactNode }) {
    return (
-      <CookiesProvider defaultSetOptions={{ path: "/", expires: new Date(Date.now() + 604800000) }}>
+      <CookiesProvider
+         defaultSetOptions={{
+            path: "/",
+            expires: new Date(Date.now() + 31100000000), // expire 1 year
+         }}
+      >
          <CacheProvider>
             <ChakraProvider>{children}</ChakraProvider>
          </CacheProvider>
