@@ -28,14 +28,18 @@ export default function Home() {
    const [profile, setProfile] = useState({
       name: '',
       saldo: '',
+      image: '',
    });
    const [transactions, setTransactions] = useState([]);
+   const [loading, setLoading] = useState(true);
 
    useEffect(() => {
+      setLoading(true);
       async function getData() {
          const response = await ApiGet("/api/user/getprofile", cookies.token);
          setProfile(response.data.user);
          setTransactions(response.data.transactions);
+         setLoading(false);
       }
 
       getData();
@@ -61,7 +65,7 @@ export default function Home() {
                />
 
                {/* Profile Name */}
-               <ProfileName name={profile.name} />
+               <ProfileName name={profile.name} image={profile.image} />
 
                {/* Balance */}
                <Balance saldo={profile.saldo} />
@@ -127,7 +131,10 @@ export default function Home() {
                </Flex>
 
                {/* Transaction List */}
-               <HomeTransactions transactions={transactions} />
+               <HomeTransactions
+                  transactions={transactions}
+                  isLoading={loading}
+               />
             </Container>
          </Container>
          <BottomNav />

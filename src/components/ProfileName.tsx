@@ -21,10 +21,10 @@ const ProfileName = (props: any) => {
                margin={"auto"}
             >
                <Image
-                  src="/man.png"
+                  src={props.image}
                   alt="Segun Adebayo"
-                  w={14}
-                  h={14}
+                  w={12}
+                  h={12}
                   borderRadius={"full"}
                />
 
@@ -32,7 +32,7 @@ const ProfileName = (props: any) => {
                   fontSize={"lg"}
                   fontWeight={"bolder"}
                   color={"gray.900"}
-                  ms={1}
+                  ms={2}
                   textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
                >
                   {props.name}

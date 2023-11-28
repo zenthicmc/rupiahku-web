@@ -21,11 +21,14 @@ import { useCookies } from "react-cookie";
 export default function History() {
    const [transactions, setTransactions] = useState([]);
    const [cookies, setCookie] = useCookies(["token"]);
+   const [loading, setLoading] = useState(true);
 
    useEffect(() => {
+      setLoading(true);
       async function getData() {
          const response = await ApiGet("/api/transaction", cookies.token);
          setTransactions(response.data);
+         setLoading(false);
       }
 
       getData();
@@ -82,15 +85,83 @@ export default function History() {
                   flexDirection={"column"}
                   gap={2}
                >
-                  {transactions.length > 0 ? (
-                     <>
-                        {transactions.map((transaction, i) => (
+                  {loading == false ? (
+                     transactions.length > 0 ? (
+                        <>
+                           {transactions.map((transaction, i) => (
+                              <Card
+                                 w={"100%"}
+                                 p={4}
+                                 borderRadius={"xl"}
+                                 shadow={"md"}
+                                 key={i}
+                              >
+                                 <Flex
+                                    justifyContent={"space-between"}
+                                    alignItems={"center"}
+                                 >
+                                    <Flex alignItems={"center"}>
+                                       <Image
+                                          src={useColorModeValue(
+                                             transaction.icon,
+                                             transaction.icon_dark
+                                          )}
+                                          alt="Rupiahku"
+                                          w={10}
+                                          h={10}
+                                          borderRadius={"full"}
+                                       />
+                                       <Box ms={3}>
+                                          <Text
+                                             fontSize={"sm"}
+                                             fontWeight={"bold"}
+                                          >
+                                             {capitalize(transaction.type)}
+                                          </Text>
+                                          <Text
+                                             fontSize={"xs"}
+                                             color={"gray.500"}
+                                             fontWeight={"300"}
+                                          >
+                                             {formatDate(transaction.createdAt)}
+                                          </Text>
+                                       </Box>
+                                    </Flex>
+                                    <Box ms={3} textAlign={"end"}>
+                                       <Text
+                                          fontSize={"sm"}
+                                          fontWeight={"bold"}
+                                       >
+                                          Rp{" "}
+                                          {transaction.amount.toLocaleString(
+                                             "id-ID"
+                                          )}
+                                       </Text>
+                                       <Text
+                                          fontSize={"xs"}
+                                          color={
+                                             transaction.status === "Success"
+                                                ? "green.400"
+                                                : transaction.status ===
+                                                  "Pending"
+                                                ? "yellow.400"
+                                                : "red.400"
+                                          }
+                                       >
+                                          {transaction.status}
+                                       </Text>
+                                    </Box>
+                                 </Flex>
+                              </Card>
+                           ))}
+                        </>
+                     ) : (
+                        <>
                            <Card
                               w={"100%"}
                               p={4}
                               borderRadius={"xl"}
                               shadow={"md"}
-                              key={i}
                            >
                               <Flex
                                  justifyContent={"space-between"}
@@ -98,10 +169,7 @@ export default function History() {
                               >
                                  <Flex alignItems={"center"}>
                                     <Image
-                                       src={useColorModeValue(
-                                          transaction.icon,
-                                          transaction.icon_dark
-                                       )}
+                                       src={"/question.png"}
                                        alt="Rupiahku"
                                        w={10}
                                        h={10}
@@ -112,41 +180,21 @@ export default function History() {
                                           fontSize={"sm"}
                                           fontWeight={"bold"}
                                        >
-                                          {capitalize(transaction.type)}
+                                          Transaksi Tidak Ditemukan
                                        </Text>
                                        <Text
                                           fontSize={"xs"}
                                           color={"gray.500"}
                                           fontWeight={"300"}
                                        >
-                                          {formatDate(transaction.createdAt)}
+                                          Ayo mulai transaksi pertama anda!
                                        </Text>
                                     </Box>
                                  </Flex>
-                                 <Box ms={3} textAlign={"end"}>
-                                    <Text fontSize={"sm"} fontWeight={"bold"}>
-                                       Rp{" "}
-                                       {transaction.amount.toLocaleString(
-                                          "id-ID"
-                                       )}
-                                    </Text>
-                                    <Text
-                                       fontSize={"xs"}
-                                       color={
-                                          transaction.status === "Success"
-                                             ? "green.400"
-                                             : transaction.status === "Pending"
-                                             ? "yellow.400"
-                                             : "red.400"
-                                       }
-                                    >
-                                       {transaction.status}
-                                    </Text>
-                                 </Box>
                               </Flex>
                            </Card>
-                        ))}
-                     </>
+                        </>
+                     )
                   ) : (
                      <>
                         {[...Array(3)].map((_, i) => (
