@@ -11,6 +11,8 @@ import {
    useToast,
    InputGroup,
    InputLeftAddon,
+   useColorModeValue,
+   useColorMode,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { GoDotFill } from "react-icons/go";
@@ -116,6 +118,8 @@ export default function Login() {
                            fontSize={"md"}
                            value={noHp}
                            onChange={(e) => setNoHp(e.target.value)}
+                           color={"gray.800"}
+                           _placeholder={{ color: "gray.800" }}
                            required
                            _hover={{
                               borderColor: "red.500",
@@ -134,6 +138,8 @@ export default function Login() {
                         fontSize={"md"}
                         value={Password}
                         onChange={(e) => setPassword(e.target.value)}
+                        color={"gray.800"}
+                        _placeholder={{ color: "gray.800" }}
                         required
                         _hover={{
                            borderColor: "red.500",
