@@ -19,8 +19,32 @@ import OtherTransaction from "@/components/OtherTransaction";
 import ProfileName from "@/components/ProfileName";
 import Balance from "@/components/Balance";
 import HomeTransactions from "@/components/HomeTransactions";
+import { ApiGet } from "@/utils/api";
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 
 export default function Home() {
+   const [cookies, setCookie] = useCookies(["token"]);
+   const [profile, setProfile] = useState({
+      name: '',
+      saldo: '',
+      image: '',
+   });
+   const [transactions, setTransactions] = useState([]);
+   const [loading, setLoading] = useState(true);
+
+   useEffect(() => {
+      setLoading(true);
+      async function getData() {
+         const response = await ApiGet("/api/user/getprofile", cookies.token);
+         setProfile(response.data.user);
+         setTransactions(response.data.transactions);
+         setLoading(false);
+      }
+
+      getData();
+   }, [])
+
    return (
       <main>
          <Container
@@ -41,10 +65,10 @@ export default function Home() {
                />
 
                {/* Profile Name */}
-               <ProfileName />
+               <ProfileName name={profile.name} image={profile.image} />
 
                {/* Balance */}
-               <Balance />
+               <Balance saldo={profile.saldo} />
             </Box>
 
             <Container w={"90%"} margin={"auto"} p={0} py={1}>
@@ -107,7 +131,10 @@ export default function Home() {
                </Flex>
 
                {/* Transaction List */}
-               <HomeTransactions />
+               <HomeTransactions
+                  transactions={transactions}
+                  isLoading={loading}
+               />
             </Container>
          </Container>
          <BottomNav />

@@ -4,9 +4,12 @@ import {
    Text,
    Image,
    useColorModeValue,
+   Skeleton,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
-const Balance = () => {
+const Balance = (props: any) => {
+
    return (
       <Box
          pos={"absolute"}
@@ -30,9 +33,13 @@ const Balance = () => {
                <Text fontSize={"sm"}>Saldo Rekening:</Text>
                <Flex alignItems={"center"}>
                   <Text fontSize={"2xl"}>Rp</Text>
-                  <Text fontSize={"2xl"} fontWeight={"bold"} ms={1}>
-                     50.000.000
-                  </Text>
+                  {props.saldo.toLocaleString("id-ID") ? (
+                     <Text fontSize={"2xl"} fontWeight={"bold"} ms={1}>
+                        {props.saldo.toLocaleString("id-ID")}
+                     </Text>
+                  ) : (
+                     <Skeleton h={7} ms={2} w={'180px'} />
+                  )}
                </Flex>
             </Box>
             <Box>

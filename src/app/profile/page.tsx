@@ -19,6 +19,8 @@ import {
    Alert,
    AlertIcon,
    AlertDescription,
+   Skeleton,
+   SkeletonCircle,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BottomNav from "@/components/BottomNav";
@@ -31,10 +33,30 @@ import { FiLogOut } from "react-icons/fi";
 import QRCode from "react-qr-code";
 import { useDisclosure } from "@chakra-ui/hooks";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import { ApiGet } from "@/utils/api";
+import { formatDate } from "@/utils/Date";
+import { capitalize } from "@/utils/capitalize";
 
 export default function Profile() {
    const { toggleColorMode } = useColorMode();
    const { isOpen, onOpen, onClose } = useDisclosure();
+   const [cookies, setCookie] = useCookies(["token"]);
+   const [profile, setProfile] = useState({
+      name: "",
+      nohp: "",
+      createdAt: "",
+   });
+
+   useEffect(() => {
+      async function getData() {
+         const response = await ApiGet("/api/user/getprofile", cookies.token);
+         setProfile(response.data.user);
+      }
+
+      getData();
+   }, []);
 
    return (
       <main>
@@ -75,22 +97,32 @@ export default function Profile() {
                      borderRadius={"full"}
                   />
 
-                  <Text
-                     fontSize={"lg"}
-                     fontWeight={"bolder"}
-                     color={"gray.900"}
-                     textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
-                  >
-                     Jagad Raya R
-                  </Text>
-                  <Text
-                     fontSize={"sm"}
-                     fontWeight={"400"}
-                     color={"gray.900"}
-                     textShadow={"0px 0px 5px rgba(0, 0, 0, 0.2)"}
-                  >
-                     085155347714
-                  </Text>
+                  {profile.name ? (
+                     <Text
+                        fontSize={"lg"}
+                        fontWeight={"bolder"}
+                        color={"gray.900"}
+                        textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
+                     >
+                        {capitalize(profile.name)}
+                     </Text>
+                  ) : (
+                     <Skeleton w={"50%"} h={"4"} mt={1} />
+                  )}
+
+                  {profile.nohp ? (
+                     <Text
+                        fontSize={"sm"}
+                        fontWeight={"400"}
+                        color={"gray.900"}
+                        textShadow={"0px 0px 5px rgba(0, 0, 0, 0.2)"}
+                     >
+                        {profile.nohp}
+                     </Text>
+                  ) : (
+                     <Skeleton w={"30%"} h={"4"} mt={1} />
+                  )}
+
                   <Text
                      fontSize={"xs"}
                      fontWeight={"300"}
@@ -98,7 +130,9 @@ export default function Profile() {
                      textShadow={"0px 0px 5px rgba(0, 0, 0, 0.2)"}
                      mt={1}
                   >
-                     Bergabung sejak 10 Januari 2021
+                     {profile.createdAt
+                        ? `Bergabung sejak ${formatDate(profile.createdAt)}`
+                        : "Bergabung sejak ..."}
                   </Text>
                </Flex>
             </Box>
