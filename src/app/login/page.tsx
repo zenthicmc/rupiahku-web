@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
    Box,
@@ -9,6 +9,8 @@ import {
    Stack,
    HStack,
    useToast,
+   InputGroup,
+   InputLeftAddon,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { GoDotFill } from "react-icons/go";
@@ -21,19 +23,22 @@ export default function Login() {
    const [noHp, setNoHp] = useState("");
    const [Password, setPassword] = useState("");
    const [cookies, setCookie] = useCookies(["token"]);
-   const [loading, setLoading] = useState(false)
+   const [loading, setLoading] = useState(false);
    const toast = useToast();
    const router = useRouter();
 
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
       setLoading(true);
-      const response = await axios.post("https://api.rupiahku.pro/api/auth/login", {
-         nohp: noHp,
-         password: Password,
-      });
+      const response = await axios.post(
+         "https://api.rupiahku.pro/api/auth/login",
+         {
+            nohp: '+62' + noHp,
+            password: Password,
+         }
+      );
       const data = response.data;
-      if(data.success == false) {
+      if (data.success == false) {
          toast({
             title: data.message,
             position: "bottom",
@@ -43,7 +48,7 @@ export default function Login() {
          setLoading(false);
          return false;
       }
-      
+
       setCookie("token", data.data.token);
       toast({
          title: data.message,
@@ -82,27 +87,42 @@ export default function Login() {
                   alt="logo"
                   width={200}
                   m={"auto"}
-                  mt={3}
+                  my={5}
                />
             </Box>
-            <Box h={"20%"} w={"full"} pt={8}>
+            <Box h={"20%"} w={"full"}>
                <form onSubmit={handleSubmit}>
                   <Stack spacing={3} px={5}>
-                     <Input
-                        name="nohp"
-                        placeholder="No Handphone"
-                        size="md"
-                        borderRadius={"2xl"}
-                        border="1px"
-                        borderColor="red.500"
-                        fontSize={"sm"}
-                        value={noHp}
-                        onChange={(e) => setNoHp(e.target.value)}
-                        required
-                        _hover={{
-                           color: "red.400",
-                        }}
-                     />
+                     <InputGroup>
+                        <InputLeftAddon
+                           children="+62"
+                           borderLeftRadius={"2xl"}
+                           borderColor="red.500"
+                           borderEnd={"none"}
+                           bg={"white"}
+                           pe={1}
+                           ps={3}
+                           fontSize={"md"}
+                           color={"gray.800"}
+                        />
+                        <Input
+                           type="number"
+                           name="nohp"
+                           size="md"
+                           ps={1}
+                           borderStart={"none"}
+                           borderRadius={"2xl"}
+                           borderColor="red.500"
+                           fontSize={"md"}
+                           value={noHp}
+                           onChange={(e) => setNoHp(e.target.value)}
+                           required
+                           _hover={{
+                              borderColor: "red.500",
+                           }}
+                        />
+                     </InputGroup>
+
                      <Input
                         name="password"
                         placeholder="Password"
@@ -111,12 +131,12 @@ export default function Login() {
                         borderRadius={"2xl"}
                         border="1px"
                         borderColor="red.500"
-                        fontSize={"sm"}
+                        fontSize={"md"}
                         value={Password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                         _hover={{
-                           color: "red.400",
+                           borderColor: "red.500",
                         }}
                      />
                      <Button
@@ -129,7 +149,7 @@ export default function Login() {
                         borderRadius={"2xl"}
                         width={"100%"}
                         mt={3}
-                        fontSize={"sm"}
+                        fontSize={"md"}
                         _hover={{
                            bg: "red.400",
                         }}
@@ -153,7 +173,7 @@ export default function Login() {
                            border={"1px"}
                            width={"100%"}
                            borderColor={"red.300"}
-                           fontSize={"sm"}
+                           fontSize={"md"}
                            _hover={{
                               bg: "gray.50",
                            }}
