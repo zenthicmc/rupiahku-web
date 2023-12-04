@@ -13,8 +13,8 @@ import {
 import {
    BiSolidJoystick,
    BiSolidCoupon,
-   BiMoneyWithdraw,
 } from "react-icons/bi";
+import { RiBillFill } from "react-icons/ri";
 import { IoIosWallet } from "react-icons/io";
 import { FiMoreHorizontal } from "react-icons/fi";
 import Link from "next/link";
@@ -92,13 +92,13 @@ const OtherTransaction = () => {
          </VStack>
          <VStack w={"fit-content"}>
             <Box bg={"purple.300"} p={4} borderRadius={"full"}>
-               <BiMoneyWithdraw
+               <RiBillFill
                   color={useColorModeValue("white", "#1A202C")}
                   size={25}
                />
             </Box>
             <Text fontSize={"xs"} fontWeight={"600"}>
-               Tarik Tunai
+               Tagihan
             </Text>
          </VStack>
          <VStack w={"fit-content"}>

@@ -19,15 +19,70 @@ import {
    AccordionButton,
    AccordionIcon,
    AccordionPanel,
+   useToast,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";
-import { useState } from "react";
-import Link from "next/link";
-import { IoIosCopy } from "react-icons/io";
+import { useState, useEffect } from "react";
+import { MdContentCopy } from "react-icons/md";
+import { useSearchParams } from "next/navigation";
+import { ApiGet } from "@/utils/api";
+import { useCookies } from "react-cookie";
+import { sanitize } from "@/utils/sanitize";
 
 export default function Bank() {
-   const [amount, setAmount] = useState(0);
+   const searchParams = useSearchParams();
+   const getID = searchParams.get("id");
+   const [cookies, setCookie] = useCookies(["token"]);
+   const [loading, setLoading] = useState(true);
+   const [transaction, setTransaction] = useState({
+      payment_method: "",
+      payment_name: "",
+      icon_url: "",
+      pay_code: "",
+      amount: "",
+      expired_time: "",
+      status: "",
+   });
+   const [instructions, setInstructions] = useState([]);
+   const [method, setMethod] = useState([]);
+   const [refreshAt, setRefreshAt] = useState(new Date().valueOf());
+   const toast = useToast();
+
+   useEffect(() => {
+      setLoading(true);
+      async function getData() {
+         const response = await ApiGet(
+            `/api/transaction/${getID}`,
+            cookies.token
+         );
+         setTransaction(response.data);
+         setInstructions(response.data.instructions);
+         setLoading(false);
+      }
+
+      getData();
+   }, [refreshAt]);
+
+   useEffect(() => {
+      async function getData() {
+         const response = await ApiGet("/api/payment", cookies.token);
+         setMethod(response.data);
+      }
+
+      getData();
+   }, []);
+
+   const handleCopy = (value: string) => {
+      navigator.clipboard.writeText(value);
+      toast({
+         title: "Berhasil menyalin kode",
+         status: "success",
+         duration: 2000,
+         isClosable: true,
+         position: "bottom",
+      });
+   }
 
    return (
       <main>
@@ -100,7 +155,16 @@ export default function Bank() {
                               Bayar Sebelum:
                            </AlertTitle>
                            <AlertDescription>
-                              12 Juli 2021 23:59
+                              {/* convert timestamp to date */}
+                              {new Date(
+                                 transaction.expired_time
+                              ).toLocaleDateString("en-US", {
+                                 year: "numeric",
+                                 month: "numeric",
+                                 day: "numeric",
+                                 hour: "numeric",
+                                 minute: "numeric",
+                              })}
                            </AlertDescription>
                         </Alert>
 
@@ -108,13 +172,18 @@ export default function Bank() {
                            Transfer ke Bank:
                         </Text>
                         <Flex alignItems={"center"} mt={1}>
-                           <Image
-                              src="https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/2560px-BNI_logo.svg.png"
-                              alt="bni"
-                              w={10}
-                           />
+                           {method.map((method, i) =>
+                              method.code == transaction.payment_method ? (
+                                 <Image
+                                    key={i}
+                                    src={method.icon_url}
+                                    alt={method.code}
+                                    w={10}
+                                 />
+                              ) : null
+                           )}
                            <Text fontSize={"sm"} fontWeight={"300"} ml={2}>
-                              BNI Virtual Account
+                              {transaction.payment_name}
                            </Text>
                         </Flex>
 
@@ -123,17 +192,20 @@ export default function Bank() {
                         </Text>
                         <Flex alignItems={"center"} mt={1}>
                            <Text fontSize={"sm"} fontWeight={"300"} me={2}>
-                              5271 9100 0000 0000
+                              {transaction.pay_code}
                            </Text>
 
-                           <IoIosCopy size={20} />
+                           <MdContentCopy
+                              size={15}
+                              onClick={() => handleCopy(transaction.pay_code)}
+                           />
                         </Flex>
 
                         <Text fontSize={"sm"} fontWeight={"600"} mt={2}>
                            Jumlah Tagihan:
                         </Text>
                         <Text fontSize={"sm"} fontWeight={"300"} me={2}>
-                           Rp 1.000.000
+                           Rp {transaction.amount.toLocaleString()}
                         </Text>
 
                         <Text fontSize={"sm"} fontWeight={"600"} mt={2}>
@@ -143,9 +215,13 @@ export default function Bank() {
                            fontSize={"sm"}
                            fontWeight={"400"}
                            me={2}
-                           color={"red.400"}
+                           color={
+                              transaction.status == "UNPAID"
+                                 ? "red.300"
+                                 : "green.300"
+                           }
                         >
-                           UNPAID
+                           {transaction.status}
                         </Text>
                      </AccordionPanel>
                   </AccordionItem>
@@ -175,25 +251,26 @@ export default function Bank() {
                         <AccordionIcon />
                      </AccordionButton>
                      <AccordionPanel p={0} mt={2}>
-                        <Text
-                           fontSize={"xs"}
-                           fontWeight={"300"}
-                           color={useColorModeValue("gray.500", "gray.400")}
-                        >
-                           1. Buka aplikasi m-banking.
-                           <br />
-                           2. Masukkan username dan password.
-                           <br />
-                           3. Pilih menu Bayar &gt; One Time &gt; Multipayment.
-                           <br />
-                           4. Pilih Penyedia Jasa yang digunakan &gt; Lanjut.
-                           <br />
-                           5. Masukkan nomor Virtual account &gt; Lanjut.
-                           <br />
-                           6. Layar akan menampilkan konfirmasi. ...
-                           <br />
-                           7. Selesai.
-                        </Text>
+                        <ul>
+                           {instructions.map(
+                              (instruction, i) =>
+                                 instruction.title == "M-Banking" &&
+                                 instruction.steps.map((step, i) => (
+                                    <li key={i}>
+                                       <Text
+                                          fontSize={"xs"}
+                                          fontWeight={"300"}
+                                          color={useColorModeValue(
+                                             "gray.500",
+                                             "gray.400"
+                                          )}
+                                       >
+                                          {i + 1}. {sanitize(step)}
+                                       </Text>
+                                    </li>
+                                 ))
+                           )}
+                        </ul>
                      </AccordionPanel>
                   </AccordionItem>
                </Box>
@@ -212,6 +289,8 @@ export default function Bank() {
                borderColor={useColorModeValue("gray.300", "gray.700")}
             />
             <Button
+               isLoading={loading}
+               onClick={() => setRefreshAt(new Date().valueOf())}
                w={"100%"}
                variant={"solid"}
                bg={useColorModeValue("red.500", "red.400")}
