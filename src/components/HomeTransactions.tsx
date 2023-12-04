@@ -14,7 +14,6 @@ import { formatDate } from "@/utils/Date";
 const HomeTransactions = (props) => {
    const transactions = props.transactions;
    const loading = props.isLoading;
-   console.log(loading);
    return (
       <Flex
          justifyContent={"space-between"}
