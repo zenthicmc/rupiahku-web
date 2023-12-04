@@ -254,7 +254,7 @@ export default function Bank() {
                         <ul>
                            {instructions.map(
                               (instruction, i) =>
-                                 instruction.title == "M-Banking" &&
+                                 instruction.title == "Internet Banking" &&
                                  instruction.steps.map((step, i) => (
                                     <li key={i}>
                                        <Text
