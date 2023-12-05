@@ -90,13 +90,17 @@ export default function Profile() {
                   margin={"auto"}
                   flexDirection={"column"}
                >
-                  <Image
-                     src={profile.image}
-                     alt="Segun Adebayo"
-                     w={"4rem"}
-                     h={"4rem"}
-                     borderRadius={"full"}
-                  />
+                  {profile.image ? (
+                     <Image
+                        src={profile.image}
+                        alt="Segun Adebayo"
+                        w={"4rem"}
+                        h={"4rem"}
+                        borderRadius={"full"}
+                     />
+                  ) : (
+                     <SkeletonCircle size={"4rem"} />
+                  )}
 
                   {profile.name ? (
                      <Text

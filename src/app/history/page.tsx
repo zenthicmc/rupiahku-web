@@ -197,7 +197,7 @@ export default function History() {
                      )
                   ) : (
                      <>
-                        {[...Array(3)].map((_, i) => (
+                        {[...Array(8)].map((_, i) => (
                            <Card
                               w={"100%"}
                               p={4}
