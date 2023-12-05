@@ -80,7 +80,7 @@ export default function Bank() {
          status: "success",
          duration: 2000,
          isClosable: true,
-         position: "bottom",
+         position: "top",
       });
    }
 
@@ -91,8 +91,7 @@ export default function Bank() {
             background={useColorModeValue("#F6F8FB", "gray.800")}
             p={0}
             h={"fit-content"}
-            pb={20}
-            minH={"100vh"}
+            minH={"125vh"}
          >
             <Accordion
                as="section"
