@@ -9,12 +9,34 @@ import {
    Grid,
    VStack,
    Card,
-	useColorModeValue,
+   useColorModeValue,
+   SkeletonCircle,
+   Skeleton,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BottomNav from "@/components/BottomNav";
+import { ApiGet } from "@/utils/api";
+import { capitalize } from "@/utils/capitalize";
+import { formatDate } from "@/utils/Date";
+import { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
 
 export default function Notification() {
+   const [notifications, setNotifications] = useState([]);
+   const [cookies, setCookie] = useCookies(["token"]);
+   const [loading, setLoading] = useState(true);
+
+   useEffect(() => {
+      setLoading(true);
+      async function getData() {
+         const response = await ApiGet("/api/notification", cookies.token);
+         setNotifications(response.data);
+         setLoading(false);
+      }
+
+      getData();
+   }, []);
+
    return (
       <main>
          <Container
@@ -65,126 +87,72 @@ export default function Notification() {
                   mt={2}
                   flexDirection={"column"}
                >
-                  <Card w={"100%"} p={4} borderRadius={"xl"} shadow={"md"}>
-                     <Flex
-                        justifyContent={"space-between"}
-                        alignItems={"center"}
-                     >
-                        <Flex alignItems={"center"}>
-                           <Image
-                              src={useColorModeValue(
-                                 "https://cdn.tokoqu.io/image/success.png",
-                                 "https://cdn.tokoqu.io/image/dark-success.png"
-                              )}
-                              alt="Rupiahku"
-                              w={10}
-                              h={10}
-                              borderRadius={"full"}
-                           />
-                           <Box ms={3}>
-                              <Text fontSize={"sm"} fontWeight={"bold"}>
-                                 Pembayaran Berhasil
-                              </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
-                                 Transaksi [DEV-R54263846502SAT] Berhasil
-                                 diverifikasi.
-                              </Text>
-                              <Text
-                                 fontSize={"xs"}
-                                 color={"gray.500"}
-                                 fontWeight={"300"}
-                                 mt={1}
+                  {loading == false ? (
+                     notifications.map((notification) => (
+                        <Card w={"100%"} p={4} borderRadius={"xl"} shadow={"md"}>
+                           <Flex
+                              justifyContent={"space-between"}
+                              alignItems={"center"}
+                           >
+                              <Flex alignItems={"center"}>
+                                 <Image
+                                    src={useColorModeValue(
+                                       notification.icon,
+                                       notification.icon_dark
+                                    )}
+                                    alt="Rupiahku"
+                                    w={10}
+                                    h={10}
+                                    borderRadius={"full"}
+                                 />
+                                 <Box ms={3}>
+                                    <Text fontSize={"0.8rem"} fontWeight={"bold"}>
+                                       {capitalize(notification.title)}
+                                    </Text>
+                                    <Text fontSize={"0.7rem"} color={"gray.500"}>
+                                       {notification.desc}
+                                    </Text>
+                                    <Text
+                                       fontSize={"0.7rem"}
+                                       color={"gray.500"}
+                                       fontWeight={"300"}
+                                       mt={1}
+                                    >
+                                       {formatDate(notification.createdAt)}
+                                    </Text>
+                                 </Box>
+                              </Flex>
+                           </Flex>
+                        </Card>
+                     ))
+                  ) : (
+                     <>
+                        {[...Array(8)].map((_, i) => (
+                           <Card
+                              w={"100%"}
+                              p={4}
+                              borderRadius={"xl"}
+                              shadow={"md"}
+                              key={i}
+                              mb={2}
+                           >
+                              <Flex
+                                 justifyContent={"space-between"}
+                                 alignItems={"center"}
+                                 w={"100%"}
                               >
-                                 10 January 2023 | 12:00
-                              </Text>
-                           </Box>
-                        </Flex>
-                     </Flex>
-                  </Card>
-                  <Card
-                     w={"100%"}
-                     p={4}
-                     borderRadius={"xl"}
-                     shadow={"md"}
-                     mt={2}
-                  >
-                     <Flex
-                        justifyContent={"space-between"}
-                        alignItems={"center"}
-                     >
-                        <Flex alignItems={"center"}>
-                           <Image
-                              src={useColorModeValue(
-                                 "https://cdn.tokoqu.io/image/cancel.png",
-                                 "https://cdn.tokoqu.io/image/dark-cancel.png"
-                              )}
-                              alt="Rupiahku"
-                              w={10}
-                              h={10}
-                              borderRadius={"full"}
-                           />
-                           <Box ms={3}>
-                              <Text fontSize={"sm"} fontWeight={"bold"}>
-                                 Pembayaran Gagal
-                              </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
-                                 Transaksi [DEV-R54263846502SAT] Telah
-                                 dibatalkan. Alasan: Dana ditolak.
-                              </Text>
-                              <Text
-                                 fontSize={"xs"}
-                                 color={"gray.500"}
-                                 fontWeight={"300"}
-                                 mt={1}
-                              >
-                                 10 January 2023 | 12:00
-                              </Text>
-                           </Box>
-                        </Flex>
-                     </Flex>
-                  </Card>
-                  <Card
-                     w={"100%"}
-                     p={4}
-                     borderRadius={"xl"}
-                     shadow={"md"}
-                     mt={2}
-                  >
-                     <Flex
-                        justifyContent={"space-between"}
-                        alignItems={"center"}
-                     >
-                        <Flex alignItems={"center"}>
-                           <Image
-                              src={useColorModeValue(
-                                 "https://cdn.tokoqu.io/image/pending.png",
-                                 "https://cdn.tokoqu.io/image/dark-pending.png"
-                              )}
-                              alt="Rupiahku"
-                              w={10}
-                              h={10}
-                              borderRadius={"full"}
-                           />
-                           <Box ms={3}>
-                              <Text fontSize={"sm"} fontWeight={"bold"}>
-                                 Pembayaran Dalam Proses
-                              </Text>
-                              <Text fontSize={"xs"} color={"gray.500"}>
-                                 Transaksi [DEV-R54263846502SAT] Dalam proses.
-                                 Silahkan cek status secara berkala.
-                              </Text>
-                              <Text
-                                 fontSize={"xs"}
-                                 color={"gray.500"}
-                                 fontWeight={"300"}
-                                 mt={1}
-                              >
-                                 10 January 2023 | 12:00
-                              </Text>
-                           </Box>
-                        </Flex>
-                     </Flex>
-                  </Card>
+                                 <Flex alignItems={"center"}>
+                                    <SkeletonCircle size="10" />
+                                    <Box ms={3}>
+                                       <Skeleton h={4} w={"250px"} />
+                                       <Skeleton h={4} w={"250px"} mt={1} />
+                                    </Box>
+                                 </Flex>
+                              </Flex>
+                           </Card>
+                        ))}
+                     </>
+                  )}
                </Flex>
             </Container>
          </Container>

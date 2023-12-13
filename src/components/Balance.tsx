@@ -32,13 +32,15 @@ const Balance = (props: any) => {
             <Box>
                <Text fontSize={"sm"}>Saldo Rekening:</Text>
                <Flex alignItems={"center"}>
-                  <Text fontSize={"2xl"}>Rp</Text>
                   {props.saldo.toLocaleString("id-ID") ? (
-                     <Text fontSize={"2xl"} fontWeight={"bold"} ms={1}>
-                        {props.saldo.toLocaleString("id-ID")}
-                     </Text>
+                     <>
+                        <Text fontSize={"2xl"}>Rp</Text>
+                        <Text fontSize={"2xl"} fontWeight={"bold"} ms={1}>
+                           {props.saldo.toLocaleString("id-ID")}
+                        </Text>
+                     </>
                   ) : (
-                     <Skeleton h={7} ms={2} w={'180px'} />
+                     <Skeleton h={7} mt={1} w={"200px"} />
                   )}
                </Flex>
             </Box>
