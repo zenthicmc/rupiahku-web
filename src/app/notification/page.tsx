@@ -86,6 +86,7 @@ export default function Notification() {
                   alignItems={"center"}
                   mt={2}
                   flexDirection={"column"}
+                  gap={2}
                >
                   {loading == false ? (
                      notifications.map((notification) => (
