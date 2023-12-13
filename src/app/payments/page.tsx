@@ -52,7 +52,7 @@ export default function Payments() {
       setLoading(true);
       if (!payment.code && !payment.amount) {
          toast({
-            title: "Confirm password tidak sama",
+            title: "Payment method or amount are not selected",
             position: "bottom",
             status: "error",
             isClosable: true,
