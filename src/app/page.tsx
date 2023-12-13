@@ -92,18 +92,20 @@ export default function Home() {
                      </Button>
                   </Link>
 
-                  <Button
-                     leftIcon={<BsArrowLeftRight />}
-                     bg={"white"}
-                     color={"gray.900"}
-                     variant="elevated"
-                     shadow={"md"}
-                     borderRadius={"full"}
-                     fontSize={"sm"}
-                     px={10}
-                  >
-                     Transfer
-                  </Button>
+                  <Link href="/transfer">
+                     <Button
+                        leftIcon={<BsArrowLeftRight />}
+                        bg={"white"}
+                        color={"gray.900"}
+                        variant="elevated"
+                        shadow={"md"}
+                        borderRadius={"full"}
+                        fontSize={"sm"}
+                        px={10}
+                     >
+                        Transfer
+                     </Button>
+                  </Link>
                </Flex>
 
                {/* Other Transactions */}
