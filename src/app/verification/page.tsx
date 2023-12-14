@@ -208,7 +208,7 @@ export default function Verification() {
                color={"gray.800"}
                _placeholder={{ color: "gray.800" }}
             >
-               *Kami mengirimkan kode verifikasi ke nomor anda
+               *Kami mengirimkan kode verifikasi ke email anda
             </Text>
          </Box>
       </Container>
