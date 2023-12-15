@@ -17,7 +17,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 export default function Deposit() {
-   const [amount, setAmount] = useState( 0);
+   const [amount, setAmount] = useState(0);
 
    return (
       <main>
