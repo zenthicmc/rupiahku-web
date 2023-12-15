@@ -23,7 +23,7 @@ export default function Verification() {
       e.preventDefault();
       setLoading(true);
       const response = await axios.post(
-         "https://api.rupiahku.pro/api/auth/verify",
+         "https://backup-api.rupiahku.pro/api/auth/verify",
          {
             verificationPin:
                verif.code1 +
@@ -32,7 +32,7 @@ export default function Verification() {
                verif.code4 +
                verif.code5 +
                verif.code6,
-            nohp: '+62' + localStorage.getItem("nohp"),
+            nohp: "+62" + localStorage.getItem("nohp"),
          }
       );
       const data = response.data;

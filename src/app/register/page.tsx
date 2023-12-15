@@ -48,10 +48,10 @@ export default function Register() {
       }
 
       const response = await axios.post(
-         "https://api.rupiahku.pro/api/auth/register",
+         "https://backup-api.rupiahku.pro/api/auth/register",
          {
             name: data.name,
-            nohp: '+62' + data.nohp,
+            nohp: "+62" + data.nohp,
             email: data.email,
             kelamin: data.kelamin,
             password: data.password,
