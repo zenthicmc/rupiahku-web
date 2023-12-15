@@ -22,7 +22,7 @@ import Link from "next/link";
 const OtherTransaction = () => {
    return (
       <Grid templateColumns="repeat(4, 1fr)" gap={5} mt={5} ps={2}>
-         <Link href="/topup">
+         <Link href="/topup?type=listrik">
             <VStack w={"fit-content"}>
                <Box bg={"blue.300"} p={4} borderRadius={"full"}>
                   <BsFillLightningFill
@@ -35,72 +35,84 @@ const OtherTransaction = () => {
                </Text>
             </VStack>
          </Link>
-         <VStack w={"fit-content"}>
-            <Box bg={"green.300"} p={4} borderRadius={"full"}>
-               <BsFillPhoneFill
-                  color={useColorModeValue("white", "#1A202C")}
-                  size={25}
-               />
-            </Box>
-            <Text fontSize={"xs"} fontWeight={"600"}>
-               Pulsa
-            </Text>
-         </VStack>
-         <VStack w={"fit-content"}>
-            <Box bg={"red.300"} p={4} borderRadius={"full"}>
-               <BsGlobe
-                  color={useColorModeValue("white", "#1A202C")}
-                  size={25}
-               />
-            </Box>
-            <Text fontSize={"xs"} fontWeight={"600"}>
-               Internet
-            </Text>
-         </VStack>
-         <VStack w={"fit-content"}>
-            <Box bg={"yellow.300"} p={4} borderRadius={"full"}>
-               <BiSolidJoystick
-                  color={useColorModeValue("white", "#1A202C")}
-                  size={25}
-               />
-            </Box>
-            <Text fontSize={"xs"} fontWeight={"600"}>
-               Game
-            </Text>
-         </VStack>
-         <VStack w={"fit-content"}>
-            <Box bg={"orange.300"} p={4} borderRadius={"full"}>
-               <BiSolidCoupon
-                  color={useColorModeValue("white", "#1A202C")}
-                  size={25}
-               />
-            </Box>
-            <Text fontSize={"xs"} fontWeight={"600"}>
-               Voucher
-            </Text>
-         </VStack>
-         <VStack w={"fit-content"}>
-            <Box bg={"cyan.300"} p={4} borderRadius={"full"}>
-               <IoIosWallet
-                  color={useColorModeValue("white", "#1A202C")}
-                  size={25}
-               />
-            </Box>
-            <Text fontSize={"xs"} fontWeight={"600"}>
-               E-Money
-            </Text>
-         </VStack>
-         <VStack w={"fit-content"}>
-            <Box bg={"purple.300"} p={4} borderRadius={"full"}>
-               <RiBillFill
-                  color={useColorModeValue("white", "#1A202C")}
-                  size={25}
-               />
-            </Box>
-            <Text fontSize={"xs"} fontWeight={"600"}>
-               Tagihan
-            </Text>
-         </VStack>
+         <Link href="/topup?type=pulsa">
+            <VStack w={"fit-content"}>
+               <Box bg={"green.300"} p={4} borderRadius={"full"}>
+                  <BsFillPhoneFill
+                     color={useColorModeValue("white", "#1A202C")}
+                     size={25}
+                  />
+               </Box>
+               <Text fontSize={"xs"} fontWeight={"600"}>
+                  Pulsa
+               </Text>
+            </VStack>
+         </Link>
+         <Link href="/topup?type=internet">
+            <VStack w={"fit-content"}>
+               <Box bg={"red.300"} p={4} borderRadius={"full"}>
+                  <BsGlobe
+                     color={useColorModeValue("white", "#1A202C")}
+                     size={25}
+                  />
+               </Box>
+               <Text fontSize={"xs"} fontWeight={"600"}>
+                  Internet
+               </Text>
+            </VStack>
+         </Link>
+         <Link href="/topup?type=game">
+            <VStack w={"fit-content"}>
+               <Box bg={"yellow.300"} p={4} borderRadius={"full"}>
+                  <BiSolidJoystick
+                     color={useColorModeValue("white", "#1A202C")}
+                     size={25}
+                  />
+               </Box>
+               <Text fontSize={"xs"} fontWeight={"600"}>
+                  Game
+               </Text>
+            </VStack>
+         </Link>
+         <Link href="/topup?type=voucher">
+            <VStack w={"fit-content"}>
+               <Box bg={"orange.300"} p={4} borderRadius={"full"}>
+                  <BiSolidCoupon
+                     color={useColorModeValue("white", "#1A202C")}
+                     size={25}
+                  />
+               </Box>
+               <Text fontSize={"xs"} fontWeight={"600"}>
+                  Voucher
+               </Text>
+            </VStack>
+         </Link>
+         <Link href="/topup?type=emoney">
+            <VStack w={"fit-content"}>
+               <Box bg={"cyan.300"} p={4} borderRadius={"full"}>
+                  <IoIosWallet
+                     color={useColorModeValue("white", "#1A202C")}
+                     size={25}
+                  />
+               </Box>
+               <Text fontSize={"xs"} fontWeight={"600"}>
+                  E-Money
+               </Text>
+            </VStack>
+         </Link>
+         <Link href="/topup?type=tagihan">
+            <VStack w={"fit-content"}>
+               <Box bg={"purple.300"} p={4} borderRadius={"full"}>
+                  <RiBillFill
+                     color={useColorModeValue("white", "#1A202C")}
+                     size={25}
+                  />
+               </Box>
+               <Text fontSize={"xs"} fontWeight={"600"}>
+                  Tagihan
+               </Text>
+            </VStack>
+         </Link>
          <VStack w={"fit-content"}>
             <Box bg={"pink.300"} p={4} borderRadius={"full"}>
                <FiMoreHorizontal

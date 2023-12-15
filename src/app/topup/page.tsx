@@ -8,19 +8,50 @@ import {
    Button,
    useColorModeValue,
    Grid,
-   Divider,
    Input,
-	InputGroup,
-	InputLeftElement,
+   Divider,
+   Spinner,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";
-import { useState } from "react";
 import Link from "next/link";
-import { BsFillLightningFill } from "react-icons/bs";
+import { ApiGet } from "@/utils/api";
+import { capitalize } from "@/utils/capitalize";
+import { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
+import { useSearchParams, useRouter } from "next/navigation";
 
 export default function Topup() {
-   const [amount, setAmount] = useState(0);
+   const searchParams = useSearchParams();
+   const type = searchParams.get("type");
+   const router = useRouter();
+
+   const [provider, setProvider] = useState([]);
+   const [selected, setSelected] = useState({
+      product_code: "",
+      product_name: "",
+      product_type: "",
+      icon_url: "",
+   });
+   const [cookies, setCookie] = useCookies(["token"]);
+   const [loading, setLoading] = useState(true);
+
+   useEffect(() => {
+      if (type === null) {
+         router.push("/");
+      }
+   });
+
+   useEffect(() => {
+      setLoading(true);
+      async function getData() {
+         const response = await ApiGet(`/api/product/${type}`, cookies.token);
+         setProvider(response.data);
+         setLoading(false);
+      }
+
+      getData();
+   }, []);
 
    return (
       <main>
@@ -57,235 +88,77 @@ export default function Topup() {
                   shadow={"xl"}
                   p={6}
                >
-                  <Text fontSize={"sm"} fontWeight={"600"}>
-                     Nomor Meteran:
+                  <Text fontSize={"md"} fontWeight={"600"}>
+                     Pilih Layanan:
                   </Text>
-                  <InputGroup mt={1}>
-                     <InputLeftElement pointerEvents="none">
-                        <BsFillLightningFill color="#A0AEC0" />
-                     </InputLeftElement>
-                     <Input
-                        type="number"
-                        placeholder="Nomer meteran"
-                        fontSize={"sm"}
-                     />
-                  </InputGroup>
-
-                  <Text fontSize={"sm"} fontWeight={"600"} mt={3}>
-                     Pilih Nominal:
-                  </Text>
-                  <Grid templateColumns="repeat(2, 1fr)" gap={5} mt={2}>
-                     <Button
-                        variant={"outline"}
-                        color={useColorModeValue("gray.900", "gray.100")}
-                        borderRadius={"xl"}
-                        fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={9}
-                        bg={useColorModeValue("none", "gray.700")}
-                        display={"flex"}
-                        flexDirection={"column"}
-                        alignItems={"center"}
-                        _hover={{
-                           borderColor: "red.300",
-                           color: "red.400",
-                        }}
-                        onClick={() => setAmount(22500)}
-                        {...(amount === 22500 && {
-                           borderColor: "red.400",
-                           color: "red.400",
-                        })}
-                     >
-                        Rp 20.000
-                        <Text
-                           fontSize={"xs"}
-                           fontWeight={"300"}
-                           color={
-                              amount === 22500
-                                 ? "red.400"
-                                 : useColorModeValue("gray.400", "gray.500")
-                           }
-                           mt={1}
-                        >
-                           Bayar Rp 22.500
-                        </Text>
-                     </Button>
-                     <Button
-                        variant={"outline"}
-                        color={useColorModeValue("gray.900", "gray.100")}
-                        borderRadius={"xl"}
-                        fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={9}
-                        bg={useColorModeValue("none", "gray.700")}
-                        display={"flex"}
-                        flexDirection={"column"}
-                        alignItems={"center"}
-                        _hover={{
-                           borderColor: "red.300",
-                           color: "red.400",
-                        }}
-                        onClick={() => setAmount(52500)}
-                        {...(amount === 52500 && {
-                           borderColor: "red.400",
-                           color: "red.400",
-                        })}
-                     >
-                        Rp 50.000
-                        <Text
-                           fontSize={"xs"}
-                           fontWeight={"300"}
-                           color={
-                              amount === 52500
-                                 ? "red.400"
-                                 : useColorModeValue("gray.400", "gray.500")
-                           }
-                           mt={1}
-                        >
-                           Bayar Rp 52.500
-                        </Text>
-                     </Button>
-                     <Button
-                        variant={"outline"}
-                        color={useColorModeValue("gray.900", "gray.100")}
-                        borderRadius={"xl"}
-                        fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={9}
-                        bg={useColorModeValue("none", "gray.700")}
-                        display={"flex"}
-                        flexDirection={"column"}
-                        alignItems={"center"}
-                        _hover={{
-                           borderColor: "red.300",
-                           color: "red.400",
-                        }}
-                        onClick={() => setAmount(102500)}
-                        {...(amount === 102500 && {
-                           borderColor: "red.400",
-                           color: "red.400",
-                        })}
-                     >
-                        Rp 100.000
-                        <Text
-                           fontSize={"xs"}
-                           fontWeight={"300"}
-                           color={
-                              amount === 102500
-                                 ? "red.400"
-                                 : useColorModeValue("gray.400", "gray.500")
-                           }
-                           mt={1}
-                        >
-                           Bayar Rp 102.500
-                        </Text>
-                     </Button>
-                     <Button
-                        variant={"outline"}
-                        color={useColorModeValue("gray.900", "gray.100")}
-                        borderRadius={"xl"}
-                        fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={9}
-                        bg={useColorModeValue("none", "gray.700")}
-                        display={"flex"}
-                        flexDirection={"column"}
-                        alignItems={"center"}
-                        _hover={{
-                           borderColor: "red.300",
-                           color: "red.400",
-                        }}
-                        onClick={() => setAmount(152500)}
-                        {...(amount === 152500 && {
-                           borderColor: "red.400",
-                           color: "red.400",
-                        })}
-                     >
-                        Rp 150.000
-                        <Text
-                           fontSize={"xs"}
-                           fontWeight={"300"}
-                           color={
-                              amount === 152500
-                                 ? "red.400"
-                                 : useColorModeValue("gray.400", "gray.500")
-                           }
-                           mt={1}
-                        >
-                           Bayar Rp 152.500
-                        </Text>
-                     </Button>
-                     <Button
-                        variant={"outline"}
-                        color={useColorModeValue("gray.900", "gray.100")}
-                        borderRadius={"xl"}
-                        fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={9}
-                        bg={useColorModeValue("none", "gray.700")}
-                        display={"flex"}
-                        flexDirection={"column"}
-                        alignItems={"center"}
-                        _hover={{
-                           borderColor: "red.300",
-                           color: "red.400",
-                        }}
-                        onClick={() => setAmount(202500)}
-                        {...(amount === 202500 && {
-                           borderColor: "red.400",
-                           color: "red.400",
-                        })}
-                     >
-                        Rp 200.000
-                        <Text
-                           fontSize={"xs"}
-                           fontWeight={"300"}
-                           color={
-                              amount === 202500
-                                 ? "red.400"
-                                 : useColorModeValue("gray.400", "gray.500")
-                           }
-                           mt={1}
-                        >
-                           Bayar Rp 202.500
-                        </Text>
-                     </Button>
-                     <Button
-                        variant={"outline"}
-                        color={useColorModeValue("gray.900", "gray.100")}
-                        borderRadius={"xl"}
-                        fontSize={"sm"}
-                        borderColor={useColorModeValue("gray.300", "gray.500")}
-                        py={9}
-                        bg={useColorModeValue("none", "gray.700")}
-                        display={"flex"}
-                        flexDirection={"column"}
-                        alignItems={"center"}
-                        _hover={{
-                           borderColor: "red.300",
-                           color: "red.400",
-                        }}
-                        onClick={() => setAmount(252500)}
-                        {...(amount === 252500 && {
-                           borderColor: "red.400",
-                           color: "red.400",
-                        })}
-                     >
-                        Rp 250.000
-                        <Text
-                           fontSize={"xs"}
-                           fontWeight={"300"}
-                           color={
-                              amount === 252500
-                                 ? "red.400"
-                                 : useColorModeValue("gray.400", "gray.500")
-                           }
-                           mt={1}
-                        >
-                           Bayar Rp 252.500
-                        </Text>
-                     </Button>
-                  </Grid>
+                  {!loading &&
+                     <Grid templateColumns="repeat(2, 1fr)" gap={5} mt={3}>
+                        {provider.map((item, index) => (
+                           <Button
+                              key={index}
+                              variant={"outline"}
+                              color={useColorModeValue("gray.900", "gray.100")}
+                              borderRadius={"xl"}
+                              fontSize={"xs"}
+                              display={"flex"}
+                              flexDirection={"column"}
+                              py={9}
+                              bg={useColorModeValue("none", "gray.700")}
+                              borderColor={useColorModeValue(
+                                 "gray.300",
+                                 "gray.500"
+                              )}
+                              _hover={{
+                                 borderColor: "red.300",
+                                 color: "red.400",
+                              }}
+                              onClick={() => setSelected(item)}
+                              {...(selected.product_code === item.product_code && {
+                                 borderColor: "red.400",
+                                 color: "red.400",
+                              })}
+                           >
+                              <Image
+                                 src={item.icon_url}
+                                 alt={item.product_name}
+                                 w={"3rem"}
+                                 h={"auto"}
+                                 mb={2}
+                              />
+                              {item.product_name.split(" ").length > 2 ? (
+                                 <Text
+                                    fontSize={"xs"}
+                                    fontWeight={"600"}
+                                    textAlign={"center"}
+                                 >
+                                    {capitalize(item.product_name)
+                                       .split(" ")
+                                       .slice(0, 2)
+                                       .join(" ")}
+                                    <br />
+                                    {capitalize(item.product_name)
+                                       .split(" ")
+                                       .slice(2)
+                                       .join(" ")}
+                                 </Text>
+                              ) : (
+                                 <Text
+                                    fontSize={"xs"}
+                                    fontWeight={"600"}
+                                    textAlign={"center"}
+                                 >
+                                    {capitalize(item.product_name)}
+                                 </Text>
+                              )}
+                           </Button>
+                        ))}
+                     </Grid>
+                  }
+                  {loading &&
+                     <Flex justifyContent={"center"} alignItems={"center"} w={"100%"} h={"100%"} my={5}>
+                        <Spinner color={"red.400"} size={"lg"} thickness={"3px"} />
+                     </Flex>
+                  }
                </Box>
             </Box>
          </Container>
@@ -304,7 +177,7 @@ export default function Topup() {
             <Flex justifyContent={"center"} alignItems={"center"} gap={5}>
                <Flex w={"auto"} flexDirection={"column"} float={"right"}>
                   <Text fontSize={"sm"} fontWeight={"500"} textAlign={"right"}>
-                     Total Bayar:
+                     Layanan:
                   </Text>
                   <Text
                      fontSize={"xl"}
@@ -312,17 +185,21 @@ export default function Topup() {
                      textAlign={"right"}
                      color={useColorModeValue("red.500", "red.400")}
                   >
-                     Rp {amount > 0 ? amount.toLocaleString("id-ID") : 0}
+                     {selected.product_name}
                   </Text>
                </Flex>
-               {amount >= 10000 ? (
+               {selected.product_code !== "" ? (
                   <Link
                      href={{
-                        pathname: "/payments",
-                        query: { amount: amount },
+                        pathname: "/topup/detail",
+                        query: {
+                           type: selected.product_type,
+                           product_code: selected.product_code,
+                        },
                      }}
                   >
                      <Button
+                        isLoading={loading}
                         w={"100%"}
                         variant={"solid"}
                         bg={useColorModeValue("red.500", "red.400")}
@@ -339,6 +216,7 @@ export default function Topup() {
                   </Link>
                ) : (
                   <Button
+                     isLoading={loading}
                      w={"40%"}
                      variant={"solid"}
                      bg={useColorModeValue("gray.300", "gray.700")}
