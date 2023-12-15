@@ -33,9 +33,9 @@ export default function Login() {
       e.preventDefault();
       setLoading(true);
       const response = await axios.post(
-         "https://api.rupiahku.pro/api/auth/login",
+         "https://backup-api.rupiahku.pro/api/auth/login",
          {
-            nohp: '+62' + noHp,
+            nohp: "+62" + noHp,
             password: Password,
          }
       );
