@@ -5,6 +5,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { apiUrl } from "@/utils/api";
 
 export default function Verification() {
    const toast = useToast();
@@ -22,19 +23,16 @@ export default function Verification() {
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
       setLoading(true);
-      const response = await axios.post(
-         "https://backup-api.rupiahku.pro/api/auth/verify",
-         {
-            verificationPin:
-               verif.code1 +
-               verif.code2 +
-               verif.code3 +
-               verif.code4 +
-               verif.code5 +
-               verif.code6,
-            nohp: "+62" + localStorage.getItem("nohp"),
-         }
-      );
+      const response = await axios.post(apiUrl + "/api/auth/verify", {
+         verificationPin:
+            verif.code1 +
+            verif.code2 +
+            verif.code3 +
+            verif.code4 +
+            verif.code5 +
+            verif.code6,
+         nohp: "+62" + localStorage.getItem("nohp"),
+      });
       const data = response.data;
       if (data.success == false) {
          toast({

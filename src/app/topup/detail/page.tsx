@@ -13,32 +13,71 @@ import {
    InputGroup,
    InputLeftElement,
    Spinner,
+   useToast,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
 import { BsFillLightningFill } from "react-icons/bs";
-import { ApiGet } from "@/utils/api";
+import { ApiGet, ApiPost } from "@/utils/api";
 import { capitalize } from "@/utils/capitalize";
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useSearchParams, useRouter } from "next/navigation";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaGamepad } from "react-icons/fa6";
+import { BiSolidCoupon } from "react-icons/bi";
 
 export default function Topup() {
    const searchParams = useSearchParams();
    const type = searchParams.get("type");
    const product_code = searchParams.get("product_code");
    const router = useRouter();
+   const toast = useToast();
 
    const [cookies, setCookie] = useCookies(["token"]);
    const [loading, setLoading] = useState(true);
+   const [receiver, setReceiver] = useState("");
    const [data, setData] = useState([]);
    const [selected, setSelected] = useState({
       product_code: "",
-      product_name: "",
+      product_nominal: "",
       product_type: "",
       icon_url: "",
    });
+
+   const json = [
+      {
+         type: "data",
+         label: "Nomor Telepon",
+         icon: <FaPhoneAlt color="#A0AEC0" />,
+      },
+      {
+         type: "pln",
+         label: "Nomor Meteran",
+         icon: <BsFillLightningFill color="#A0AEC0" />,
+      },
+      {
+         type: "pulsa",
+         label: "Nomor Telepon",
+         icon: <FaPhoneAlt color="#A0AEC0" />,
+      },
+      {
+         type: "game",
+         label: "ID Game",
+         icon: <FaGamepad color="#A0AEC0" />,
+      },
+      {
+         type: "voucher",
+         label: "Nomor Pelanggan",
+         icon: <BiSolidCoupon color="#A0AEC0" />,
+      },
+      {
+         type: "etoll",
+         label: "Nomor Telepon",
+         icon: <FaPhoneAlt color="#A0AEC0" />,
+      },
+   ];
 
    useEffect(() => {
       if (type === null || product_code === null) {
@@ -60,6 +99,45 @@ export default function Topup() {
       getData();
    }, []);
 
+   async function handleSubmit() {
+      setLoading(true);
+      if (!receiver && !selected.product_code && !selected.product_type) {
+         toast({
+            title: "Data is not complete",
+            position: "bottom",
+            status: "error",
+            isClosable: true,
+         });
+         setLoading(false);
+         return false;
+      }
+
+      const response = await ApiPost("/api/transaction/topup", cookies.token, {
+         receiver: receiver,
+         type: selected.product_type,
+         product_code: selected.product_code,
+      });
+
+      // check if success == true
+      if (response.success) {
+         toast({
+            title: "Topup Success",
+            position: "bottom",
+            status: "success",
+            isClosable: true,
+         });
+      } else {
+         toast({
+            title: "Topup Failed",
+            position: "bottom",
+            status: "error",
+            isClosable: true,
+         });
+      }
+
+      setLoading(false);
+   }
+
    return (
       <main>
          <Container
@@ -67,7 +145,7 @@ export default function Topup() {
             background={useColorModeValue("#F6F8FB", "gray.800")}
             p={0}
             h={"auto"}
-            minH={"200vh"}
+            minH={"100vh"}
          >
             <Box as="section" pos={"relative"}>
                <Image
@@ -96,33 +174,50 @@ export default function Topup() {
                >
                   {!loading && (
                      <>
-                        <Text fontSize={"sm"} fontWeight={"600"}>
-                           Nomor Meteran:
-                        </Text>
-                        <InputGroup mt={1}>
-                           <InputLeftElement pointerEvents="none">
-                              <BsFillLightningFill color="#A0AEC0" />
-                           </InputLeftElement>
-                           <Input
-                              type="number"
-                              placeholder="Nomer meteran"
-                              fontSize={"sm"}
-                           />
-                        </InputGroup>
+                        {json.map(
+                           (item, key) =>
+                              item.type === type && (
+                                 <>
+                                    <Text fontSize={"sm"} fontWeight={"600"}>
+                                       {item.label}:
+                                    </Text>
+
+                                    <InputGroup mt={1}>
+                                       <InputLeftElement pointerEvents="none">
+                                          {item.icon}
+                                       </InputLeftElement>
+                                       <Input
+                                          type="number"
+                                          placeholder={item.label}
+                                          fontSize={"sm"}
+                                          onChange={(e) =>
+                                             setReceiver(e.target.value)
+                                          }
+                                       />
+                                    </InputGroup>
+                                 </>
+                              )
+                        )}
 
                         <Text fontSize={"sm"} fontWeight={"600"} mt={3}>
                            Pilih Nominal:
                         </Text>
                         <Grid templateColumns="repeat(2, 1fr)" gap={5} mt={2}>
                            {data &&
-                              data.map((item, key) => (
-                                 item.product_nominal.toLowerCase().indexOf("khusus") === -1 && (
-                                    key < 24 && (
+                              data.map(
+                                 (item, key) =>
+                                    item.product_nominal
+                                       .toLowerCase()
+                                       .indexOf("khusus") === -1 &&
+                                    key < 8 && (
                                        <Button
                                           key={key}
                                           variant={"outline"}
                                           py={10}
-                                          bg={useColorModeValue("none", "gray.700")}
+                                          bg={useColorModeValue(
+                                             "none",
+                                             "gray.700"
+                                          )}
                                           display={"flex"}
                                           flexDirection={"column"}
                                           alignItems={"center"}
@@ -147,19 +242,19 @@ export default function Topup() {
                                           })}
                                        >
                                           <Text
-                                                fontSize={"xs"}
-                                                fontWeight={"600"}
-                                                textAlign={"center"}
-                                                style={{
-                                                   display: "block",
-                                                   whiteSpace: "pre-wrap",
-                                                }}
-                                                {...(selected.product_code ===
-                                                   item.product_code && {
-                                                   color: "red.400",
-                                                })}
-                                             >
-                                                {item.product_nominal}
+                                             fontSize={"xs"}
+                                             fontWeight={"600"}
+                                             textAlign={"center"}
+                                             style={{
+                                                display: "block",
+                                                whiteSpace: "pre-wrap",
+                                             }}
+                                             {...(selected.product_code ===
+                                                item.product_code && {
+                                                color: "red.400",
+                                             })}
+                                          >
+                                             {item.product_nominal}
                                           </Text>
                                           <Text
                                              fontSize={"xs"}
@@ -181,8 +276,7 @@ export default function Topup() {
                                           </Text>
                                        </Button>
                                     )
-                                 )
-                              ))}
+                              )}
                         </Grid>
                      </>
                   )}
@@ -203,6 +297,79 @@ export default function Topup() {
                   )}
                </Box>
             </Box>
+         </Container>
+         <Container
+            w="sm"
+            position="fixed"
+            display={"relative"}
+            bottom={3}
+            left={0}
+            right={0}
+            background={useColorModeValue("#F6F8FB", "gray.800")}
+         >
+            <Divider
+               mb={3}
+               borderColor={useColorModeValue("gray.300", "gray.700")}
+            />
+            <Flex justifyContent={"center"} alignItems={"center"} gap={5}>
+               <Flex w={"auto"} flexDirection={"column"} float={"right"}>
+                  <Text fontSize={"sm"} fontWeight={"500"} textAlign={"right"}>
+                     Layanan:
+                  </Text>
+                  <Text
+                     fontSize={"md"}
+                     fontWeight={"700"}
+                     textAlign={"right"}
+                     color={useColorModeValue("red.500", "red.400")}
+                  >
+                     {selected.product_nominal}
+                  </Text>
+               </Flex>
+               {selected.product_code !== "" && receiver ? (
+                  <Link
+                     href={{
+                        pathname: "/topup/detail",
+                        query: {
+                           type: selected.product_type,
+                           product_code: selected.product_code,
+                        },
+                     }}
+                  >
+                     <Button
+                        isLoading={loading}
+                        w={"100%"}
+                        variant={"solid"}
+                        bg={useColorModeValue("red.500", "red.400")}
+                        color={"white"}
+                        _hover={{ opacity: "0.9" }}
+                        _after={{ bg: "red.500" }}
+                        _active={{ bg: "red.500" }}
+                        fontSize={"md"}
+                        size={"lg"}
+                        px={12}
+                        onClick={handleSubmit}
+                     >
+                        Lanjut
+                     </Button>
+                  </Link>
+               ) : (
+                  <Button
+                     isLoading={loading}
+                     w={"40%"}
+                     variant={"solid"}
+                     bg={useColorModeValue("gray.300", "gray.700")}
+                     color={"white"}
+                     _hover={{ opacity: "0.9" }}
+                     _after={{ bg: "gray.300" }}
+                     _active={{ bg: "gray.300" }}
+                     fontSize={"md"}
+                     size={"lg"}
+                     disabled
+                  >
+                     Lanjut
+                  </Button>
+               )}
+            </Flex>
          </Container>
       </main>
    );
