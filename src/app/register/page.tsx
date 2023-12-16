@@ -17,6 +17,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { apiUrl } from "@/utils/api";
 
 export default function Register() {
    const [data, setData] = useState({
@@ -48,7 +49,7 @@ export default function Register() {
       }
 
       const response = await axios.post(
-         "https://backup-api.rupiahku.pro/api/auth/register",
+         apiUrl + "/api/auth/register",
          {
             name: data.name,
             nohp: "+62" + data.nohp,

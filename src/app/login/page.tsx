@@ -20,6 +20,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useCookies } from "react-cookie";
+import { apiUrl } from "@/utils/api";
 
 export default function Login() {
    const [noHp, setNoHp] = useState("");
@@ -32,13 +33,10 @@ export default function Login() {
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
       setLoading(true);
-      const response = await axios.post(
-         "https://backup-api.rupiahku.pro/api/auth/login",
-         {
-            nohp: "+62" + noHp,
-            password: Password,
-         }
-      );
+      const response = await axios.post(apiUrl + "/api/auth/login", {
+         nohp: "+62" + noHp,
+         password: Password,
+      });
       const data = response.data;
       if (data.success == false) {
          toast({

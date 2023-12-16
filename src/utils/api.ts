@@ -1,7 +1,9 @@
 import axios from "axios";
 
+export const apiUrl = "https://backup-api.rupiahku.pro";
+
 export const ApiGet = async (url: string, token: string) => {
-	const response = await axios.get("https://backup-api.rupiahku.pro" + url, {
+	const response = await axios.get(apiUrl + url, {
       headers: {
          Authorization: `Barear ${token}`,
       },
@@ -15,11 +17,11 @@ export const ApiGet = async (url: string, token: string) => {
 
 
 export const ApiPost = async (url: string, token: string, data: any,) => {
-	const response = await axios.post('https://backup-api.rupiahku.pro' + url, data, {
-		headers: {
-			Authorization: `Barear ${token}`,
-		},
-	});
+	const response = await axios.post(apiUrl + url, data, {
+      headers: {
+         Authorization: `Barear ${token}`,
+      },
+   });
 
 	if (response.data.code == 401) {
 		window.location.replace('/login');
