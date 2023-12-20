@@ -20,7 +20,7 @@ export default function RootLayout({
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta property="og:title" content="Rupiahku" />
-            <meta property="og:description" content="Dompet Digital Kebanggangan Indonesia" />
+            <meta property="og:description" content="Dompet Digital Kebanggaan Indonesia" />
             <meta property="og:image" content="https://i.ibb.co/B4pF9r1/rupiahku-logo.png" />
             <meta property="og:url" content="https://rupiahku.pro/" />
             <meta property="og:type" content="website" />
