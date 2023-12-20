@@ -265,7 +265,7 @@ export default function Profile() {
                            </Alert>
                            <QRCode
                               style={{ margin: "auto" }}
-                              value={"085155347714"}
+                              value={profile.nohp}
                            />
                         </ModalBody>
                      </ModalContent>
