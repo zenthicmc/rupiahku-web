@@ -61,7 +61,7 @@ export default function Scanner() {
          >
             {/* QR Scanner */}
             <QrScanner
-               onDecode={(result) => router.push(`/transfer?phone=${result}`)}
+               onDecode={(result) => router.push(`/transfer?phone=${result.replace("+62", "")}`)}
                onError={(error) => void(0)}
             />
 
