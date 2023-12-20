@@ -40,7 +40,7 @@ export default function Register() {
       e.preventDefault();
       setLoading(true);
 
-      // check if password and confirm password is same
+      // check if password and confirm password is not same
       if (data.password !== data.confirm_password) {
          toast({
             title: "Confirm password tidak sama",
@@ -52,7 +52,7 @@ export default function Register() {
          return false;
       }
 
-      // verify captcha
+      // verifikasi captcha
       const captcha = await verify(token);
       if (!captcha || !captcha.success) {
          toast({

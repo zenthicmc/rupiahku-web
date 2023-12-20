@@ -219,7 +219,6 @@ export default function Topup() {
                      isLoading={loading}
                      w={"40%"}
                      variant={"solid"}
-                     bg={useColorModeValue("gray.300", "gray.700")}
                      color={"white"}
                      _hover={{ opacity: "0.9" }}
                      _after={{ bg: "gray.300" }}
