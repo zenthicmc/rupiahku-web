@@ -36,7 +36,6 @@ export default function Register() {
       confirm_password: "",
    });
    
-
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
       setLoading(true);
