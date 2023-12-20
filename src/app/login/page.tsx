@@ -48,7 +48,6 @@ export default function Login() {
          return false;
       }
 
-
       const response = await axios.post(apiUrl + "/api/auth/login", {
          nohp: "+62" + noHp,
          password: Password,

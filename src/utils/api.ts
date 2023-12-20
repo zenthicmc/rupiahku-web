@@ -10,8 +10,9 @@ export const ApiGet = async (url: string, token: string) => {
    });
 
 	if (response.data.code == 401) {
-		window.location.replace('/login');
+		return window.location.replace('/login');
 	}
+
 	return response.data;
 };
 
@@ -24,7 +25,7 @@ export const ApiPost = async (url: string, token: string, data: any,) => {
    });
 
 	if (response.data.code == 401) {
-		window.location.replace('/login');
+		return window.location.replace('/login');
 	}
 
 	return response.data;

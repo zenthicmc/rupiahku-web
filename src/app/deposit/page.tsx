@@ -185,7 +185,7 @@ export default function Deposit() {
                   </Text>
                   <Input
                      type="number"
-                     max={10000000}
+                     max={1000000}
                      fontSize={"sm"}
                      placeholder="Masukkan nominal lainnya"
                      borderColor={useColorModeValue("gray.300", "gray.500")}
@@ -197,8 +197,8 @@ export default function Deposit() {
                      mt={1}
                      mb={2}
                      onChange={(e) =>
-                        amount > 10000000
-                           ? setAmount(10000000)
+                        amount > 1000000
+                           ? setAmount(1000000)
                            : setAmount(parseInt(e.target.value))
                      }
                      value={amount}
@@ -232,7 +232,7 @@ export default function Deposit() {
                      Rp {amount > 0 ? amount.toLocaleString("id-ID") : 0}
                   </Text>
                </Flex>
-               {amount >= 10000 ? (
+               {amount >= 10000 && amount <= 1000000 ? (
                   <Link
                      href={{
                         pathname: "/payments",

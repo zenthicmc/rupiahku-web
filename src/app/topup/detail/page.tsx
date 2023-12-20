@@ -301,7 +301,6 @@ export default function Topup() {
             bottom={3}
             left={0}
             right={0}
-            background={useColorModeValue("#F6F8FB", "gray.800")}
          >
             <Divider
                mb={3}
