@@ -120,12 +120,8 @@ export default function Topup() {
 
       // check if success == true
       if (response.success) {
-         toast({
-            title: "Topup Success",
-            position: "bottom",
-            status: "success",
-            isClosable: true,
-         });
+         if(response.data.status == "Pending") router.push(`/pending?amount=${response.data.amount}&title=Topup Dalam Proses`);
+         if(response.data.status == "Success") router.push(`/success?amount=${response.data.amount}&title=Topup Berhasil`);
       } else {
          toast({
             title: "Topup Failed",

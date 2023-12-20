@@ -29,12 +29,19 @@ import { useSearchParams } from "next/navigation";
 import { ApiGet } from "@/utils/api";
 import { useCookies } from "react-cookie";
 import { sanitize } from "@/utils/sanitize";
+import { useRouter } from "next/navigation";
 
 export default function Bank() {
    const searchParams = useSearchParams();
    const getID = searchParams.get("id");
+   const toast = useToast();
+   const router = useRouter();
+
    const [cookies, setCookie] = useCookies(["token"]);
    const [loading, setLoading] = useState(true);
+   const [instructions, setInstructions] = useState([]);
+   const [method, setMethod] = useState([]);
+   const [refreshAt, setRefreshAt] = useState(new Date().valueOf());
    const [transaction, setTransaction] = useState({
       payment_method: "",
       payment_name: "",
@@ -44,10 +51,6 @@ export default function Bank() {
       expired_time: "",
       status: "",
    });
-   const [instructions, setInstructions] = useState([]);
-   const [method, setMethod] = useState([]);
-   const [refreshAt, setRefreshAt] = useState(new Date().valueOf());
-   const toast = useToast();
 
    useEffect(() => {
       setLoading(true);
@@ -57,8 +60,15 @@ export default function Bank() {
             cookies.token
          );
          setTransaction(response.data);
-         setInstructions(response.data.instructions);
+         setInstructions(response.data.instructions[0].steps);
          setLoading(false);
+
+         // check if transaction is paid
+         if (response.data.status == "PAID") {
+            router.push(
+               `/success?amount=${response.data.amount_received}&title=Deposit Berhasil`
+            );
+         }
       }
 
       getData();
@@ -168,7 +178,7 @@ export default function Bank() {
                         </Alert>
 
                         <Text fontSize={"sm"} fontWeight={"600"}>
-                           Transfer ke Bank:
+                           Transfer ke:
                         </Text>
                         <Flex alignItems={"center"} mt={1}>
                            {method.map((method, i) =>
@@ -251,24 +261,20 @@ export default function Bank() {
                      </AccordionButton>
                      <AccordionPanel p={0} mt={2}>
                         <ul>
-                           {instructions.map(
-                              (instruction, i) =>
-                                 instruction.title == "Internet Banking" &&
-                                 instruction.steps.map((step, i) => (
-                                    <li key={i}>
-                                       <Text
-                                          fontSize={"xs"}
-                                          fontWeight={"300"}
-                                          color={useColorModeValue(
-                                             "gray.500",
-                                             "gray.400"
-                                          )}
-                                       >
-                                          {i + 1}. {sanitize(step)}
-                                       </Text>
-                                    </li>
-                                 ))
-                           )}
+                           {instructions.map((step, i) => (
+                              <li key={i}>
+                                 <Text
+                                    fontSize={"xs"}
+                                    fontWeight={"300"}
+                                    color={useColorModeValue(
+                                       "gray.500",
+                                       "gray.400"
+                                    )}
+                                 >
+                                    {i + 1}. {sanitize(step)}
+                                 </Text>
+                              </li>
+                           ))}
                         </ul>
                      </AccordionPanel>
                   </AccordionItem>

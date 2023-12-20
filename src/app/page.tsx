@@ -25,13 +25,13 @@ import { useCookies } from "react-cookie";
 
 export default function Home() {
    const [cookies, setCookie] = useCookies(["token"]);
-   const [profile, setProfile] = useState({
-      name: '',
-      saldo: '',
-      image: '',
-   });
    const [transactions, setTransactions] = useState([]);
    const [loading, setLoading] = useState(true);
+   const [profile, setProfile] = useState({
+      name: "",
+      saldo: "",
+      image: "",
+   });
 
    useEffect(() => {
       setLoading(true);

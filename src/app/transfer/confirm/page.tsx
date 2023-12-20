@@ -75,12 +75,7 @@ export default function Confirm() {
       }
 
       setLoading(false);
-      toast({
-         title: 'Berhasil melakukan transfer sebesar Rp ' + amount.toLocaleString("id-ID"),
-         position: "top",
-         status: "success",
-         isClosable: true,
-      });
+      router.push(`/success?amount=${amount}&title=Transfer Berhasil`);
    }
 
    return (

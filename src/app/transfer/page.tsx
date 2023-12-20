@@ -17,10 +17,14 @@ import { Image } from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";
 import { useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 export default function Transfer() {
+   const searchParams = useSearchParams();
+   const getPhone = searchParams.get("phone") || "";
+
    const [amount, setAmount] = useState(0);
-	const [phone, setPhone] = useState('');
+	const [phone, setPhone] = useState(getPhone);
 
    return (
       <main>
