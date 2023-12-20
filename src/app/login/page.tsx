@@ -21,22 +21,41 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useCookies } from "react-cookie";
 import { apiUrl } from "@/utils/api";
+import Turnstile from "react-turnstile";
+import { verify } from "@/utils/captcha";
 
 export default function Login() {
    const [noHp, setNoHp] = useState("");
    const [Password, setPassword] = useState("");
    const [cookies, setCookie] = useCookies(["token"]);
    const [loading, setLoading] = useState(false);
+   const [token, setToken] = useState('');
    const toast = useToast();
    const router = useRouter();
 
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
       setLoading(true);
+
+      // verify captcha
+      const captcha = await verify(token);
+      if(!captcha || !captcha.success) {
+         toast({
+            title: captcha.message,
+            position: "bottom",
+            status: "error",
+            isClosable: true,
+         });
+         setLoading(false);
+         return false;
+      }
+
+
       const response = await axios.post(apiUrl + "/api/auth/login", {
          nohp: "+62" + noHp,
          password: Password,
       });
+
       const data = response.data;
       if (data.success == false) {
          toast({
@@ -138,11 +157,20 @@ export default function Login() {
                         onChange={(e) => setPassword(e.target.value)}
                         color={"gray.800"}
                         _placeholder={{ color: "gray.800" }}
+                        mb={3}
                         required
                         _hover={{
                            borderColor: "red.500",
                         }}
                      />
+
+                     <Turnstile
+                        sitekey="0x4AAAAAAAO3GwVZL4-GzsrJ"
+                        onVerify={(token) => {
+                           setToken(token);
+                        }}
+                     />
+
                      <Button
                         isLoading={loading}
                         boxShadow="md"
