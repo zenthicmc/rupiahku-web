@@ -61,14 +61,13 @@ export default function Bank() {
          );
          setTransaction(response.data);
          setInstructions(response.data.instructions[0].steps);
-         setLoading(false);
-
-         // check if transaction is paid
+         
          if (response.data.status == "PAID") {
             router.push(
                `/success?amount=${response.data.amount_received}&title=Deposit Berhasil`
             );
          }
+         setLoading(false);
       }
 
       getData();
