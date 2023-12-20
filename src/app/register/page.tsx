@@ -36,7 +36,6 @@ export default function Register() {
       confirm_password: "",
    });
    
-
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
       setLoading(true);
@@ -57,7 +56,7 @@ export default function Register() {
       const captcha = await verify(token);
       if (!captcha || !captcha.success) {
          toast({
-            title: captcha.message,
+            title: "Silahkan verifikasi captcha",
             position: "bottom",
             status: "error",
             isClosable: true,
