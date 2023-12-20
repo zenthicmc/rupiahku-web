@@ -56,7 +56,7 @@ export default function Register() {
       const captcha = await verify(token);
       if (!captcha || !captcha.success) {
          toast({
-            title: captcha.message,
+            title: "Silahkan verifikasi captcha",
             position: "bottom",
             status: "error",
             isClosable: true,
