@@ -23,7 +23,8 @@
     "react-cookie": "^6.1.1",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
-    "react-qr-code": "^2.0.12"
+    "react-qr-code": "^2.0.12",
+    "react-turnstile": "^1.1.2"
   },
   "devDependencies": {
     "@types/node": "^20",

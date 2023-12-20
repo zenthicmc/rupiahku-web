@@ -18,8 +18,15 @@ import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { apiUrl } from "@/utils/api";
+import Turnstile from "react-turnstile";
+import { verify } from "@/utils/captcha";
 
 export default function Register() {
+   const toast = useToast();
+   const router = useRouter();
+   
+   const [loading, setLoading] = useState(false);
+   const [token, setToken] = useState("");
    const [data, setData] = useState({
       name: "",
       nohp: "",
@@ -28,9 +35,7 @@ export default function Register() {
       password: "",
       confirm_password: "",
    });
-   const [loading, setLoading] = useState(false);
-   const toast = useToast();
-   const router = useRouter();
+   
 
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
@@ -48,16 +53,26 @@ export default function Register() {
          return false;
       }
 
-      const response = await axios.post(
-         apiUrl + "/api/auth/register",
-         {
-            name: data.name,
-            nohp: "+62" + data.nohp,
-            email: data.email,
-            kelamin: data.kelamin,
-            password: data.password,
-         }
-      );
+      // verify captcha
+      const captcha = await verify(token);
+      if (!captcha || !captcha.success) {
+         toast({
+            title: captcha.message,
+            position: "bottom",
+            status: "error",
+            isClosable: true,
+         });
+         setLoading(false);
+         return false;
+      }
+
+      const response = await axios.post(apiUrl + "/api/auth/register", {
+         name: data.name,
+         nohp: "+62" + data.nohp,
+         email: data.email,
+         kelamin: data.kelamin,
+         password: data.password,
+      });
 
       const blockdata = response.data;
       if (blockdata.success == false) {
@@ -254,6 +269,7 @@ export default function Register() {
                         placeholder="Konfirmasi Password"
                         type="password"
                         size="md"
+                        mb={3}
                         borderRadius={"2xl"}
                         border="1px"
                         borderColor="red.500"
@@ -271,6 +287,13 @@ export default function Register() {
                            })
                         }
                         required
+                     />
+
+                     <Turnstile
+                        sitekey="0x4AAAAAAAO3GwVZL4-GzsrJ"
+                        onVerify={(token) => {
+                           setToken(token);
+                        }}
                      />
 
                      <Button
