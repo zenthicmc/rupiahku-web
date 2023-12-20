@@ -1,7 +1,6 @@
 "use client";
 
 import { Box, Button, Container, Image, Text, HStack, PinInput, PinInputField, useToast } from "@chakra-ui/react";
-import Link from "next/link";
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -10,6 +9,7 @@ import { apiUrl } from "@/utils/api";
 export default function Verification() {
    const toast = useToast();
    const router = useRouter();
+
    const [loading, setLoading] = useState(false);
    const [verif, setVerif] = useState({
       code1: "",
@@ -23,6 +23,7 @@ export default function Verification() {
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
       setLoading(true);
+
       const response = await axios.post(apiUrl + "/api/auth/verify", {
          verificationPin:
             verif.code1 +
@@ -34,6 +35,7 @@ export default function Verification() {
          nohp: "+62" + localStorage.getItem("nohp"),
       });
       const data = response.data;
+
       if (data.success == false) {
          toast({
             title: data.message,

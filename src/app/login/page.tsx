@@ -11,8 +11,6 @@ import {
    useToast,
    InputGroup,
    InputLeftAddon,
-   useColorModeValue,
-   useColorMode,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { GoDotFill } from "react-icons/go";
@@ -37,7 +35,7 @@ export default function Login() {
       e.preventDefault();
       setLoading(true);
 
-      // verify captcha
+      // verifikasi captcha
       const captcha = await verify(token);
       if(!captcha || !captcha.success) {
          toast({
