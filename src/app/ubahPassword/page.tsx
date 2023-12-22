@@ -78,10 +78,13 @@ export default function ubahPassword() {
          >
             <form onSubmit={handleSubmit}>
                <Stack>
-                  <Text fontWeight={"600"}>Password Lama</Text>
+                  <Text fontWeight={"600"} fontSize={"sm"}>
+                     Password Lama
+                  </Text>
                   <Input
                      type="password"
                      size={"md"}
+                     fontSize={"sm"}
                      borderRadius={"8"}
                      shadow={"0 0 0 1px lightgrey"}
                      placeholder="Masukkan Nama"
@@ -94,12 +97,13 @@ export default function ubahPassword() {
                      }
                      required
                   />
-                  <Text fontWeight={"600"} mt={1}>
+                  <Text fontWeight={"600"} fontSize={"sm"} mt={1}>
                      Password Baru
                   </Text>
                   <Input
                      type="password"
                      size={"md"}
+                     fontSize={"sm"}
                      borderRadius={"8"}
                      shadow={"0 0 0 1px lightgrey"}
                      placeholder=" Masukkan Nomor Ponsel"
@@ -112,12 +116,13 @@ export default function ubahPassword() {
                      }
                      required
                   />
-                  <Text fontWeight={"600"} mt={1}>
+                  <Text fontWeight={"600"} fontSize={"sm"} mt={1}>
                      Konfirmasi Password Baru
                   </Text>
                   <Input
                      type="password"
                      size={"md"}
+                     fontSize={"sm"}
                      borderRadius={"8"}
                      shadow={"0 0 0 1px lightgrey"}
                      placeholder="Masukkan Alamat Email"
@@ -141,7 +146,7 @@ export default function ubahPassword() {
                      _hover={{ opacity: "0.9" }}
                      _after={{ bg: "red.500" }}
                      _active={{ bg: "red.500" }}
-                     fontSize={"md"}
+                     fontSize={"sm"}
                      size={"md"}
                      mt={4}
                   >

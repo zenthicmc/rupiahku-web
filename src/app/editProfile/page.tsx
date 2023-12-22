@@ -152,8 +152,8 @@ export default function editProfile() {
                />
 
                <Avatar
-                  width={"6rem"}
-                  height={"6rem"}
+                  width={"5.5rem"}
+                  height={"5.5rem"}
                   margin={"auto"}
                   src={data.image}
                   onClick={onButtonClick}
@@ -178,15 +178,18 @@ export default function editProfile() {
             margin={"auto"}
             left={"0"}
             right={"0"}
-            top={"12rem"}
+            top={"11rem"}
             borderRadius={"xl"}
             shadow={"xl"}
             p={6}
          >
             <form onSubmit={handleSubmit}>
                <Stack>
-                  <Text fontWeight={"600"}>Nama</Text>
+                  <Text fontWeight={"600"} fontSize={"sm"}>
+                     Nama
+                  </Text>
                   <Input
+                     fontSize={"sm"}
                      size={"md"}
                      borderRadius={"8"}
                      shadow={"0 0 0 1px lightgrey"}
@@ -200,10 +203,11 @@ export default function editProfile() {
                      }
                      required
                   />
-                  <Text fontWeight={"600"} mt={1}>
+                  <Text fontWeight={"600"} fontSize={"sm"} mt={1}>
                      Nomor Ponsel
                   </Text>
                   <Input
+                     fontSize={"sm"}
                      size={"md"}
                      borderRadius={"8"}
                      shadow={"0 0 0 1px lightgrey"}
@@ -217,10 +221,11 @@ export default function editProfile() {
                      }
                      required
                   />
-                  <Text fontWeight={"600"} mt={1}>
+                  <Text fontWeight={"600"} fontSize={"sm"} mt={1}>
                      Alamat Email
                   </Text>
                   <Input
+                     fontSize={"sm"}
                      size={"md"}
                      borderRadius={"8"}
                      shadow={"0 0 0 1px lightgrey"}
@@ -240,12 +245,12 @@ export default function editProfile() {
                      isLoading={loading}
                      w={"100%"}
                      variant={"solid"}
+                     fontSize={"sm"}
                      bg={useColorModeValue("red.500", "red.400")}
                      color={"white"}
                      _hover={{ opacity: "0.9" }}
                      _after={{ bg: "red.500" }}
                      _active={{ bg: "red.500" }}
-                     fontSize={"md"}
                      size={"md"}
                      mt={4}
                   >
