@@ -143,7 +143,6 @@ export default function Profile() {
             </Box>
 
             <Container w={"90%"} margin={"auto"} p={0} py={1}>
-               {/* Settings List */}
                <Text
                   fontSize={"md"}
                   fontWeight={"bold"}
@@ -154,67 +153,67 @@ export default function Profile() {
                   Akun
                </Text>
                <Card w={"100%"} p={0} borderRadius={"xl"} shadow={"md"}>
-                  <Flex
-                     justifyContent={"space-between"}
-                     alignItems={"center"}
-                     w={"100%"}
-                     py={4}
-                     px={5}
-                  >
+                  <Link href={"/editProfile"}>
                      <Flex
-                        justifyContent={"start"}
+                        justifyContent={"space-between"}
                         alignItems={"center"}
-                        w={"80%"}
-                        gap={5}
+                        w={"100%"}
+                        py={4}
+                        px={5}
                      >
-                        <Box w={"fit-content"}>
-                           <FaUserEdit size={25} color={"#F56565"} />
-                        </Box>
-                        <Box w={"70%"}>
-                           <Link href={"/editProfile"}>
+                        <Flex
+                           justifyContent={"start"}
+                           alignItems={"center"}
+                           w={"80%"}
+                           gap={5}
+                        >
+                           <Box w={"fit-content"}>
+                              <FaUserEdit size={25} color={"#F56565"} />
+                           </Box>
+                           <Box w={"70%"}>
                               <Text fontSize={"sm"} fontWeight={"500"}>
                                  Edit Profil
                               </Text>
-                           </Link>
+                           </Box>
+                        </Flex>
+                        <Box w={"fit-content"}>
+                           <Text fontSize={"sm"} fontWeight={"500"}>
+                              ▶
+                           </Text>
                         </Box>
                      </Flex>
-                     <Box w={"fit-content"}>
-                        <Text fontSize={"sm"} fontWeight={"500"}>
-                           ▶
-                        </Text>
-                     </Box>
-                  </Flex>
+                  </Link>
                   <Divider color="gray.400" />
-                  <Flex
-                     justifyContent={"space-between"}
-                     alignItems={"center"}
-                     w={"100%"}
-                     py={4}
-                     px={5}
-                  >
+                  <Link href={"/ubahPassword"}>
                      <Flex
-                        justifyContent={"start"}
+                        justifyContent={"space-between"}
                         alignItems={"center"}
-                        w={"80%"}
-                        gap={5}
+                        w={"100%"}
+                        py={4}
+                        px={5}
                      >
-                        <Box w={"fit-content"}>
-                           <AiFillLock size={25} color={"#F56565"} />
-                        </Box>
-                        <Box w={"70%"}>
-                           <Link href={"/ubahPassword"}>
+                        <Flex
+                           justifyContent={"start"}
+                           alignItems={"center"}
+                           w={"80%"}
+                           gap={5}
+                        >
+                           <Box w={"fit-content"}>
+                              <AiFillLock size={25} color={"#F56565"} />
+                           </Box>
+                           <Box w={"70%"}>
                               <Text fontSize={"sm"} fontWeight={"500"}>
                                  Ubah Password
                               </Text>
-                           </Link>
+                           </Box>
+                        </Flex>
+                        <Box w={"fit-content"}>
+                           <Text fontSize={"sm"} fontWeight={"500"}>
+                              ▶
+                           </Text>
                         </Box>
                      </Flex>
-                     <Box w={"fit-content"}>
-                        <Text fontSize={"sm"} fontWeight={"500"}>
-                           ▶
-                        </Text>
-                     </Box>
-                  </Flex>
+                  </Link>
                   <Divider color="gray.400" />
                   <Flex
                      justifyContent={"space-between"}

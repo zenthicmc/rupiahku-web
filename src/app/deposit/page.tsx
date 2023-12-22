@@ -9,7 +9,7 @@ import {
    useColorModeValue,
    Grid,
    Input,
-	Divider,
+   Divider,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";

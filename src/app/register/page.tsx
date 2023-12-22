@@ -54,7 +54,7 @@ export default function Register() {
 
       // verifikasi captcha
       const captcha = await verify(token);
-      if (!captcha || !captcha.success) {
+      if (!captcha || !captcha.success || !token) {
          toast({
             title: "Silahkan verifikasi captcha",
             position: "bottom",

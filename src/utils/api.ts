@@ -30,3 +30,18 @@ export const ApiPost = async (url: string, token: string, data: any,) => {
 
 	return response.data;
 };
+
+
+export const ApiPut = async (url: string, token: string, data: any) => {
+   const response = await axios.put(apiUrl + url, data, {
+      headers: {
+         Authorization: `Barear ${token}`,
+      },
+   });
+
+   if (response.data.code == 401) {
+      return window.location.replace("/login");
+   }
+
+   return response.data;
+};
