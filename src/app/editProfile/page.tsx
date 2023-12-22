@@ -48,15 +48,26 @@ export default function editProfile() {
       setLoading(true);
 
       const response = await ApiPut("/api/user/updateProfile", cookies.token, data);
-      if(response.success) {
+      if(!response.success) {
          toast({
-            title: "Berhasil",
-            description: "Berhasil mengupdate profile",
+            title: "Gagal",
+            description: response.message,
             status: "success",
             duration: 5000,
             isClosable: true,
          });
+
+         setLoading(false);
+         return false;
       }
+
+      toast({
+         title: "Berhasil",
+         description: "Berhasil mengupdate profile",
+         status: "success",
+         duration: 5000,
+         isClosable: true,
+      });
 
       setLoading(false);
    }
@@ -66,11 +77,6 @@ export default function editProfile() {
       const { files } = e.target;
 
       if (files && files.length) {
-         const filename = files[0].name;
-
-         var parts = filename.split(".");
-         const fileType = parts[parts.length - 1];
-
          const formData = new FormData();
          formData.append("file", files[0]);
 
@@ -84,16 +90,23 @@ export default function editProfile() {
          setData({ ...data, image: response.data.data.url });
 
          const responseProfile = await ApiPut("/api/user/updateImage", cookies.token, { image: response.data.data.url });
-         if(responseProfile.success) {
+         if(!responseProfile.success) {
             toast({
-               title: "Berhasil",
-               description: "Berhasil mengupdate profile",
+               title: "Gagal",
+               description: responseProfile.message,
                status: "success",
                duration: 5000,
                isClosable: true,
             });
          }
 
+         toast({
+            title: "Berhasil",
+            description: "Berhasil mengupdate gambar profile",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+         });
          setLoading(false);
       }
    };
