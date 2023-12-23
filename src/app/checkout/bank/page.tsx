@@ -64,7 +64,7 @@ export default function Bank() {
          
          if (response.data.status == "PAID") {
             router.push(
-               `/success?amount=${response.data.amount_received}&title=Deposit Berhasil`
+               `/success?amount=${response.data.amount}&title=Deposit Berhasil`
             );
          }
          setLoading(false);
