@@ -280,92 +280,106 @@ export default function Profile() {
                   Pusat Bantuan
                </Text>
                <Card w={"100%"} p={0} borderRadius={"xl"} shadow={"md"}>
-                  <Flex
-                     justifyContent={"space-between"}
-                     alignItems={"center"}
-                     w={"100%"}
-                     py={4}
-                     px={5}
+                  <Link
+                     href={"https://forms.gle/VXzFbdJNyKPv3A1o6"}
+                     target="_blank"
                   >
                      <Flex
-                        justifyContent={"start"}
+                        justifyContent={"space-between"}
                         alignItems={"center"}
-                        w={"80%"}
-                        gap={5}
+                        w={"100%"}
+                        py={4}
+                        px={5}
                      >
+                        <Flex
+                           justifyContent={"start"}
+                           alignItems={"center"}
+                           w={"80%"}
+                           gap={5}
+                        >
+                           <Box w={"fit-content"}>
+                              <MdReport size={25} color={"#F56565"} />
+                           </Box>
+                           <Box w={"70%"}>
+                              <Text fontSize={"sm"} fontWeight={"500"}>
+                                 Laporkan Bug
+                              </Text>
+                           </Box>
+                        </Flex>
                         <Box w={"fit-content"}>
-                           <MdReport size={25} color={"#F56565"} />
-                        </Box>
-                        <Box w={"70%"}>
                            <Text fontSize={"sm"} fontWeight={"500"}>
-                              Laporkan Bug
+                              ▶
                            </Text>
                         </Box>
                      </Flex>
-                     <Box w={"fit-content"}>
-                        <Text fontSize={"sm"} fontWeight={"500"}>
-                           ▶
-                        </Text>
-                     </Box>
-                  </Flex>
+                  </Link>
                   <Divider color="gray.400" />
-                  <Flex
-                     justifyContent={"space-between"}
-                     alignItems={"center"}
-                     w={"100%"}
-                     py={4}
-                     px={5}
+                  <Link
+                     href={
+                        "https://wa.me/+6282316590057?text=saya membutuhkan support mengenai rupiahku"
+                     }
+                     target="_blank"
                   >
                      <Flex
-                        justifyContent={"start"}
+                        justifyContent={"space-between"}
                         alignItems={"center"}
-                        w={"80%"}
-                        gap={5}
+                        w={"100%"}
+                        py={4}
+                        px={5}
                      >
+                        <Flex
+                           justifyContent={"start"}
+                           alignItems={"center"}
+                           w={"80%"}
+                           gap={5}
+                        >
+                           <Box w={"fit-content"}>
+                              <BiSupport size={25} color={"#F56565"} />
+                           </Box>
+                           <Box w={"70%"}>
+                              <Text fontSize={"sm"} fontWeight={"500"}>
+                                 Hubungi Support
+                              </Text>
+                           </Box>
+                        </Flex>
                         <Box w={"fit-content"}>
-                           <BiSupport size={25} color={"#F56565"} />
-                        </Box>
-                        <Box w={"70%"}>
                            <Text fontSize={"sm"} fontWeight={"500"}>
-                              Hubungi Support
+                              ▶
                            </Text>
                         </Box>
                      </Flex>
-                     <Box w={"fit-content"}>
-                        <Text fontSize={"sm"} fontWeight={"500"}>
-                           ▶
-                        </Text>
-                     </Box>
-                  </Flex>
+                  </Link>
                   <Divider color="gray.400" />
-                  <Flex
-                     justifyContent={"space-between"}
-                     alignItems={"center"}
-                     w={"100%"}
-                     py={4}
-                     px={5}
-                  >
+                  <Link href={"/about"}>
                      <Flex
-                        justifyContent={"start"}
+                        justifyContent={"space-between"}
                         alignItems={"center"}
-                        w={"80%"}
-                        gap={5}
+                        w={"100%"}
+                        py={4}
+                        px={5}
                      >
+                        <Flex
+                           justifyContent={"start"}
+                           alignItems={"center"}
+                           w={"80%"}
+                           gap={5}
+                        >
+                           <Box w={"fit-content"}>
+                              <AiFillQuestionCircle size={23} color={"#F56565"} />
+                           </Box>
+                           <Box w={"70%"}>
+                              <Text fontSize={"sm"} fontWeight={"500"}>
+                                 Tentang Kami
+                              </Text>
+                           </Box>
+                        </Flex>
                         <Box w={"fit-content"}>
-                           <AiFillQuestionCircle size={23} color={"#F56565"} />
-                        </Box>
-                        <Box w={"70%"}>
                            <Text fontSize={"sm"} fontWeight={"500"}>
-                              Tentang Kami
+                              ▶
                            </Text>
                         </Box>
                      </Flex>
-                     <Box w={"fit-content"}>
-                        <Text fontSize={"sm"} fontWeight={"500"}>
-                           ▶
-                        </Text>
-                     </Box>
-                  </Flex>
+                  </Link>
                </Card>
                <Text
                   fontSize={"md"}
