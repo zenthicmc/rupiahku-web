@@ -321,32 +321,22 @@ export default function Topup() {
                   </Text>
                </Flex>
                {selected.product_code !== "" && receiver ? (
-                  <Link
-                     href={{
-                        pathname: "/topup/detail",
-                        query: {
-                           type: selected.product_type,
-                           product_code: selected.product_code,
-                        },
-                     }}
+                  <Button
+                     isLoading={loading}
+                     w={"40%"}
+                     variant={"solid"}
+                     bg={useColorModeValue("red.500", "red.400")}
+                     color={"white"}
+                     _hover={{ opacity: "0.9" }}
+                     _after={{ bg: "red.500" }}
+                     _active={{ bg: "red.500" }}
+                     fontSize={"md"}
+                     size={"lg"}
+                     px={12}
+                     onClick={handleSubmit}
                   >
-                     <Button
-                        isLoading={loading}
-                        w={"100%"}
-                        variant={"solid"}
-                        bg={useColorModeValue("red.500", "red.400")}
-                        color={"white"}
-                        _hover={{ opacity: "0.9" }}
-                        _after={{ bg: "red.500" }}
-                        _active={{ bg: "red.500" }}
-                        fontSize={"md"}
-                        size={"lg"}
-                        px={12}
-                        onClick={handleSubmit}
-                     >
-                        Lanjut
-                     </Button>
-                  </Link>
+                     Lanjut
+                  </Button>
                ) : (
                   <Button
                      isLoading={loading}

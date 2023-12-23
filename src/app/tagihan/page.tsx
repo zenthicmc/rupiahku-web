@@ -8,7 +8,6 @@ import {
    Button,
    useColorModeValue,
    Grid,
-   Input,
    Divider,
    Spinner,
 } from "@chakra-ui/react";
@@ -19,17 +18,12 @@ import { ApiGet } from "@/utils/api";
 import { capitalize } from "@/utils/capitalize";
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { useSearchParams, useRouter } from "next/navigation";
 
-export default function Topup() {
-   const searchParams = useSearchParams();
-   const type = searchParams.get("type");
-   const router = useRouter();
-
+export default function Tagihan() {
    const [provider, setProvider] = useState([]);
    const [cookies, setCookie] = useCookies(["token"]);
    const [loading, setLoading] = useState(true);
-   const [selected, setSelected] = useState({
+	const [selected, setSelected] = useState({
       product_code: "",
       product_name: "",
       product_type: "",
@@ -37,15 +31,9 @@ export default function Topup() {
    });
 
    useEffect(() => {
-      if (type === null) {
-         router.push("/");
-      }
-   });
-
-   useEffect(() => {
       setLoading(true);
       async function getData() {
-         const response = await ApiGet(`/api/product/${type}`, cookies.token);
+         const response = await ApiGet(`/api/product/tagihan`, cookies.token);
          setProvider(response.data);
          setLoading(false);
       }
@@ -91,7 +79,7 @@ export default function Topup() {
                   <Text fontSize={"md"} fontWeight={"600"}>
                      Pilih Layanan:
                   </Text>
-                  {!loading &&
+                  {!loading && (
                      <Grid templateColumns="repeat(2, 1fr)" gap={5} mt={3}>
                         {provider.map((item, index) => (
                            <Button
@@ -102,7 +90,7 @@ export default function Topup() {
                               fontSize={"xs"}
                               display={"flex"}
                               flexDirection={"column"}
-                              py={9}
+                              py={10}
                               bg={useColorModeValue("none", "gray.700")}
                               borderColor={useColorModeValue(
                                  "gray.300",
@@ -113,7 +101,8 @@ export default function Topup() {
                                  color: "red.400",
                               }}
                               onClick={() => setSelected(item)}
-                              {...(selected.product_code === item.product_code && {
+                              {...(selected.product_code ===
+                                 item.product_code && {
                                  borderColor: "red.400",
                                  color: "red.400",
                               })}
@@ -121,7 +110,7 @@ export default function Topup() {
                               <Image
                                  src={item.icon_url}
                                  alt={item.product_name}
-                                 w={"3rem"}
+                                 w={"2.5rem"}
                                  h={"auto"}
                                  mb={2}
                               />
@@ -153,12 +142,22 @@ export default function Topup() {
                            </Button>
                         ))}
                      </Grid>
-                  }
-                  {loading &&
-                     <Flex justifyContent={"center"} alignItems={"center"} w={"100%"} h={"100%"} my={5}>
-                        <Spinner color={"red.400"} size={"lg"} thickness={"3px"} />
+                  )}
+                  {loading && (
+                     <Flex
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        w={"100%"}
+                        h={"100%"}
+                        my={5}
+                     >
+                        <Spinner
+                           color={"red.400"}
+                           size={"lg"}
+                           thickness={"3px"}
+                        />
                      </Flex>
-                  }
+                  )}
                </Box>
             </Box>
          </Container>
@@ -191,9 +190,8 @@ export default function Topup() {
                {selected.product_code !== "" ? (
                   <Link
                      href={{
-                        pathname: "/topup/detail",
+                        pathname: "/tagihan/inquiry",
                         query: {
-                           type: selected.product_type,
                            product_code: selected.product_code,
                         },
                      }}

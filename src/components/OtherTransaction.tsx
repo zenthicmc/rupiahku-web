@@ -100,7 +100,7 @@ const OtherTransaction = () => {
                </Text>
             </VStack>
          </Link>
-         <Link href="/topup?type=tagihan">
+         <Link href="/tagihan">
             <VStack w={"fit-content"}>
                <Box bg={"purple.300"} p={4} borderRadius={"full"}>
                   <RiBillFill
