@@ -45,6 +45,17 @@ export default function Confirm() {
    useEffect(() => {
       async function getData() {
          const response = await ApiGet(`/api/user/phone/+62${phone}`, cookies.token);
+         if(!response.success) {
+            toast({
+               title: response.message,
+               position: "top",
+               status: "error",
+               isClosable: true,
+            });
+
+            return router.push('/transfer');
+         }
+         
          setUser(response.data);
       }
 
