@@ -21,6 +21,7 @@ import { apiUrl } from "@/utils/api";
 import Turnstile from "react-turnstile";
 import { verify } from "@/utils/captcha";
 
+
 export default function Register() {
    const toast = useToast();
    const router = useRouter();
