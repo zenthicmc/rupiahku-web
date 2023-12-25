@@ -23,6 +23,7 @@ export default function History() {
    const [cookies, setCookie] = useCookies(["token"]);
    const [loading, setLoading] = useState(true);
 
+   // mengambil data transaksi
    useEffect(() => {
       setLoading(true);
       async function getData() {

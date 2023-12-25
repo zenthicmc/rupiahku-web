@@ -31,6 +31,7 @@ export default function Login() {
    const toast = useToast();
    const router = useRouter();
 
+   // mengirim data ke api
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
       setLoading(true);
@@ -48,11 +49,13 @@ export default function Login() {
          return false;
       }
 
+      // mengirim data ke api
       const response = await axios.post(apiUrl + "/api/auth/login", {
          nohp: "+62" + noHp,
          password: Password,
       });
 
+      // cek apakah ada error
       const data = response.data;
       if (data.success == false) {
          toast({
@@ -65,6 +68,7 @@ export default function Login() {
          return false;
       }
 
+      // simpan token ke dalam cookie
       setCookie("token", data.data.token);
       toast({
          title: data.message,
@@ -73,6 +77,7 @@ export default function Login() {
          isClosable: true,
       });
 
+      // redirect ke halaman home
       router.push("/");
       setLoading(false);
    }

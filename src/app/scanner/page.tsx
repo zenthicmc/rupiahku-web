@@ -20,8 +20,8 @@ import {
 } from "@chakra-ui/react";
 import BackButton from "@/components/BackButton";
 import { BiBarcode } from "react-icons/bi";
-import QRCode from "react-qr-code";
 import { useDisclosure } from "@chakra-ui/hooks";
+import QRCode from "react-qr-code";
 import { QrScanner } from "@yudiel/react-qr-scanner";
 import { useEffect, useState } from "react";
 import { ApiGet } from "@/utils/api";
@@ -39,6 +39,7 @@ export default function Scanner() {
       nohp: "",
    });
 
+   // mengambil data profile yang sedang login
    useEffect(() => {
       setLoading(true);
       async function getData() {

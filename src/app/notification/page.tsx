@@ -5,9 +5,6 @@ import {
    Container,
    Flex,
    Text,
-   Button,
-   Grid,
-   VStack,
    Card,
    useColorModeValue,
    SkeletonCircle,
@@ -26,6 +23,7 @@ export default function Notification() {
    const [cookies, setCookie] = useCookies(["token"]);
    const [loading, setLoading] = useState(true);
 
+   // mengambil data notifikasi dari api
    useEffect(() => {
       setLoading(true);
       async function getData() {
