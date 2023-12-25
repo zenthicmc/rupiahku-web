@@ -59,7 +59,7 @@ export default function Bank() {
          );
          setTransaction(response.data);
          setInstructions(response.data.instructions[0].steps);
-         
+
          if (response.data.status == "PAID") {
             router.push(
                `/success?amount=${response.data.amount}&title=Deposit Berhasil`
