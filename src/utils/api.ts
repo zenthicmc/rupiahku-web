@@ -16,7 +16,6 @@ export const ApiGet = async (url: string, token: string) => {
 	return response.data;
 };
 
-
 export const ApiPost = async (url: string, token: string, data: any,) => {
 	const response = await axios.post(apiUrl + url, data, {
       headers: {

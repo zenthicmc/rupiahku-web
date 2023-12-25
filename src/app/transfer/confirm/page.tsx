@@ -43,6 +43,7 @@ export default function Confirm() {
    })
 
    useEffect(() => {
+      // mengambil data dari api
       async function getData() {
          const response = await ApiGet(`/api/user/phone/+62${phone}`, cookies.token);
          if(!response.success) {
@@ -62,6 +63,7 @@ export default function Confirm() {
       getData();
    }, []);
 
+   // submit transfer
    async function handleSubmit() {
       setLoading(true);
       const response = await ApiPost(

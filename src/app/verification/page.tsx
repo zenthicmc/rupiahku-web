@@ -20,6 +20,7 @@ export default function Verification() {
       code6: "",
    });
 
+   // mengirim data ke api
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
       setLoading(true);
@@ -36,6 +37,7 @@ export default function Verification() {
       });
       const data = response.data;
 
+      // cek apakah ada error
       if (data.success == false) {
          toast({
             title: data.message,
@@ -47,6 +49,7 @@ export default function Verification() {
          return false;
       }
 
+      // jika tidak ada error maka tampilkan pesan sukses
       toast({
          title: data.message,
          position: "bottom",
@@ -54,6 +57,7 @@ export default function Verification() {
          isClosable: true,
       });
 
+      // redirect ke login
       router.push("/login");
       setLoading(false);
    }

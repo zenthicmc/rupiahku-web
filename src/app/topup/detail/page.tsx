@@ -99,6 +99,7 @@ export default function Topup() {
       getData();
    }, []);
 
+   // function untuk mengirim data ke api
    async function handleSubmit() {
       setLoading(true);
       if (!receiver && !selected.product_code && !selected.product_type) {
@@ -112,13 +113,14 @@ export default function Topup() {
          return false;
       }
 
+      // mengirim data ke api
       const response = await ApiPost("/api/transaction/topup", cookies.token, {
          receiver: receiver,
          type: selected.product_type,
          product_code: selected.product_code,
       });
 
-      // check if success == true
+      // cek jika success == true
       if (response.success) {
          if(response.data.status == "Pending") router.push(`/pending?amount=${response.data.amount}&title=Topup Dalam Proses`);
          if(response.data.status == "Success") router.push(`/success?amount=${response.data.amount}&title=Topup Berhasil`);

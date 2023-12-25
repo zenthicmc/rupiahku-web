@@ -18,6 +18,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { apiUrl } from "@/utils/api";
+// import libary untuk captcha
 import Turnstile from "react-turnstile";
 import { verify } from "@/utils/captcha";
 
@@ -36,11 +37,12 @@ export default function Register() {
       confirm_password: "",
    });
    
+   // function untuk handle submit data
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-      e.preventDefault();
-      setLoading(true);
+      e.preventDefault(); // mencegah halaman di reload
+      setLoading(true); // set loading menjadi true
 
-      // check if password and confirm password is not same
+      // cek apakah password tidak sama dengan confirm password
       if (data.password !== data.confirm_password) {
          toast({
             title: "Confirm password tidak sama",
@@ -65,6 +67,7 @@ export default function Register() {
          return false;
       }
 
+      // mengirim data ke api
       const response = await axios.post(apiUrl + "/api/auth/register", {
          name: data.name,
          nohp: "+62" + data.nohp,
@@ -73,6 +76,7 @@ export default function Register() {
          password: data.password,
       });
 
+      // cek apakah terjadi error
       const blockdata = response.data;
       if (blockdata.success == false) {
          if (blockdata.errors.length > 0) {
@@ -103,6 +107,7 @@ export default function Register() {
       // set email to localstorage
       localStorage.setItem("nohp", data.nohp);
 
+      // tampilkan pesan sukses
       toast({
          title: "Akun anda berhasil dibuat!",
          position: "bottom",
@@ -110,6 +115,7 @@ export default function Register() {
          isClosable: true,
       });
 
+      // redirect ke halaman verifikasi
       router.push("/verification");
       setLoading(false);
    }
@@ -117,10 +123,10 @@ export default function Register() {
    return (
       <Container
          width={"sm"}
-         minH={"100vh"}
+         minHeight={"100vh"}
          bgImage={"kuil.jpg"}
          alignItems={"center"}
-         p={5}
+         padding={5}
          paddingTop={"70px"}
          backgroundSize={"cover"}
          backgroundPosition={"center"}
@@ -288,6 +294,7 @@ export default function Register() {
                         required
                      />
 
+                     {/* captcha */}
                      <Turnstile
                         sitekey="0x4AAAAAAAO3GwVZL4-GzsrJ"
                         onVerify={(token) => {

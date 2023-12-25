@@ -87,7 +87,7 @@ export default function ubahPassword() {
                      fontSize={"sm"}
                      borderRadius={"8"}
                      shadow={"0 0 0 1px lightgrey"}
-                     placeholder="Masukkan Nama"
+                     placeholder="Masukkan Password Lama"
                      borderColor={useColorModeValue("gray.300", "gray.500")}
                      color={useColorModeValue("gray.900", "gray.100")}
                      bg={useColorModeValue("none", "gray.700")}
@@ -106,7 +106,7 @@ export default function ubahPassword() {
                      fontSize={"sm"}
                      borderRadius={"8"}
                      shadow={"0 0 0 1px lightgrey"}
-                     placeholder=" Masukkan Nomor Ponsel"
+                     placeholder="Masukkan Password Baru"
                      borderColor={useColorModeValue("gray.300", "gray.500")}
                      color={useColorModeValue("gray.900", "gray.100")}
                      bg={useColorModeValue("none", "gray.700")}
@@ -125,7 +125,7 @@ export default function ubahPassword() {
                      fontSize={"sm"}
                      borderRadius={"8"}
                      shadow={"0 0 0 1px lightgrey"}
-                     placeholder="Masukkan Alamat Email"
+                     placeholder="Masukkan Konfirmasi Password"
                      borderColor={useColorModeValue("gray.300", "gray.500")}
                      color={useColorModeValue("gray.900", "gray.100")}
                      bg={useColorModeValue("none", "gray.700")}

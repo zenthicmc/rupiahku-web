@@ -39,6 +39,7 @@ export default function Payments() {
       amount: amount,
    });
 
+   // mendapatkan payment method
    useEffect(() => {
       async function getData() {
          const response = await ApiGet("/api/payment", cookies.token);

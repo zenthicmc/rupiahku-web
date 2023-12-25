@@ -10,9 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
-import {
-   BsArrowLeftRight,
-} from "react-icons/bs";
+import { BsArrowLeftRight } from "react-icons/bs";
 import BottomNav from "@/components/BottomNav";
 import Link from "next/link";
 import OtherTransaction from "@/components/OtherTransaction";
@@ -35,6 +33,7 @@ export default function Home() {
 
    useEffect(() => {
       setLoading(true);
+      // mengambil data dari api
       async function getData() {
          const response = await ApiGet("/api/user/getprofile", cookies.token);
          setProfile(response.data.user);
