@@ -1,5 +1,5 @@
-"use client";
-
+"use client"; // codingan dijalankan pada sisi user
+//mengimport komponen ui dari cakra ui
 import {
    Box,
    Button,
@@ -13,8 +13,11 @@ import {
    InputLeftAddon,
    useToast,
 } from "@chakra-ui/react";
+// link dari nextlink untuk berpindah halaman
 import Link from "next/link";
+// library axios untuk menggunakan api
 import axios from "axios";
+// membuat parameter cont get & set
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { apiUrl } from "@/utils/api";
@@ -22,11 +25,11 @@ import { apiUrl } from "@/utils/api";
 import Turnstile from "react-turnstile";
 import { verify } from "@/utils/captcha";
 
-
+// dungsi registrasi
 export default function Register() {
    const toast = useToast();
    const router = useRouter();
-   
+
    const [loading, setLoading] = useState(false);
    const [token, setToken] = useState("");
    const [data, setData] = useState({
@@ -37,7 +40,7 @@ export default function Register() {
       password: "",
       confirm_password: "",
    });
-   
+
    // function untuk handle submit data
    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault(); // mencegah halaman di reload
@@ -79,7 +82,9 @@ export default function Register() {
 
       // cek apakah terjadi error
       const blockdata = response.data;
+      // Mengecek apakah respons memiliki properti 'success' yang bernilai false
       if (blockdata.success == false) {
+         // Mengecek apakah respons memiliki properti 'errors' yang merupakan array dan memiliki elemen
          if (blockdata.errors.length > 0) {
             // input error handling
             blockdata.errors.forEach((element: any) => {

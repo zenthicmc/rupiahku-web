@@ -38,6 +38,7 @@ export default function Login() {
 
       // verifikasi captcha
       const captcha = await verify(token);
+      // verifikasi token captcha
       if (!captcha || !captcha.success || !token) {
          toast({
             title: "Silahkan verifikasi captcha",
@@ -68,7 +69,7 @@ export default function Login() {
          return false;
       }
 
-      // simpan token ke dalam cookie
+      // simpan token jwt ke dalam cookie
       setCookie("token", data.data.token);
       toast({
          title: data.message,
