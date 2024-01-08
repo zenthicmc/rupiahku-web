@@ -121,6 +121,9 @@ export default function History() {
                      size={"sm"}
                      w={"100%"}
                      onClick={() => setFilter("all")}
+                     _after={{ bg: "red.400" }}
+                     _active={{ bg: "red.400" }}
+                     _hover={{ bg: "red.400", color: "white" }}
                   >
                      Semua
                   </Button>
@@ -141,6 +144,9 @@ export default function History() {
                      size={"sm"}
                      w={"100%"}
                      onClick={() => setFilter("today")}
+                     _after={{ bg: "red.400" }}
+                     _active={{ bg: "red.400" }}
+                     _hover={{ bg: "red.400", color: "white" }}
                   >
                      Hari Ini
                   </Button>
@@ -161,6 +167,9 @@ export default function History() {
                      size={"sm"}
                      w={"100%"}
                      onClick={() => setFilter("week")}
+                     _after={{ bg: "red.400" }}
+                     _active={{ bg: "red.400" }}
+                     _hover={{ bg: "red.400", color: "white" }}
                   >
                      1 Minggu
                   </Button>
@@ -181,6 +190,9 @@ export default function History() {
                      size={"sm"}
                      w={"100%"}
                      onClick={() => setFilter("month")}
+                     _after={{ bg: "red.400" }}
+                     _active={{ bg: "red.400" }}
+                     _hover={{ bg: "red.400", color: "white" }}
                   >
                      1 Bulan
                   </Button>
