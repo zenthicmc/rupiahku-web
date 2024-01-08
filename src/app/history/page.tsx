@@ -9,6 +9,7 @@ import {
    useColorModeValue,
    Skeleton,
    SkeletonCircle,
+   Button,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import BottomNav from "@/components/BottomNav";
@@ -23,6 +24,7 @@ export default function History() {
    const [cookies, setCookie] = useCookies(["token"]);
    const [loading, setLoading] = useState(true);
    const [loading2, setLoading2] = useState(true);
+   const [filter, setFilter] = useState("all"); // ["all", "today", "week", "month"
    const [profile, setProfile] = useState({
       _id: "",
    });
@@ -31,13 +33,13 @@ export default function History() {
    useEffect(() => {
       setLoading(true);
       async function getData() {
-         const response = await ApiGet("/api/transaction", cookies.token);
+         const response = await ApiGet(`/api/transaction?date=${filter}`, cookies.token);
          setTransactions(response.data);
          setLoading(false);
       }
 
       getData();
-   }, []);
+   }, [filter]);
 
    useEffect(() => {
       setLoading2(true);
@@ -93,6 +95,97 @@ export default function History() {
             </Box>
 
             <Container w={"90%"} margin={"auto"} p={0} py={1}>
+               {/* Filter (Hari ini, 1 Minggu, 1 Bulan) */}
+               <Flex
+                  justifyContent={"space-between"}
+                  alignItems={"center"}
+                  mt={2}
+                  mb={3}
+                  flexDirection={"row"}
+                  gap={2}
+               >
+                  <Button
+                     border={"2px solid"}
+                     borderColor={"red.400"}
+                     background={
+                        filter === "all"
+                           ? "red.400"
+                           : useColorModeValue("#F6F8FB", "gray.800")
+                     }
+                     color={
+                        filter === "all"
+                           ? useColorModeValue("white", "white")
+                           : "red.400"
+                     }
+                     variant={"solid"}
+                     size={"sm"}
+                     w={"100%"}
+                     onClick={() => setFilter("all")}
+                  >
+                     Semua
+                  </Button>
+                  <Button
+                     border={"2px solid"}
+                     borderColor={"red.400"}
+                     background={
+                        filter === "today"
+                           ? "red.400"
+                           : useColorModeValue("#F6F8FB", "gray.800")
+                     }
+                     color={
+                        filter === "today"
+                           ? useColorModeValue("white", "white")
+                           : "red.400"
+                     }
+                     variant={"solid"}
+                     size={"sm"}
+                     w={"100%"}
+                     onClick={() => setFilter("today")}
+                  >
+                     Hari Ini
+                  </Button>
+                  <Button
+                     border={"2px solid"}
+                     borderColor={"red.400"}
+                     background={
+                        filter === "week"
+                           ? "red.400"
+                           : useColorModeValue("#F6F8FB", "gray.800")
+                     }
+                     color={
+                        filter === "week"
+                           ? useColorModeValue("white", "white")
+                           : "red.400"
+                     }
+                     variant={"solid"}
+                     size={"sm"}
+                     w={"100%"}
+                     onClick={() => setFilter("week")}
+                  >
+                     1 Minggu
+                  </Button>
+                  <Button
+                     border={"2px solid"}
+                     borderColor={"red.400"}
+                     background={
+                        filter === "month"
+                           ? "red.400"
+                           : useColorModeValue("#F6F8FB", "gray.800")
+                     }
+                     color={
+                        filter === "month"
+                           ? useColorModeValue("white", "white")
+                           : "red.400"
+                     }
+                     variant={"solid"}
+                     size={"sm"}
+                     w={"100%"}
+                     onClick={() => setFilter("month")}
+                  >
+                     1 Bulan
+                  </Button>
+               </Flex>
+
                {/* Transaction List */}
                <Flex
                   justifyContent={"space-between"}
@@ -148,15 +241,14 @@ export default function History() {
                                           fontSize={"sm"}
                                           fontWeight={"bold"}
                                        >
-                                          {transaction.type_money === "ingoing" ? (
-                                             "+ "
-                                          ) : (
-                                             profile._id && transaction.receiver_id === profile._id && transaction.type === "Transfer" ? (
-                                                "+ "
-                                             ) : (
-                                                "- "
-                                             )
-                                          )}
+                                          {transaction.type_money === "ingoing"
+                                             ? "+ "
+                                             : profile._id &&
+                                               transaction.receiver_id ===
+                                                  profile._id &&
+                                               transaction.type === "Transfer"
+                                             ? "+ "
+                                             : "- "}
                                           Rp{" "}
                                           {transaction.amount.toLocaleString(
                                              "id-ID"

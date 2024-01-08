@@ -38,6 +38,7 @@ import { useCookies } from "react-cookie";
 import { ApiGet } from "@/utils/api";
 import { formatDate } from "@/utils/Date";
 import { capitalize } from "@/utils/capitalize";
+import { IoIosStats } from "react-icons/io";
 
 export default function Profile() {
    const { toggleColorMode } = useColorMode();
@@ -244,6 +245,37 @@ export default function Profile() {
                         </Text>
                      </Box>
                   </Flex>
+                  <Divider color="gray.400" />
+                  <Link href={"/statistik"}>
+                     <Flex
+                        justifyContent={"space-between"}
+                        alignItems={"center"}
+                        w={"100%"}
+                        py={4}
+                        px={5}
+                     >
+                        <Flex
+                           justifyContent={"start"}
+                           alignItems={"center"}
+                           w={"80%"}
+                           gap={5}
+                        >
+                           <Box w={"fit-content"}>
+                              <IoIosStats size={25} color={"#F56565"} />
+                           </Box>
+                           <Box w={"70%"}>
+                              <Text fontSize={"sm"} fontWeight={"500"}>
+                                 Statistik Saya
+                              </Text>
+                           </Box>
+                        </Flex>
+                        <Box w={"fit-content"}>
+                           <Text fontSize={"sm"} fontWeight={"500"}>
+                              ▶
+                           </Text>
+                        </Box>
+                     </Flex>
+                  </Link>
 
                   <Modal
                      onClose={onClose}
