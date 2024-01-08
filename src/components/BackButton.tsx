@@ -16,7 +16,11 @@ export default function BackButton({ color }: { color: string }) {
          _hover={{ bg: "none" }}
          onClick={() => window.history.back()}
       >
-         <BiArrowBack size={25} color={color} />
+         <BiArrowBack
+            size={25}
+            color={color}
+            textShadow={"0px 0px 5px rgba(255, 255, 255, 0.9)"}
+         />
       </Button>
    );
 }

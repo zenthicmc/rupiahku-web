@@ -70,7 +70,7 @@ export default function Notification() {
                      fontWeight={"bolder"}
                      color={"gray.900"}
                      ms={1}
-                     textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
+                     textShadow={"0px 0px 5px rgba(255, 255, 255, 0.5)"}
                   >
                      Notifikasi
                   </Text>
@@ -88,7 +88,12 @@ export default function Notification() {
                >
                   {loading == false ? (
                      notifications.map((notification) => (
-                        <Card w={"100%"} p={4} borderRadius={"xl"} shadow={"md"}>
+                        <Card
+                           w={"100%"}
+                           p={4}
+                           borderRadius={"xl"}
+                           shadow={"md"}
+                        >
                            <Flex
                               justifyContent={"space-between"}
                               alignItems={"center"}
@@ -105,10 +110,16 @@ export default function Notification() {
                                     borderRadius={"full"}
                                  />
                                  <Box ms={3}>
-                                    <Text fontSize={"0.8rem"} fontWeight={"bold"}>
+                                    <Text
+                                       fontSize={"0.8rem"}
+                                       fontWeight={"bold"}
+                                    >
                                        {capitalize(notification.title)}
                                     </Text>
-                                    <Text fontSize={"0.7rem"} color={"gray.500"}>
+                                    <Text
+                                       fontSize={"0.7rem"}
+                                       color={"gray.500"}
+                                    >
                                        {notification.desc}
                                     </Text>
                                     <Text
