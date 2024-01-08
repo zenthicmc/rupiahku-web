@@ -10,10 +10,31 @@ import {
 } from "@chakra-ui/react";
 import { capitalize } from "@/utils/capitalize";
 import { formatDate } from "@/utils/Date";
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import { ApiGet } from "@/utils/api";
 
 const HomeTransactions = (props) => {
    const transactions = props.transactions;
    const loading = props.isLoading;
+
+   const [cookies, setCookie] = useCookies(["token"]);
+   const [loading2, setLoading2] = useState(true);
+   const [profile, setProfile] = useState({
+      _id: "",
+   });
+
+   useEffect(() => {
+      setLoading2(true);
+      async function getData() {
+         const response = await ApiGet("/api/user/getprofile", cookies.token);
+         setProfile(response.data.user);
+         setLoading2(false);
+      }
+
+      getData();
+   }, []);
+
    return (
       <Flex
          justifyContent={"space-between"}
@@ -22,7 +43,7 @@ const HomeTransactions = (props) => {
          flexDirection={"column"}
          gap={2}
       >
-         {loading == false ? (
+         {loading == false && loading2 == false ? (
             transactions.length > 0 ? (
                <>
                   {transactions.map((transaction, i) => (
@@ -63,6 +84,13 @@ const HomeTransactions = (props) => {
                            </Flex>
                            <Box ms={3} textAlign={"end"}>
                               <Text fontSize={"sm"} fontWeight={"bold"}>
+                                 {transaction.type_money === "ingoing"
+                                    ? "+ "
+                                    : profile._id &&
+                                      transaction.receiver_id === profile._id &&
+                                      transaction.type === "Transfer"
+                                    ? "+ "
+                                    : "- "}
                                  Rp {transaction.amount.toLocaleString("id-ID")}
                               </Text>
                               <Text
@@ -84,19 +112,14 @@ const HomeTransactions = (props) => {
                </>
             ) : (
                <>
-                  <Card
-                     w={"100%"}
-                     p={4}
-                     borderRadius={"xl"}
-                     shadow={"md"}
-                  >
+                  <Card w={"100%"} p={4} borderRadius={"xl"} shadow={"md"}>
                      <Flex
                         justifyContent={"space-between"}
                         alignItems={"center"}
                      >
                         <Flex alignItems={"center"}>
                            <Image
-                              src={'/question.png'}
+                              src={"/question.png"}
                               alt="Rupiahku"
                               w={10}
                               h={10}

@@ -22,6 +22,10 @@ export default function History() {
    const [transactions, setTransactions] = useState([]);
    const [cookies, setCookie] = useCookies(["token"]);
    const [loading, setLoading] = useState(true);
+   const [loading2, setLoading2] = useState(true);
+   const [profile, setProfile] = useState({
+      _id: "",
+   });
 
    // mengambil data transaksi
    useEffect(() => {
@@ -30,6 +34,17 @@ export default function History() {
          const response = await ApiGet("/api/transaction", cookies.token);
          setTransactions(response.data);
          setLoading(false);
+      }
+
+      getData();
+   }, []);
+
+   useEffect(() => {
+      setLoading2(true);
+      async function getData() {
+         const response = await ApiGet("/api/user/getprofile", cookies.token);
+         setProfile(response.data.user);
+         setLoading2(false);
       }
 
       getData();
@@ -86,7 +101,7 @@ export default function History() {
                   flexDirection={"column"}
                   gap={2}
                >
-                  {loading == false ? (
+                  {loading == false && loading2 == false ? (
                      transactions.length > 0 ? (
                         <>
                            {transactions.map((transaction, i) => (
@@ -133,6 +148,15 @@ export default function History() {
                                           fontSize={"sm"}
                                           fontWeight={"bold"}
                                        >
+                                          {transaction.type_money === "ingoing" ? (
+                                             "+ "
+                                          ) : (
+                                             profile._id && transaction.receiver_id === profile._id && transaction.type === "Transfer" ? (
+                                                "+ "
+                                             ) : (
+                                                "- "
+                                             )
+                                          )}
                                           Rp{" "}
                                           {transaction.amount.toLocaleString(
                                              "id-ID"
