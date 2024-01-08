@@ -107,7 +107,7 @@ export default function Profile() {
                         fontSize={"lg"}
                         fontWeight={"bolder"}
                         color={"gray.900"}
-                        textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
+                        textShadow={"0px 0px 5px rgba(255, 255, 255, 0.5)"}
                      >
                         {capitalize(profile.name)}
                      </Text>
@@ -120,7 +120,7 @@ export default function Profile() {
                         fontSize={"sm"}
                         fontWeight={"400"}
                         color={"gray.900"}
-                        textShadow={"0px 0px 5px rgba(0, 0, 0, 0.2)"}
+                        textShadow={"0px 0px 5px rgba(255, 255, 255, 0.5)"}
                      >
                         {profile.nohp}
                      </Text>
@@ -130,9 +130,9 @@ export default function Profile() {
 
                   <Text
                      fontSize={"xs"}
-                     fontWeight={"300"}
+                     fontWeight={"500"}
                      color={"gray.900"}
-                     textShadow={"0px 0px 5px rgba(0, 0, 0, 0.2)"}
+                     textShadow={"0px 0px 5px rgba(255, 255, 255, 0.5)"}
                      mt={1}
                   >
                      {profile.createdAt
@@ -365,7 +365,10 @@ export default function Profile() {
                            gap={5}
                         >
                            <Box w={"fit-content"}>
-                              <AiFillQuestionCircle size={23} color={"#F56565"} />
+                              <AiFillQuestionCircle
+                                 size={23}
+                                 color={"#F56565"}
+                              />
                            </Box>
                            <Box w={"70%"}>
                               <Text fontSize={"sm"} fontWeight={"500"}>

@@ -70,7 +70,7 @@ export default function History() {
                      fontWeight={"bolder"}
                      color={"gray.900"}
                      ms={1}
-                     textShadow={"0px 0px 5px rgba(0, 0, 0, 0.1)"}
+                     textShadow={"0px 0px 5px rgba(255, 255, 255, 0.5)"}
                   >
                      Riwayat Transaksi
                   </Text>
