@@ -108,7 +108,7 @@ export default function Profile() {
                         fontSize={"lg"}
                         fontWeight={"bolder"}
                         color={"gray.900"}
-                        textShadow={"0px 0px 5px rgba(255, 255, 255, 0.5)"}
+                        textShadow={"0px 0px 5px rgba(255, 255, 255, 0.9)"}
                      >
                         {capitalize(profile.name)}
                      </Text>
@@ -119,9 +119,9 @@ export default function Profile() {
                   {profile.nohp ? (
                      <Text
                         fontSize={"sm"}
-                        fontWeight={"400"}
+                        fontWeight={"500"}
                         color={"gray.900"}
-                        textShadow={"0px 0px 5px rgba(255, 255, 255, 0.5)"}
+                        textShadow={"0px 0px 5px rgba(255, 255, 255, 0.9)"}
                      >
                         {profile.nohp}
                      </Text>
@@ -131,9 +131,9 @@ export default function Profile() {
 
                   <Text
                      fontSize={"xs"}
-                     fontWeight={"500"}
+                     fontWeight={"600"}
                      color={"gray.900"}
-                     textShadow={"0px 0px 5px rgba(255, 255, 255, 0.5)"}
+                     textShadow={"0px 0px 5px rgba(255, 255, 255, 0.9)"}
                      mt={1}
                   >
                      {profile.createdAt

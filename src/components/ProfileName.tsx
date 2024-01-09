@@ -33,7 +33,7 @@ const ProfileName = (props: any) => {
                   fontWeight={"bolder"}
                   color={"gray.900"}
                   ms={2}
-                  textShadow={"0px 0px 5px rgba(255, 255, 255, 0.5)"}
+                  textShadow={"0px 0px 5px rgba(255, 255, 255, 0.9)"}
                >
                   {props.name}
                </Text>

@@ -87,7 +87,7 @@ export default function History() {
                      fontWeight={"bolder"}
                      color={"gray.900"}
                      ms={1}
-                     textShadow={"0px 0px 5px rgba(255, 255, 255, 0.5)"}
+                     textShadow={"0px 0px 5px rgba(255, 255, 255, 0.9)"}
                   >
                      Riwayat Transaksi
                   </Text>
