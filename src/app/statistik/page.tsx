@@ -49,7 +49,7 @@ export default function Statistik() {
          {
             label: "Statistik",
             data: [stats.uangMasuk, stats.uangKeluar],
-            backgroundColor: ["#F56565", "#4299e1"],
+            backgroundColor: ["#4299e1", "#F56565"],
          },
       ],
    };
