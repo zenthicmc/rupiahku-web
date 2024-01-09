@@ -111,16 +111,8 @@ export default function Statistik() {
                <Button
                   border={"2px solid"}
                   borderColor={"red.400"}
-                  background={
-                     filter === "all"
-                        ? "red.400"
-                        : useColorModeValue("#F6F8FB", "gray.800")
-                  }
-                  color={
-                     filter === "all"
-                        ? useColorModeValue("white", "white")
-                        : "red.400"
-                  }
+                  background={filter === "all" ? "red.400" : "invisible"}
+                  color={filter === "all" ? "white" : "red.400"}
                   variant={"solid"}
                   size={"sm"}
                   fontSize={"xs"}
@@ -135,16 +127,8 @@ export default function Statistik() {
                <Button
                   border={"2px solid"}
                   borderColor={"red.400"}
-                  background={
-                     filter === "today"
-                        ? "red.400"
-                        : useColorModeValue("#F6F8FB", "gray.800")
-                  }
-                  color={
-                     filter === "today"
-                        ? useColorModeValue("white", "white")
-                        : "red.400"
-                  }
+                  background={filter === "today" ? "red.400" : "invisible"}
+                  color={filter === "today" ? "white" : "red.400"}
                   variant={"solid"}
                   size={"sm"}
                   fontSize={"xs"}
@@ -159,16 +143,8 @@ export default function Statistik() {
                <Button
                   border={"2px solid"}
                   borderColor={"red.400"}
-                  background={
-                     filter === "week"
-                        ? "red.400"
-                        : useColorModeValue("#F6F8FB", "gray.800")
-                  }
-                  color={
-                     filter === "week"
-                        ? useColorModeValue("white", "white")
-                        : "red.400"
-                  }
+                  background={filter === "week" ? "red.400" : "invisible"}
+                  color={filter === "week" ? "white" : "red.400"}
                   variant={"solid"}
                   size={"sm"}
                   w={"100%"}
@@ -183,16 +159,8 @@ export default function Statistik() {
                <Button
                   border={"2px solid"}
                   borderColor={"red.400"}
-                  background={
-                     filter === "month"
-                        ? "red.400"
-                        : useColorModeValue("#F6F8FB", "gray.800")
-                  }
-                  color={
-                     filter === "month"
-                        ? useColorModeValue("white", "white")
-                        : "red.400"
-                  }
+                  background={filter === "month" ? "red.400" : "invisible"}
+                  color={filter === "month" ? "white" : "red.400"}
                   variant={"solid"}
                   size={"sm"}
                   w={"100%"}
