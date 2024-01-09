@@ -19,7 +19,6 @@ export default function BackButton({ color }: { color: string }) {
          <BiArrowBack
             size={25}
             color={color}
-            textShadow={"0px 0px 5px rgba(255, 255, 255, 0.9)"}
          />
       </Button>
    );
