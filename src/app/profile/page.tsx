@@ -38,7 +38,7 @@ import { useCookies } from "react-cookie";
 import { ApiGet } from "@/utils/api";
 import { formatDate } from "@/utils/Date";
 import { capitalize } from "@/utils/capitalize";
-import { IoIosStats } from "react-icons/io";
+import { FaChartPie } from "react-icons/fa";
 
 export default function Profile() {
    const { toggleColorMode } = useColorMode();
@@ -261,7 +261,7 @@ export default function Profile() {
                            gap={5}
                         >
                            <Box w={"fit-content"}>
-                              <IoIosStats size={25} color={"#F56565"} />
+                              <FaChartPie size={25} color={"#F56565"} />
                            </Box>
                            <Box w={"70%"}>
                               <Text fontSize={"sm"} fontWeight={"500"}>
