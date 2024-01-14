@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const apiUrl = "https://backup-api.rupiahku.pro";
+export const apiUrl = "https://api.rupiahku.pro/";
 
 export const ApiGet = async (url: string, token: string) => {
 	const response = await axios.get(apiUrl + url, {
