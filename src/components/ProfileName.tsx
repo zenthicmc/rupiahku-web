@@ -26,6 +26,7 @@ const ProfileName = (props: any) => {
                   w={12}
                   h={12}
                   borderRadius={"full"}
+                  shadow={'xl'}
                />
 
                <Text
