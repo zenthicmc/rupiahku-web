@@ -80,7 +80,7 @@ export default function editProfile() {
          const formData = new FormData();
          formData.append("file", files[0]);
 
-         const response = await axios.post("https://cdn.tokoqu.io/image", formData, {
+         const response = await axios.post("https://cdn.rupiahku.pro/image", formData, {
             headers: {
                "Content-Type": "multipart/form-data",
                "Authorization": "token 6178adcb-2010-4534-a388-924ad0ce48b3",
